@@ -1,17 +1,180 @@
-\documentclass[]{article}
+\documentclass[12pt]{article}
 
-%opening
-\title{An Analysis of Continuum-tipped Minimally Invasive Surgical Robotics}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage[hidelinks]{hyperref}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{booktabs}
+
+\title{Literature Review Draft: Continuum-Tipped Minimally Invasive Surgical Robotics}
 \author{Aidan Knipe}
+\date{\today}
 
 \begin{document}
-
+\onehalfspacing
 \maketitle
 
 \begin{abstract}
-
+This draft literature review is structured for a thesis on a UR5e-based macro-micro robotic system with a flexible continuum tip for minimally invasive surgery (MIS). It consolidates relevant findings from prior work in the \textit{Lachlan Report}, identifies which foundations remain valid, and highlights where the state of the art now requires updated evidence. The review prioritizes four technical threads central to this thesis: (1) tendon-driven continuum manipulator design and motion algorithms, (2) integration with a macro robot (UR5e), (3) collision detection and avoidance for safe operation in constrained anatomy, and (4) rapid end-effector exchange mechanisms. It also includes explicit ``missing area'' headings to direct next-stage searching, reading, and synthesis.
 \end{abstract}
 
-\section{}
+\section{Project Context and Problem Significance}
+This thesis extends prior macro-micro robotic surgery work by coupling a UR5e macro manipulator with a new flexible continuum tip, then improving movement algorithms inherited from earlier implementations. The applied significance is strong: MIS demands dexterity in constrained spaces, low tissue interaction force, high positional repeatability, and robust safety controls.
+
+From the earlier project, the macro-micro concept and teleoperation feasibility are already established at a proof-of-concept level. The key opportunity now is to move from demonstration toward a more clinically credible engineering argument through stronger modeling, safety layers (especially collision handling), and modular hardware architecture (rapid tool exchange).
+
+\section{Inherited Knowledge from Lachlan Report: What Is Still Useful}
+The prior report remains highly relevant in these areas:
+
+\subsection{Continuum and Snake-like Design Foundations}
+The prior review appropriately positioned tendon-driven continuum/snake-like manipulators as a practical and dominant pathway for surgical dexterity. The classification of continuum architectures and the design trade-off framing (dexterity, stiffness, manufacturability, miniaturization) remain useful to retain.
+
+\subsection{Macro-Micro Integration Rationale}
+The macro-micro argument is still strong: a rigid macro arm contributes workspace and gross positioning, while a flexible micro tip contributes distal dexterity and safer interaction in confined regions. This directly aligns with using the UR5e as the macro stage and a continuum tip as the micro stage.
+
+\subsection{Teleoperation and Controller Pipeline Lessons}
+The earlier implementation experience (ROS integration, latency considerations, and vibration observations) provides practical system-level lessons for architecture and control-loop design. Even if this thesis shifts focus from pure teleoperation toward autonomy-assisted control, these integration lessons are still relevant.
+
+\subsection{Kinematic Modeling as a Bottleneck}
+The prior work highlighted that continuum-tip performance quality is tightly linked to model quality and calibration quality. That finding should be retained as a central thesis narrative point: movement algorithm improvement must be justified through both model structure and validation methodology.
+
+\section{What Must Be Brought Up to Date}
+The earlier literature base appears strongest through roughly 2022 and should now be updated in the following directions.
+
+\subsection{Post-2022 Continuum Manipulator Control}
+Update with recent results on:
+\begin{itemize}
+	\item Data-driven and learning-augmented continuum control (model correction, residual learning).
+	\item Real-time model-based control under friction, hysteresis, and tendon coupling.
+	\item Multi-objective control formulations balancing tracking error, smoothness, and safety constraints.
+\end{itemize}
+
+\subsection{Safety-Critical Surgical Robot Control}
+The inherited report discusses precision and teleoperation, but safety layers should now be treated as first-class control objectives:
+\begin{itemize}
+	\item Constraint-aware motion planning and control barrier function style methods.
+	\item Contact-aware control and force-limited behavior near anatomical boundaries.
+	\item Fault handling and safe-stop behavior for software and communication faults.
+\end{itemize}
+
+\subsection{Collision Detection and Avoidance (Core Gap for This Thesis)}
+This is one of the most important expansion areas for your project. The review needs a dedicated synthesis of:
+\begin{itemize}
+	\item Geometric collision detection for continuum bodies (not just rigid-link approximations).
+	\item Environment representations (point cloud, mesh, signed distance field) suitable for intraoperative updates.
+	\item Real-time avoidance strategies compatible with UR5e + continuum-tip control bandwidth.
+\end{itemize}
+
+\subsection{Rapid End-Effector Change and Modular Interfaces}
+The prior conclusion already identifies end-effector replacement as cumbersome. This thesis should elevate this into an explicit engineering research stream:
+\begin{itemize}
+	\item Mechanical quick-change couplers for sterile or semi-sterile workflows.
+	\item Repeatable kinematic/electrical interface registration after each swap.
+	\item Calibration and safety checks needed after end-effector exchange.
+\end{itemize}
+
+\section{Focused Literature Synthesis for Current Thesis Objectives}
+
+\subsection{Thread A: Continuum Tip Design for MIS on UR5e}
+The review should compare tendon-driven continuum options based on criteria directly linked to your implementation:
+\begin{itemize}
+	\item Outer diameter and achievable curvature.
+	\item Tendon routing complexity and friction sensitivity.
+	\item Manufacturability (3D printing route, assembly complexity, tolerance sensitivity).
+	\item Instrument channel requirements and compatibility with intended tasks.
+\end{itemize}
+
+\subsection{Thread B: Movement Algorithm Improvement over Lachlan Baseline}
+Define baseline algorithm(s) from inherited work, then review candidate improvements under consistent metrics:
+\begin{itemize}
+	\item Tracking performance (RMS error, peak error, settling behavior).
+	\item Robustness to tendon slack, backlash, and parameter drift.
+	\item Computational feasibility for real-time execution.
+\end{itemize}
+The literature section should explicitly map each candidate algorithm class to likely implementation effort and expected gain.
+
+\subsection{Thread C: Collision Detection and Avoidance in Constrained Anatomy}
+Your review should separate the problem into three layers:
+\begin{itemize}
+	\item \textbf{Perception/model layer}: what representation of anatomy and instruments is available in real time?
+	\item \textbf{Detection layer}: how are self-collision, tool-environment collision, and forbidden regions detected?
+	\item \textbf{Response layer}: how does the controller react (hard stop, velocity scaling, local re-plan, haptic/visual warning)?
+\end{itemize}
+
+\subsection{Thread D: Rapid End-Effector Exchange}
+This thread should connect mechanism design with control and safety:
+\begin{itemize}
+	\item Mechanical interchange design options and locking reliability.
+	\item Coupling repeatability and resulting pose uncertainty.
+	\item Required post-swap validation routine before re-entry into operation.
+\end{itemize}
+
+\section{Explicit Missing Research Areas (Add These as Search Targets)}
+The following subsection titles are intentionally phrased as missing-area headings to guide your next reading pass.
+
+\subsection{Missing Area 1: Benchmark Datasets and Standardized Evaluation Protocols for Continuum Surgical Robots}
+Need: common benchmarks to compare controller improvements credibly across studies.
+
+\subsection{Missing Area 2: Real-Time Collision Avoidance Methods Validated on Macro-Micro Systems with Flexible Distal Tools}
+Need: methods tested on systems structurally similar to UR5e + continuum tip.
+
+\subsection{Missing Area 3: Registration Drift and Recalibration After Quick End-Effector Exchange}
+Need: evidence on how repeated tool swaps affect kinematic accuracy and safety margins.
+
+\subsection{Missing Area 4: Safety Cases for Human-in-the-Loop MIS Robots with Shared Control}
+Need: practical safety argument structures for semi-autonomous assistance during teleoperation.
+
+\subsection{Missing Area 5: Tendon Wear, Sterilization Effects, and Lifecycle Reliability in Reconfigurable Continuum Tools}
+Need: long-horizon reliability evidence to support repeated clinical-style usage.
+
+\subsection{Missing Area 6: Task-Specific Performance Metrics Beyond Tip Tracking Error}
+Need: clinically meaningful metrics (procedure time, tissue interaction force proxies, collision near-miss counts).
+
+\section{Rubric-Aligned Coverage Notes (MMAN4951/MMAN9451 Interim Report)}
+
+\subsection{Criterion 1: Literature Review (High Weighting)}
+To target Distinction/High Distinction bands, this review must do more than summarize papers. It should:
+\begin{itemize}
+	\item Show conceptual links between manipulator design, control, safety, and modularity.
+	\item Explicitly identify and justify knowledge gaps your thesis addresses.
+	\item Include recent work (not only foundational papers).
+	\item Critically compare methods instead of listing them.
+\end{itemize}
+
+\subsection{Criterion 2: Research Question and Plan}
+Your final report should ensure the plan is narratively tied to the review:
+\begin{itemize}
+	\item Each project task should be justified by a gap identified in this section.
+	\item Include feasible milestones and contingency options (especially for hardware delays and calibration issues).
+\end{itemize}
+
+\subsection{Criterion 3: Project-Dependent Preparations}
+The literature should foreshadow practical preparations you can evidence:
+\begin{itemize}
+	\item UR5e safety/process training,
+	\item software stack readiness,
+	\item preliminary prototype tests,
+	\item risk register for collision and tool-swap failure modes.
+\end{itemize}
+
+\subsection{Criterion 4: Document Presentation}
+For marks protection, maintain:
+\begin{itemize}
+	\item consistent citation formatting,
+	\item clear figure/table captions,
+	\item polished grammar and structured argument flow.
+\end{itemize}
+
+\section{Proposed Next Reading and Writing Sequence}
+\begin{enumerate}
+	\item Build a paper matrix with columns: method class, hardware platform, control rate, collision strategy, modularity strategy, metrics, limitations.
+	\item Fill collision-avoidance and quick-change sections first (highest novelty for your topic).
+	\item Revisit inherited movement algorithm section and position your planned improvement as a direct response to documented limitations.
+	\item Close the review with a concise ``identified gap to thesis objective'' mapping table.
+\end{enumerate}
+
+\section{Working Thesis Gap Statement (Draft)}
+Current literature and prior project work support feasibility of macro-micro MIS manipulation, but leave a practical translation gap at the intersection of \textbf{accurate continuum movement control}, \textbf{real-time collision-safe operation}, and \textbf{fast, repeatable end-effector reconfiguration}. This thesis addresses that gap on a UR5e-based platform by improving inherited motion algorithms and integrating safety and modularity mechanisms necessary for repeatable experimental deployment.
 
 \end{document}
