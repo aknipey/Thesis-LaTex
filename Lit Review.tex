@@ -12,9 +12,15 @@
 \usepackage{array}
 \usepackage{booktabs}
 \usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{xurl}
 % Use biblatex for reference management
 \usepackage[backend=biber,style=ieee]{biblatex}
 % \addbibresource{References.bib} % Uncomment and create References.bib to use
+
+% Reduce common layout warnings from long URLs and dense prose.
+\setlength{\emergencystretch}{3em}
 
 % Header and Footer setup
 \pagestyle{fancy}
@@ -28,6 +34,7 @@
 \renewcommand{\thesection}{\Roman{section}}
 
 \begin{document}
+\hypersetup{pageanchor=false}
 \pagenumbering{roman} % Start roman numerals
 \onehalfspacing
 
@@ -102,17 +109,36 @@ Date: \hspace{0.1cm} \rule{5cm}{0.4pt}
 
 \vspace{0.5cm}
 \begin{tabular}{>{\raggedright}p{2cm} c p{10cm}}
-$A$ & = & amplitude of \dots \\
+$A_c$ & = & tendon/cable cross-sectional area \\
+$D$ & = & backlash deadband \\
+$E$ & = & Young's modulus of tendon/cable material \\
+$M_{grasp}$ & = & estimated distal grasping torque \\
+$R_0$ & = & driving pulley radius \\
+$R_5$ & = & driven pulley radius \\
+$R_{eq}$ & = & equivalent-circle radius for tendon--sheath geometry \\
+$R_i$ & = & orientation matrix of segment $i$ \\
+$T_i$ & = & homogeneous transform of segment $i$ \\
+$\Delta\theta_{out}$ & = & output-side angular backlash/displacement loss \\
+$\Omega$ & = & total cumulated curve angle of a tendon--sheath path \\
+$\theta_{comp}$ & = & feedforward backlash compensation term \\
+$\mu$ & = & friction coefficient (cable--pulley contact) \\
+$\theta_i$ & = & local bending angle of segment $i$ \\
+$\alpha_i$ & = & local orientation offset of segment $i$ \\
+$\boldsymbol{p}$ & = & rod centerline position in Cosserat formulation \\
+$\boldsymbol{R}$ & = & rod orientation in Cosserat formulation \\
+$\boldsymbol{n}$ & = & internal force in Cosserat formulation \\
+$\boldsymbol{m}$ & = & internal moment in Cosserat formulation \\
 $C_p$ & = & \dots \\
 $C_x$ & = & \dots \\
 $C_y$ & = & \dots \\
-$D$ & = & \dots \\
 $\alpha$ & = & \dots \\
+MIS & = & minimally invasive surgery \\
 TLA & = & \dots \\
 \end{tabular}
 
 \newpage
 % --- Main Body Sections ---
+\hypersetup{pageanchor=true}
 \pagenumbering{arabic} % Switch to arabic numbering from Introduction
 
 \section{Introduction}
@@ -127,6 +153,12 @@ Current literature and prior project work support feasibility of macro-micro MIS
 \section{Literature Review}
 
 \subsection{Introduction to Minimally Invasive Surgery (MIS) and Robotics}
+Laparoscopic surgery is a core MIS approach in which instruments are inserted
+through small abdominal incisions using trocar access ports, rather than a
+large open incision (Ko et al., 2025). In this report, MIS denotes procedures
+that use these reduced-access pathways to lower tissue trauma and recovery
+burden relative to open surgery.
+
 \begin{itemize}
     \item The clinical motivation: Why do we need surgical robots? (Precision, dexterity, patient outcomes).
     \item The rise of Macro-Micro systems (combining a large positioning arm like a UR5e with a delicate continuum tip).
@@ -137,7 +169,7 @@ From anaesthesia to antiseptics, innovation has enabled surgeons to reduce risk 
 In the 19th century, innovations such as the transition from candlelight to electric lighting allowed for practical internal visualisation, marking the beginning of a major paradigm shift in the surgical field (Hargest five thousand years).
 Electricity also enable the development of various specialised surgical procedures, such as electrocautery for haemostatasis and the use of electric drills for orthopaedic surgery (hargest 5000 years).
 These innovations allowed for a stronger focus on precision and dexterity, and techniques such as laparoscopy and endoscopy were developed at the beginning of the 20th century, resulting in some of the first minimally invasive surgeries (MIS)(Hatzinger M, Fesenko A, Sohn M. The first human laparoscopy and NOTES operation: Dimitrij Oscarovic Ott (1855-1929). Urol Int. 2014;92(4):387-91. doi: 10.1159/000358016. Epub 2014 May 20. PMID: 24852454.).
-This trend towards less invasive procedures has continued, with the development of revolutionary robotic surgical systems such as the da Vinci Surgical System in the late 1990s, which has become widely adopted for various surgical procedures (Intuitive Surgical. da Vinci Surgical System. https://www.intuitive.com/en-us/products-and-services/da-vinci/surgical-systems. Accessed June 2024).
+This trend towards less invasive procedures has continued, with the development of revolutionary robotic surgical systems such as the da Vinci Surgical System in the late 1990s, which has become widely adopted for various surgical procedures (Intuitive Surgical. da Vinci Surgical System. \url{https://www.intuitive.com/en-us/products-and-services/da-vinci/surgical-systems}. Accessed June 2024).
 
 \begin{figure}[H]
     \centering
@@ -187,7 +219,7 @@ teleoperation performance are still underdeveloped.
 These findings support the broader literature position that low-cost macro-micro
 architectures, including off-the-shelf hardware and open-source software stacks,
 are an important direction for improving accessibility while maintaining MIS
-precision and safety requirements (Lachlan's report).
+precision and safety requirements (Scott, 2022).
 
 \paragraph{UR5e baseline and observed limitation}
 Specifically, the UR5e is a widely used, cost-effective robotic arm that can
@@ -239,6 +271,54 @@ end-effectors in the current modular workflow (Scott, 2022; Razjigaev et al.,
     \item \textit{Current Solutions:} Review papers on teleoperation filters (Kalman filters, moving average, predictive kinematics).
     \item \textit{The Gap:} Discuss how high-end systems do this well, but open-source/low-cost systems (like Lachlan's) suffer from vibratory feedback across ROS/external control nodes.
 \end{itemize}
+
+\subsubsection{Modelling Foundations Relevant to This Thesis}
+To situate control and modularity claims on a consistent mathematical basis,
+three modelling layers from continuum-robotics literature are directly relevant
+to this project.
+
+At the kinematic level, each segment transform can be written as
+\begin{equation}
+T_i =
+\begin{bmatrix}
+R_i & p_i \\
+\mathbf{0}^\top & 1
+\end{bmatrix},
+\end{equation}
+which supports forward mapping from joint/segment states to distal pose and is
+the baseline representation used across continuum and hyper-redundant modelling
+frameworks (Burgner-Kahrs et al., 2015; Dupont et al., 2022).
+
+For tendon-driven discrete continuum segments, piecewise-constant-curvature
+formulations remain practical for actuator-to-workspace mapping:
+\begin{equation}
+T_i^{i+1} =
+\mathrm{rot}(Z_i,\alpha_i)\,\mathrm{trans}(Z_i,H_i)\,\mathrm{trans}(X_i,W_i)
+\,\mathrm{rot}(Y_i,\theta_i)\,\mathrm{rot}(Z_i,-\alpha_i),
+\end{equation}
+which is the core structure behind recent high-DOF tendon-driven modelling and
+calibration workflows (Wang et al., 2022; Dupont et al., 2022).
+
+When compliance, external loading, and routing-dependent behavior become
+dominant, Cosserat-rod equilibrium/dynamics provide the stronger foundation:
+\begin{equation}
+\boldsymbol{p}_s = \boldsymbol{R}\boldsymbol{v},\quad
+\boldsymbol{R}_s = \boldsymbol{R}\hat{\boldsymbol{u}},\quad
+\boldsymbol{n}_s = \rho A\boldsymbol{R}(\hat{\boldsymbol{\omega}}\boldsymbol{q}+\boldsymbol{q}_t)-\boldsymbol{f},\quad
+\boldsymbol{m}_s = (\rho\boldsymbol{R}\boldsymbol{J}\boldsymbol{\omega})_t
+-\hat{\boldsymbol{p}}_s\boldsymbol{n}-\boldsymbol{l}.
+\end{equation}
+This class of models is especially relevant to this thesis where tendon
+friction/hysteresis, backlash compensation, and post-swap recalibration are
+coupled through compliant routing effects rather than purely rigid kinematics
+(Janabi-Sharifi et al., 2021).
+
+In critical terms, the literature indicates that no single layer is sufficient
+for workflow-ready surgical performance: kinematic models are computationally
+efficient but can under-represent load-dependent effects, while full
+mechanics-based models are more expressive but harder to identify and maintain
+in real time. This trade-off directly motivates hybrid compensation strategies
+in the subsequent teleoperation and modularity sections.
 
 Within this control context, the relevant evidence can be read in five linked
 layers: tremor suppression, latency compensation, robust state estimation,
@@ -330,88 +410,184 @@ to controlled grasping tasks and specific intent models, so transferability to
 highly dynamic, deformable, and safety-critical in vivo surgical contexts remains
 an open question.
 
+Transmission backlash in cable-pulley drives is another directly relevant
+control bottleneck for laparoscopic end-effectors because direction reversals
+create delay and transition phases in which distal motion/torque do not track
+proximal commands linearly. Zou et al. (2022) model this explicitly and use a
+feedforward compensation term linked to output-side backlash,
+$\theta_{comp}=\Delta\theta_{out}\,R_5/R_0$, together with grasping torque
+estimation and saturation limiting, $M_{grasp}=M_{out}-M_{fric}$, to reduce
+tracking error and limit unsafe distal force. Their results indicate meaningful
+improvements in position and force control for cable-pulley laparoscopic
+instruments: reported distal-grasper position error is reduced to approximately
+1.03$^\circ$ mean (3.49$^\circ$ max), and grasping torque tracking error is
+reported below 0.025 N$\cdot$m in their compensated instrument tests. Nonetheless,
+residual error around direction reversal remains, highlighting that compensation
+quality still depends on parameter identification and friction-model fidelity.
+
+Related tendon--sheath evidence further strengthens this point in shape-variable
+conditions. Hong et al. (2025) model backlash-like hysteresis in tendon--sheath
+pairs using an equivalent-circle representation, where deadband is linked to
+master/slave deformation mismatch ($D=\delta_{TSM(master)}-
+\delta_{TSM(slave)}$) and then compensated by feedforward updated from
+proximal calibration without distal sensing. Their reported results show RMSE
+reduction from 1.31 mm to 0.19 mm on average (85.5\% reduction). This is
+highly relevant to laparoscopic routing uncertainty; however, the approach still
+depends on reliable calibration and assumptions about unchanged geometric
+conditions during each compensation interval.
+
 Collectively, these control studies establish clear performance requirements for
 low-cost macro-micro platforms and provide a direct conceptual bridge to modular
 continuum hardware discussions.
 
 \subsection{Modularity and Tendon-Driven Continuum Manipulators}
-\begin{itemize}
-    \item \textit{The Problem:} Continuum robots are excellent for navigating complex anatomies, but they are usually monolithic. If a tool breaks or a different tip is needed, the whole robot is swapped.
-    \item \textit{Current Solutions:} Review mechanical coupling techniques in robotics (magnetic tool changers, mechanical twist-locks).
-    \item \textit{The Gap:} Analyze the specific challenge of maintaining tendon tension across a boundary. Why hasn't a quick-release mechanism been widely adopted for micro-continuum robots yet?
-\end{itemize}
+In this review, a \textit{monolithic} distal architecture is defined as a single
+integrated tool assembly in which changing function requires major teardown or
+full distal module replacement rather than rapid local exchange. This framing is
+consistent with the architecture-level distinction between integrated and
+modular robotic platforms reported by Cowan et al. (2024).
+
+The practical consequences are workflow-critical: longer swap time,
+re-tensioning and re-calibration burden after replacement, interruption of the
+operative sequence, and reduced intraoperative adaptability when task needs
+change mid-procedure. These constraints align with broader integration-friction
+evidence in modular end-effector software/hardware pipelines (Torielli et al.,
+2023), where even technically feasible modularity often carries non-trivial
+changeover overhead.
+
+Internal platform observations in the prior local UR5e-continuum implementation
+also indicate that end-effector replacement is time-consuming and introduces
+practical workflow friction around repeatable setup after each swap (Scott,
+2022). Together, the literature and local prior-work evidence indicate that
+architectural modularity alone is insufficient unless exchange-time and
+post-swap recalibration costs are explicitly addressed.
+
+\subsubsection{Tool Exchange Mechanisms}
+Tool exchange is necessary because laparoscopic workflows require multiple
+functional instruments within one procedure, while only a limited subset can be
+mounted simultaneously on the robotic arm (Ko et al., 2025). This creates a
+recurrent intraoperative transition task that can interrupt surgical flow and,
+when assistant-dependent, introduces operator-assistant coordination variance.
+
+At present, the strongest direct evidence remains with rail-guided,
+cartridge-like exchange approaches. Ko et al. (2025) analyse current sliding
+exchange practice and report an automated replacement architecture designed to
+preserve trocar/RCM constraints via linear motion. Their prototype-level results
+report full exchange in 15 s, reduction from an initial 27 s cycle, and a total
+device mass of 3.36 kg (below their 4 kg design target), indicating feasible
+automation under laparoscopic geometric constraints.
+
+Alternative strategies aim to reduce exchange frequency rather than improve
+exchange interfaces directly. Mocellin et al. (2026) present OriGrasp as a
+reconfigurable multifunctional end-effector (introducer mode and compliant
+grasper mode), validated through dVRK integration and tissue-interaction tests.
+Reported performance includes approximately 4 N pinch force and bowel pulling/
+lifting forces in literature-consistent atraumatic ranges. This supports
+multifunctionality as a useful partial mitigation for selected abdominal tasks.
+However, current evidence remains task-specific and does not demonstrate that a
+single reconfigurable device can replace the broader instrument set required
+across heterogeneous procedures.
+
+Mechanism diversity beyond rail-guided exchange remains under-validated in the
+reviewed evidence base. Direct surgical evidence is limited for bayonet
+quarter-turn, cam-latch, cartridge-head variants beyond linear sliding, and
+kinematic-coupling-assisted docking with active preload. Reported gaps are not
+purely mechanical: tolerance sensitivity, sterilisation robustness,
+wear-dependent repeatability drift, and post-reconnection re-zeroing burden all
+remain insufficiently quantified across repeated swap cycles.
+
+Control evidence indicates that docking success alone is insufficient for
+workflow-ready exchange. Cable-pulley and tendon-sheath studies report
+backlash/hysteresis and force-estimation sensitivity to pretension, friction,
+and routing geometry (Zou et al., 2022; Hong et al., 2025). In particular,
+Hong et al. (2025) show geometry-dependent deadband behavior and report RMSE
+reduction from 1.31 mm to 0.19 mm with feedforward compensation after
+calibration, implying that post-swap recovery may require both tension
+re-establishment and compensation-state updates when routing changes.
+
+For post-swap tension management specifically, Singh and Khatait (2022) provide
+relevant but indirect evidence via an RCM tension-adjustment mechanism enabling
+independent cable pretension tuning with invariant routed tendon length. The key
+limitation is translational scope: this is not a direct quick-change end-effector
+interface study and does not quantify repeated dock-undock surgical workflow
+performance.
+
+\textbf{Critical judgement and knowledge gap.} The literature supports a clear
+hierarchy of maturity: (i) strongest evidence for linear, rail-guided exchange,
+(ii) promising but task-limited multifunctional substitution, and (iii) weak
+comparative evidence for alternative docking/locking families. The unresolved
+research gap is therefore the integrated validation of \emph{mechanism + control
+recovery} after repeated swaps: exchange time, docking repeatability,
+post-swap backlash/deadband, retensioning effort, and force-safety consistency
+must be quantified together under clinically realistic routing and sterilisation
+conditions.
 
 \subsection{System Safety and Reliability Considerations}
+This section is structured as a staged argument from hazard definition to
+quantified residual risk, so that the final gap is explicit and testable.
+
+\subsubsection{3.1 Safety-Critical Hazard Model for Macro-Micro MIS}
+\textit{Purpose:} Define what can go wrong and what must be bounded.
 \begin{itemize}
-    \item \textit{Brief Review:} Safe velocity limits, force-aware operation, and fault handling in MIS workflows.
-    \item \textit{Context:} How these constraints pair with motion smoothing to improve repeatability and operator confidence.
+    \item enumerate hazard classes: unintended contact, excessive distal force, delayed response, post-swap miscalibration, and control-state mismatch after direction reversal,
+    \item state measurable safety variables: distal force/torque limits, position error, response latency, and allowed deadband/backlash window,
+    \item link each hazard to literature-supported mechanism/control causes.
 \end{itemize}
 
-\subsection{Next-Step Research Flow and Predicted Subheadings}
-\paragraph{1) Continuum tip modelling and control limits}
-\textit{Focus:} tendon friction, hysteresis, backlash, coupling, calibration drift.\\
-\textit{Why next:} this is usually the biggest source of endpoint error in macro-micro MIS setups.\\
-\textit{Look for:} model-based vs data-driven correction; real-time feasibility.
+\subsubsection{3.2 Distal Contact and Force-Limiting Strategies}
+\textit{Purpose:} Show how current work constrains tissue interaction risk.
 \begin{itemize}
-    \item \textbf{Predicted subheading A:} Physical sources of nonlinearity in tendon-driven continuum tips.
-    \item \textbf{Predicted subheading B:} Modelling approaches for friction, hysteresis, and backlash.
-    \item \textbf{Predicted subheading C:} Identification and calibration workflows under drift.
-    \item \textbf{Predicted subheading D:} Real-time control feasibility and computational constraints.
+    \item compare force-limiting approaches: intrinsic compliance, model-based force estimation, and torque saturation,
+    \item extract quantitative thresholds/results where available (e.g., force-tracking and grasp-safety outcomes),
+    \item identify missing evidence: transfer from benchtop/tissue-phantom performance to clinically variable in vivo conditions.
 \end{itemize}
 
-\paragraph{2) Macro-micro error compensation strategies}
-\textit{Focus:} how macro vibration/deformation is compensated at the micro/end effector.\\
-\textit{Why next:} directly bridges your intro into your control contribution.\\
-\textit{Look for:} feedforward/feedback split, PD vs nonlinear/robust control, stability assumptions.
+\subsubsection{3.3 Teleoperation Reliability Under Delay, Jitter, and Tremor}
+\textit{Purpose:} Establish reliability limits of the command loop itself.
 \begin{itemize}
-    \item \textbf{Predicted subheading A:} Error propagation from macro stage to distal tip.
-    \item \textbf{Predicted subheading B:} Feedforward and feedback compensation architectures.
-    \item \textbf{Predicted subheading C:} PD, nonlinear, and robust control comparisons.
-    \item \textbf{Predicted subheading D:} Stability assumptions and validation conditions.
+    \item synthesise predictive control, filtering, and intent arbitration literature as complementary layers,
+    \item assess robustness to delay and packet-loss assumptions versus real operating-network variability,
+    \item identify unresolved issue: consistent safety-performance under simultaneous delay, model mismatch, and human adaptation.
 \end{itemize}
 
-\paragraph{3) Collision detection for flexible distal tools (safety-oriented framing)}
-\textit{Focus:} continuum body collision checking, not just rigid-link approximations.\\
-\textit{Why next:} this is likely a core thesis gap and safety argument.\\
-\textit{Look for:} geometric methods, signed distance fields, real-time performance limits.
+\subsubsection{3.4 Backlash/Hysteresis and Compensation Stability}
+\textit{Purpose:} Connect transmission nonlinearity directly to safety and repeatability.
 \begin{itemize}
-    \item \textbf{Predicted subheading A:} Geometry representations for flexible tool bodies.
-    \item \textbf{Predicted subheading B:} Real-time collision checking under control-rate constraints.
-    \item \textbf{Predicted subheading C:} Safety envelopes, warning layers, and bounded response logic.
-    \item \textbf{Predicted subheading D:} Integration with teleoperation and shared-control safety workflows.
+    \item review backlash-like hysteresis models for cable-pulley and tendon-sheath paths,
+    \item summarise compensation mathematics and reported residual errors,
+    \item identify reliability gap at direction reversals and post-calibration drift.
 \end{itemize}
 
-\paragraph{4) Safety-constrained control (clinical relevance layer)}
-\textit{Focus:} virtual fixtures, active constraints, force/velocity limits, safe-stop behaviour.\\
-\textit{Why next:} lets you justify why your method is more than ``better tracking.''\\
-\textit{Look for:} enforceable constraints during teleop/autonomy-assisted motion.
+\subsubsection{3.5 Tool-Exchange Safety Recovery}
+\textit{Purpose:} Treat swap events as safety-critical state transitions, not only mechanical operations.
 \begin{itemize}
-    \item \textbf{Predicted subheading A:} Virtual fixtures and active constraints for MIS.
-    \item \textbf{Predicted subheading B:} Force and velocity limiting strategies.
-    \item \textbf{Predicted subheading C:} Safe-stop and fault-handling behaviour.
-    \item \textbf{Predicted subheading D:} Constraint enforcement during teleoperation and shared control.
+    \item define post-swap recovery requirements: tension re-establishment, deadband update, re-zeroing, and force-limit consistency,
+    \item evaluate what exchange studies quantify versus what they omit (repeated-cycle degradation, sterilisation-driven wear, and cumulative calibration burden),
+    \item identify coupling gap: mechanism docking success does not guarantee control-state safety restoration.
 \end{itemize}
 
-\paragraph{5) Teleoperation signal conditioning and motion smoothing}
-\textit{Focus:} tremor filtering, predictive smoothing, delay compensation, human-in-the-loop stability.\\
-\textit{Why next:} cleanly ties back to the practical usability problems in prior work.\\
-\textit{Look for:} quantitative trade-off between smoothness and responsiveness.
+\subsubsection{3.6 Fault Handling and Safe-State Behavior}
+\textit{Purpose:} Evaluate how systems fail, not only how they track.
 \begin{itemize}
-    \item \textbf{Predicted subheading A:} Signal conditioning methods for surgical teleoperation.
-    \item \textbf{Predicted subheading B:} Predictive smoothing and delay compensation.
-    \item \textbf{Predicted subheading C:} Human-in-the-loop stability analysis.
-    \item \textbf{Predicted subheading D:} Performance trade-offs: responsiveness vs smoothness.
+    \item synthesise evidence on safe-stop logic, bounded fallback behavior, and operator override pathways,
+    \item map expected failure modes (sensor dropouts, cable slack, communication interruption) to mitigation strategies,
+    \item identify missing quantitative benchmarks for recovery time and residual error after fault events.
 \end{itemize}
 
-\paragraph{6) Modular end-effector/tool exchange mechanisms}
-\textit{Focus:} quick-change coupling while preserving tendon routing/tension and repeatable calibration.\\
-\textit{Why next:} strong practical novelty angle and likely under-addressed in literature.\\
-\textit{Look for:} repeatability metrics after swap, re-zeroing time, failure modes.
+\subsubsection{3.7 Reliability Evidence Across Lifecycle}
+\textit{Purpose:} Determine whether reported performance is durable.
 \begin{itemize}
-    \item \textbf{Predicted subheading A:} Mechanical coupling strategies for quick exchange.
-    \item \textbf{Predicted subheading B:} Tendon routing continuity and tension retention after swap.
-    \item \textbf{Predicted subheading C:} Post-swap calibration and re-zeroing procedures.
-    \item \textbf{Predicted subheading D:} Reliability metrics and failure-mode analysis.
+    \item review evidence for repeatability across prolonged trials, repeated swaps, and changing pretension states,
+    \item include sterilisation/contamination and wear effects where available,
+    \item identify the dominant gap: limited long-horizon, clinically representative reliability datasets for low-cost macro-micro platforms.
+\end{itemize}
+
+\subsubsection{3.8 Section-Level Critical Synthesis and Gap Statement}
+\textit{Purpose:} Conclude with a single defendable knowledge gap.
+\begin{itemize}
+    \item synthesise that current literature validates isolated safety mechanisms but rarely validates integrated safety recovery after reconfiguration,
+    \item state thesis-relevant gap: jointly validated \emph{mechanism + control + recovery} safety performance under realistic routing, delay, and swap conditions,
+    \item define candidate evaluation endpoints for later chapters: post-swap recovery time, residual deadband/backlash, distal-force limit adherence, and task-level repeatability.
 \end{itemize}
 
 \subsection{Synthesis of Literature and Knowledge Gaps}
@@ -511,44 +687,110 @@ cost-constrained deployment conditions.
 % \printbibliography[heading=bibintoc, title={References}]
 \section*{References}
 \addcontentsline{toc}{section}{References}
+\sloppy
 Seetohul, J., \& Shafiee, M. (2022). Snake Robots for Surgical Applications:
 A Review. \textit{Robotics}, 11(3), 57.
-https://doi.org/10.3390/robotics11030057
+\url{https://doi.org/10.3390/robotics11030057}
 
 Sang, H., Yang, C., Liu, F., Yun, J., Jin, G., \& Chen, F. (2016).
 A zero phase adaptive fuzzy Kalman filter for physiological tremor suppression
 in robotically assisted minimally invasive surgery.
 \textit{The International Journal of Medical Robotics and Computer Assisted
 Surgery}, 12(4), 658--669.
-https://doi.org/10.1002/rcs.1741
+\url{https://doi.org/10.1002/rcs.1741}
 
 Batty, T., Ehrampoosh, A., Shirinzadeh, B., Zhong, Y., \& Smith, J. (2022).
 A transparent teleoperated robotic surgical system with predictive haptic
 feedback and force modelling. \textit{Sensors}, 22(24), 9770.
-https://doi.org/10.3390/s22249770
+\url{https://doi.org/10.3390/s22249770}
 
 Bowman, M., Zhang, J., \& Zhang, X. (2024).
 Intent-based task-oriented shared control for intuitive telemanipulation.
 \textit{Journal of Intelligent \& Robotic Systems}, 110, 167.
-https://doi.org/10.1007/s10846-024-02185-1
+\url{https://doi.org/10.1007/s10846-024-02185-1}
 
 Lashari, M. H., Batayneh, W., Khokhar, A., \& Ahmed, S. (2025).
 Enhanced position estimation in tactile internet-enabled remote robotic surgery
 using MOESP-based Kalman filter. \textit{arXiv preprint}, arXiv:2501.16485.
-https://arxiv.org/abs/2501.16485
+\url{https://arxiv.org/abs/2501.16485}
 
 Ebrahimian, M., Pourmokhtari, M., Ghiyasi, M., Yazdankhoo, B., \& Beigzadeh,
 B. (2024). Online bilateral predictive control for time-delayed teleoperation
 of snake-like robots. \textit{Journal of Intelligent \& Robotic Systems},
-110, 80. https://doi.org/10.1007/s10846-024-02113-3
+110, 80. \url{https://doi.org/10.1007/s10846-024-02113-3}
 
 Raza, Z., Saqib, S. U., Zafar, H., \& Islam, S. (2024).
 Transforming surgical landscapes: obstacles in the integration of robotic
 surgery in Pakistan - is cost the only limiting factor?
 \textit{Journal of the Pakistan Medical Association}, 74(Suppl. 4), S-151--S-157.
-https://doi.org/10.47391/JPMA.AKU-9S-23
+\url{https://doi.org/10.47391/JPMA.AKU-9S-23}
+
+Doggett, W. R., Dorsey, J. T., Jones, T. C., \& King, B. (2014).
+Development of a tendon-actuated lightweight in-space manipulator (TALISMAN).
+\textit{NASA Center for AeroSpace Information (CASI), Conference Proceedings}.
+\url{https://ntrs.nasa.gov/search.jsp?R=20140006390}
+
+Torielli, D., Bertoni, L., Fusaro, F., Tsagarakis, N., \& Muratore, L. (2023).
+ROS End-Effector: A hardware-agnostic software and control framework for
+robotic end-effectors. \textit{Journal of Intelligent \& Robotic Systems},
+108, 70. \url{https://doi.org/10.1007/s10846-023-01911-5}
+
+Cowan, B., Gomes, C., Morris, P., Fryrear, R., Petraiuolo, W., Walton, M.,
+Alseidi, A., Horgan, S., \& Hagen, M. (2024). Robotic technology in surgery;
+a classification system of soft tissue surgical robotic devices.
+\textit{Surgical Endoscopy}, 38, 3645--3653.
+\url{https://doi.org/10.1007/s00464-024-10861-4}
+
+Scott, L. (2022). \textit{Design and development of a macro-micro robotic
+system for minimally invasive surgery} (Honours thesis, UNSW Sydney).
+
+Ko, D., Kim, Y., Lim, H., \& Kim, S. (2025). Design of automatic tool
+replacement mechanism for laparoscopic surgical robot arm for solo surgery.
+\textit{The International Journal of Medical Robotics and Computer Assisted
+Surgery}, 21(5), e70106. \url{https://doi.org/10.1002/rcs.70106}
+
+Mocellin, L., Pagliarani, N., Gamberini, G., Ciuti, G., Cianchetti, M., \&
+Menciassi, A. (2026). OriGrasp: A multifunctional origami-inspired instrument
+for delicate manipulation in abdominal surgery.
+\textit{Advanced Intelligent Systems}, e202501249.
+\url{https://doi.org/10.1002/aisy.202501249}
+
+Singh, A., \& Khatait, J. P. (2022). Mechanism for tension adjustment in
+tendon driven remote center-of-motion mechanism for minimally invasive surgery.
+\textit{Proceedings of the Institution of Mechanical Engineers, Part C:
+Journal of Mechanical Engineering Science}, 236(16).
+\url{https://doi.org/10.1177/09544062221093899}
+
+Zou, S., Li, G., \& Huang, Y. (2022). Transmission backlash compensation and
+grasping force estimation of surgical instruments for the laparoscopic minimally
+invasive surgery robot. \textit{Applied Sciences}, 12(23), 12126.
+\url{https://doi.org/10.3390/app122312126}
+
+Hong, J., Hong, D., Kim, C., \& Won, S. H. (2025). Modeling backlash-like
+hysteresis and feedforward control of tendon-sheath mechanism pair with
+arbitrary shape: Excluding distal sensory input. \textit{Journal of Mechanisms
+and Robotics}, 17(5), 051009. \url{https://doi.org/10.1115/1.4067020}
+
+Burgner-Kahrs, J., Rucker, D. C., \& Choset, H. (2015). Continuum robots for
+medical applications: A survey. \textit{IEEE Transactions on Robotics},
+31(6), 1261--1280. \url{https://doi.org/10.1109/TRO.2015.2489500}
+
+Dupont, P. E., Simaan, N., Choset, H., \& Rucker, C. (2022). Continuum robots
+for medical interventions. \textit{Proceedings of the IEEE}, 110(7), 847--870.
+\url{https://doi.org/10.1109/JPROC.2022.3141338}
+
+Wang, F., Wang, H., Luo, J., Kang, X., Yu, H., Lu, H., Dong, Y., \& Jia, X.
+(2022). FIORA: A flexible tendon-driven continuum manipulator for laparoscopic
+surgery. \textit{IEEE Robotics and Automation Letters}, 7(2), 1166--1173.
+\url{https://doi.org/10.1109/LRA.2021.3134276}
+
+Janabi-Sharifi, F., Jalali, A., \& Walker, I. D. (2021). Cosserat rod-based
+dynamic modeling of tendon-driven continuum robots: A tutorial.
+\textit{IEEE Access}, 9, 68703--68719.
+\url{https://doi.org/10.1109/ACCESS.2021.3077186}
 
 \textit{(To be populated using BibLaTeX and Biber)}
+\fussy
 
 \newpage
 % --- Appendices ---

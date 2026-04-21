@@ -1,35 +1,38 @@
 \contentsline {section}{Originality Statement}{ii}{section*.1}%
-\contentsline {section}{List of Figures}{iv}{section*.3}%
-\contentsline {section}{List of Tables}{v}{section*.4}%
-\contentsline {section}{Nomenclature}{vi}{section*.5}%
+\contentsline {section}{List of Figures}{v}{section*.3}%
+\contentsline {section}{List of Tables}{vi}{section*.4}%
+\contentsline {section}{Nomenclature}{vii}{section*.5}%
 \contentsline {section}{\numberline {I}Introduction}{1}{section.1}%
 \contentsline {subsection}{\numberline {I.1}Project Context and Problem Significance}{1}{subsection.1.1}%
 \contentsline {subsection}{\numberline {I.2}Working Thesis Gap Statement (Draft)}{1}{subsection.1.2}%
 \contentsline {section}{\numberline {II}Literature Review}{1}{section.2}%
 \contentsline {subsection}{\numberline {II.1}Introduction to Minimally Invasive Surgery (MIS) and Robotics}{1}{subsection.2.1}%
-\contentsline {paragraph}{Historical progression of surgery and MIS robotics}{1}{section*.6}%
+\contentsline {paragraph}{Historical progression of surgery and MIS robotics}{2}{section*.6}%
 \contentsline {paragraph}{Macro-micro architecture motivation}{2}{section*.7}%
 \contentsline {paragraph}{Cost and accessibility context}{3}{section*.8}%
 \contentsline {paragraph}{UR5e baseline and observed limitation}{3}{section*.9}%
 \contentsline {subsection}{\numberline {II.2}Teleoperation and Control in Surgical Robotics}{4}{subsection.2.2}%
-\contentsline {subsection}{\numberline {II.3}Modularity and Tendon-Driven Continuum Manipulators}{6}{subsection.2.3}%
-\contentsline {subsection}{\numberline {II.4}System Safety and Reliability Considerations}{7}{subsection.2.4}%
-\contentsline {subsection}{\numberline {II.5}Next-Step Research Flow and Predicted Subheadings}{7}{subsection.2.5}%
-\contentsline {paragraph}{1) Continuum tip modelling and control limits}{7}{section*.10}%
-\contentsline {paragraph}{2) Macro-micro error compensation strategies}{7}{section*.11}%
-\contentsline {paragraph}{3) Collision detection for flexible distal tools (safety-oriented framing)}{8}{section*.12}%
-\contentsline {paragraph}{4) Safety-constrained control (clinical relevance layer)}{8}{section*.13}%
-\contentsline {paragraph}{5) Teleoperation signal conditioning and motion smoothing}{8}{section*.14}%
-\contentsline {paragraph}{6) Modular end-effector/tool exchange mechanisms}{9}{section*.15}%
-\contentsline {subsection}{\numberline {II.6}Synthesis of Literature and Knowledge Gaps}{9}{subsection.2.6}%
-\contentsline {subsection}{\numberline {II.7}Priority Evidence Gaps for Additional Review}{10}{subsection.2.7}%
-\contentsline {section}{\numberline {III}Research Question and Project Plan}{10}{section.3}%
-\contentsline {subsection}{\numberline {III.1}Research Question and Plan Status}{10}{subsection.3.1}%
-\contentsline {subsection}{\numberline {III.2}Plan Quality Criteria (Assessment-Aligned)}{10}{subsection.3.2}%
-\contentsline {subsection}{\numberline {III.3}Current Planning Position}{11}{subsection.3.3}%
-\contentsline {section}{\numberline {IV}Project Dependent Preparations}{11}{section.4}%
-\contentsline {section}{\numberline {V}Conclusion}{11}{section.5}%
-\contentsline {section}{Acknowledgements}{A}{section*.16}%
-\contentsline {section}{References}{B}{section*.17}%
-\contentsline {section}{Appendices}{C}{section*.17}%
-\contentsline {section}{\numberline {A}Rubric-Aligned Coverage Notes (MMAN4951/MMAN9451 Interim Report)}{C}{appendix.A}%
+\contentsline {subsubsection}{\numberline {II.2.1}Modelling Foundations Relevant to This Thesis}{5}{subsubsection.2.2.1}%
+\contentsline {subsection}{\numberline {II.3}Modularity and Tendon-Driven Continuum Manipulators}{8}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {II.3.1}Tool Exchange Mechanisms}{8}{subsubsection.2.3.1}%
+\contentsline {subsection}{\numberline {II.4}System Safety and Reliability Considerations}{10}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {II.4.1}3.1 Safety-Critical Hazard Model for Macro-Micro MIS}{10}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {II.4.2}3.2 Distal Contact and Force-Limiting Strategies}{10}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {II.4.3}3.3 Teleoperation Reliability Under Delay, Jitter, and Tremor}{10}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {II.4.4}3.4 Backlash/Hysteresis and Compensation Stability}{11}{subsubsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {II.4.5}3.5 Tool-Exchange Safety Recovery}{11}{subsubsection.2.4.5}%
+\contentsline {subsubsection}{\numberline {II.4.6}3.6 Fault Handling and Safe-State Behavior}{11}{subsubsection.2.4.6}%
+\contentsline {subsubsection}{\numberline {II.4.7}3.7 Reliability Evidence Across Lifecycle}{11}{subsubsection.2.4.7}%
+\contentsline {subsubsection}{\numberline {II.4.8}3.8 Section-Level Critical Synthesis and Gap Statement}{12}{subsubsection.2.4.8}%
+\contentsline {subsection}{\numberline {II.5}Synthesis of Literature and Knowledge Gaps}{12}{subsection.2.5}%
+\contentsline {subsection}{\numberline {II.6}Priority Evidence Gaps for Additional Review}{13}{subsection.2.6}%
+\contentsline {section}{\numberline {III}Research Question and Project Plan}{13}{section.3}%
+\contentsline {subsection}{\numberline {III.1}Research Question and Plan Status}{13}{subsection.3.1}%
+\contentsline {subsection}{\numberline {III.2}Plan Quality Criteria (Assessment-Aligned)}{13}{subsection.3.2}%
+\contentsline {subsection}{\numberline {III.3}Current Planning Position}{14}{subsection.3.3}%
+\contentsline {section}{\numberline {IV}Project Dependent Preparations}{14}{section.4}%
+\contentsline {section}{\numberline {V}Conclusion}{14}{section.5}%
+\contentsline {section}{Acknowledgements}{A}{section*.10}%
+\contentsline {section}{References}{B}{section*.11}%
+\contentsline {section}{Appendices}{D}{section*.11}%
+\contentsline {section}{\numberline {A}Rubric-Aligned Coverage Notes (MMAN4951/MMAN9451 Interim Report)}{D}{appendix.A}%
