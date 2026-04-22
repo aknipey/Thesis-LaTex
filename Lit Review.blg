@@ -1,27 +1,18 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'Lit Review.blg'
-[27] biber:340> INFO - === Thu Apr 23, 2026, 00:41:56
-[33] Biber.pm:419> INFO - Reading 'Lit Review.bcf'
-[57] Biber.pm:979> INFO - Found 13 citekeys in bib section 0
-[63] Biber.pm:4419> INFO - Processing section 0
-[67] Biber.pm:4610> INFO - Looking for bibtex file 'references.bib' for section 0
-[68] bibtex.pm:1713> INFO - LaTeX decoding ...
-[79] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
-[92] Utils.pm:399> ERROR - Name "Vitiello, V, Su-Lin Lee, Thomas P. Cundy, Guang-Zhong Yang" has too many commas, skipping entry 'vitiello2013emerging'
-[102] Utils.pm:399> ERROR - Name "A. Razjigaev, A. K. Pandey, D. Howard, J. Roberts" has too many commas, skipping entry 'razjigaev2021snakeraven'
-[103] Utils.pm:399> ERROR - Name "Eckhoff, Jennifer A; Müller, Dolores T; Brunner, Stefanie N; Fuchs, Hans F; Meireles, Ozanan R" has too many commas, skipping entry 'eckhoff2023costs'
-[113] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[113] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[113] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
-[113] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
-[115] bbl.pm:660> INFO - Writing 'Lit Review.bbl' with encoding 'UTF-8'
-[116] bbl.pm:763> INFO - Output to Lit Review.bbl
-[116] Biber.pm:131> WARN - Entry with key 'vitiello2013emerging' in section '0' is cited and found but not created (likely due to sourcemap)
-[117] Biber.pm:131> WARN - legacy year field 'n.d.' in entry 'davinci_intuitive' is not an integer - this will probably not sort properly.
-[117] Biber.pm:131> WARN - Entry with key 'razjigaev2021snakeraven' in section '0' is cited and found but not created (likely due to sourcemap)
-[117] Biber.pm:131> WARN - Entry with key 'eckhoff2023costs' in section '0' is cited and found but not created (likely due to sourcemap)
-[117] Biber.pm:131> WARN - legacy year field 'n.d.' in entry 'standardbots_priceguide' is not an integer - this will probably not sort properly.
-[117] Biber.pm:131> WARN - I didn't find a database entry for 'razjigaev2021snake' (section 0)
-[117] Biber.pm:131> WARN - I didn't find a database entry for 'scott2022macro' (section 0)
-[117] Biber.pm:133> INFO - WARNINGS: 7
-[117] Biber.pm:136> INFO - ERRORS: 3
+[33] biber:340> INFO - === Thu Apr 23, 2026, 01:35:05
+[39] Biber.pm:419> INFO - Reading 'Lit Review.bcf'
+[88] Biber.pm:979> INFO - Found 23 citekeys in bib section 0
+[95] Biber.pm:4419> INFO - Processing section 0
+[101] Biber.pm:4610> INFO - Looking for bibtex file 'references.bib' for section 0
+[102] bibtex.pm:1713> INFO - LaTeX decoding ...
+[113] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
+[206] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[206] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[206] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[206] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[214] bbl.pm:660> INFO - Writing 'Lit Review.bbl' with encoding 'UTF-8'
+[217] bbl.pm:763> INFO - Output to Lit Review.bbl
+[217] Biber.pm:131> WARN - I didn't find a database entry for 'janabi2021continuum' (section 0)
+[217] Biber.pm:131> WARN - I didn't find a database entry for 'lashari2025enhancing' (section 0)
+[217] Biber.pm:133> INFO - WARNINGS: 2

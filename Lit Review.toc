@@ -11,29 +11,29 @@
 \contentsline {subsubsection}{\numberline {2.1.4}Cost and Accessibility Considerations}{4}{subsubsection.2.1.4}%
 \contentsline {subsubsection}{\numberline {2.1.5}UR5e-Based Systems and Identified Limitations}{4}{subsubsection.2.1.5}%
 \contentsline {subsection}{\numberline {2.2}Teleoperation and Control in Surgical Robotics}{5}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Modelling Foundations Relevant to This Thesis}{5}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.1}Modelling Frameworks for Continuum Surgical Robotics}{5}{subsubsection.2.2.1}%
 \contentsline {subsubsection}{\numberline {2.2.2}Tremor Suppression and Delay-Robust Interaction}{6}{subsubsection.2.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.3}State Estimation and Predictive Bilateral Architectures}{7}{subsubsection.2.2.3}%
 \contentsline {subsubsection}{\numberline {2.2.4}Shared Control, Immersion, and Haptic Force Awareness}{8}{subsubsection.2.2.4}%
 \contentsline {subsubsection}{\numberline {2.2.5}Transmission Nonlinearity and Distal Force Safety}{9}{subsubsection.2.2.5}%
-\contentsline {subsection}{\numberline {2.3}Modularity and Tendon-Driven Continuum Manipulators}{9}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Tool Exchange Mechanisms}{10}{subsubsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.4}System Safety and Reliability Considerations}{11}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Safety Constraint Model and Hazard Taxonomy}{11}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Error Detection and Reporting Architecture}{12}{subsubsection.2.4.2}%
-\contentsline {subsubsection}{\numberline {2.4.3}Malfunction Frequency and Immediate Clinical Consequence}{12}{subsubsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.3}Modularity and Tendon-Driven Continuum Manipulators}{10}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Tool Exchange Mechanisms}{11}{subsubsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.4}System Safety and Reliability Considerations}{12}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Safety Constraint Model and Hazard Taxonomy}{12}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Error Detection and Reporting Architecture}{13}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Malfunction Frequency and Immediate Clinical Consequence}{13}{subsubsection.2.4.3}%
 \contentsline {subsubsection}{\numberline {2.4.4}Preventable Versus Non-Preventable Faults}{13}{subsubsection.2.4.4}%
-\contentsline {subsubsection}{\numberline {2.4.5}Lifecycle Reliability: Reconfiguration, Wear, and Reprocessing}{13}{subsubsection.2.4.5}%
-\contentsline {subsubsection}{\numberline {2.4.6}Integrated Safety Gap and Evaluation Endpoints}{13}{subsubsection.2.4.6}%
-\contentsline {subsection}{\numberline {2.5}Synthesis of Literature and Knowledge Gaps}{13}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.4.5}Lifecycle Reliability: Reconfiguration, Wear, and Reprocessing}{14}{subsubsection.2.4.5}%
+\contentsline {subsubsection}{\numberline {2.4.6}Integrated Safety Gap and Evaluation Endpoints}{14}{subsubsection.2.4.6}%
+\contentsline {subsection}{\numberline {2.5}Synthesis of Literature and Knowledge Gaps}{14}{subsection.2.5}%
 \contentsline {subsection}{\numberline {2.6}Priority Evidence Gaps for Additional Review}{15}{subsection.2.6}%
-\contentsline {section}{\numberline {3}Research Question and Project Plan}{15}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Research Question and Plan Status}{15}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Plan Quality Criteria (Assessment-Aligned)}{15}{subsection.3.2}%
+\contentsline {section}{\numberline {3}Research Question and Project Plan}{16}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Research Question and Plan Status}{16}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Plan Quality Criteria (Assessment-Aligned)}{16}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Current Planning Position}{16}{subsection.3.3}%
 \contentsline {section}{\numberline {4}Project Dependent Preparations}{16}{section.4}%
-\contentsline {section}{\numberline {5}Conclusion}{16}{section.5}%
+\contentsline {section}{\numberline {5}Conclusion}{17}{section.5}%
 \contentsline {section}{Acknowledgements}{A}{section*.5}%
 \contentsline {section}{References}{B}{section*.6}%
-\contentsline {section}{Appendices}{C}{section*.7}%
-\contentsline {section}{\numberline {A}Rubric-Aligned Coverage Notes (MMAN4951/MMAN9451 Interim Report)}{C}{appendix.A}%
+\contentsline {section}{Appendices}{D}{section*.7}%
+\contentsline {section}{\numberline {A}Rubric-Aligned Coverage Notes (MMAN4951/MMAN9451 Interim Report)}{D}{appendix.A}%

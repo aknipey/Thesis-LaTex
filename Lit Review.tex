@@ -16,6 +16,8 @@
 \usepackage{bm}
 \usepackage{xurl}
 \usepackage[backend=biber,style=ieee]{biblatex}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, shapes.geometric, fit}
 \addbibresource{references.bib}
 
 % Reduce common layout warnings from long URLs and dense prose.
@@ -205,7 +207,7 @@ tension about a central backbone or articulated serial structure, enabling
 multi-DOF distal steering with compact proximal actuation and making these devices
 well suited to macro-micro architectures \cite{seetohul2022snake}. 
 An example of this is shown in Fig.~\ref{fig:snake_raven_reference}, 
-where a tendon-driven continuum tip is integrated with a Raven II surgical robot for teleoperation \cite{razjigaev2021snake}.
+where a tendon-driven continuum tip is integrated with a Raven II surgical robot for teleoperation \cite{razjigaev2021snakeraven}.
 
 \begin{figure}[H]
     \centering
@@ -244,7 +246,7 @@ robust teleoperation performance.
 This aligns with broader research directions advocating the use of off-the-shelf
 hardware and open-source software frameworks to reduce system cost while
 maintaining the precision and safety requirements of minimally invasive surgery
-\cite{scott2022macro}.
+\cite{scott2023macro}.
 
 
 \subsubsection{UR5e-Based Systems and Identified Limitations}
@@ -278,88 +280,121 @@ These limitations highlight a key gap in existing UR5e-based macro--micro
 systems: while feasibility and precision have been demonstrated, improvements in
 vibration suppression, system robustness, and workflow integration are required
 to meet clinical expectations for safety and usability in real-world operating
-environments \cite{scott2022macro, razjigaev2021snakeraven, seetohul2022snake}.
+environments \cite{scott2023macro, razjigaev2021snakeraven, seetohul2022snake}.
 
 \subsection{Teleoperation and Control in Surgical Robotics}
-\begin{itemize}
-    \item \textit{The Problem:} Human tremor, system latency, and mapping user intent to rigid vs. continuum kinematics.
-    \item \textit{Current Solutions:} Review papers on teleoperation filters (Kalman filters, moving average, predictive kinematics).
-    \item \textit{The Gap:} Discuss how high-end systems do this well, but open-source/low-cost systems (like Lachlan's) suffer from vibratory feedback across ROS/external control nodes.
-\end{itemize}
+\subsubsection{Modelling Frameworks for Continuum Surgical Robotics}
 
-\subsubsection{Modelling Foundations Relevant to This Thesis}
 To situate control and modularity claims on a consistent mathematical basis,
 three modelling layers from continuum-robotics literature are directly relevant
-to this project.
-
-At the kinematic level, each segment transform can be written as
+to this project: kinematic representations, reduced-order curvature models, and
+mechanics-based formulations.
+At the kinematic level, each segment transform can be expressed as
 \begin{equation}
 T_i =
 \begin{bmatrix}
-R_i & p_i \\
+R_i & p_i \
 \mathbf{0}^\top & 1
 \end{bmatrix},
 \end{equation}
-which supports forward mapping from joint/segment states to distal pose and is
-the baseline representation used across continuum and hyper-redundant modelling
-frameworks (Burgner-Kahrs et al., 2015; Dupont et al., 2022).
+which maps segment states to distal pose and forms the baseline representation
+used across continuum and hyper-redundant robotic systems
+\cite{burgnerkahrs2015continuum, dupont2022continuum}.
+This formulation is computationally efficient and well suited to real-time
+teleoperation, but does not explicitly capture load-dependent deformation.
 
-For tendon-driven discrete continuum segments, piecewise-constant-curvature
-formulations remain practical for actuator-to-workspace mapping:
+For tendon-driven continuum manipulators, piecewise-constant-curvature (PCC)
+models provide a practical actuator-to-workspace mapping:
 \begin{equation}
 T_i^{i+1} =
-\mathrm{rot}(Z_i,\alpha_i)\,\mathrm{trans}(Z_i,H_i)\,\mathrm{trans}(X_i,W_i)
-\,\mathrm{rot}(Y_i,\theta_i)\,\mathrm{rot}(Z_i,-\alpha_i),
+\mathrm{rot}(Z_i,\alpha_i),\mathrm{trans}(Z_i,H_i),\mathrm{trans}(X_i,W_i)
+,\mathrm{rot}(Y_i,\theta_i),\mathrm{rot}(Z_i,-\alpha_i),
 \end{equation}
-which is the core structure behind recent high-DOF tendon-driven modelling and
-calibration workflows (Wang et al., 2022; Dupont et al., 2022).
+which underpins many high-DOF modelling and calibration approaches
+\cite{wang2022fiora, dupont2022continuum}.
+PCC models strike a balance between computational efficiency and geometric
+fidelity, making them widely adopted in teleoperated continuum systems.
 
-When compliance, external loading, and routing-dependent behavior become
-dominant, Cosserat-rod equilibrium/dynamics provide the stronger foundation:
-\begin{equation}
-\boldsymbol{p}_s = \boldsymbol{R}\boldsymbol{v},\quad
-\boldsymbol{R}_s = \boldsymbol{R}\hat{\boldsymbol{u}},\quad
-\boldsymbol{n}_s = \rho A\boldsymbol{R}(\hat{\boldsymbol{\omega}}\boldsymbol{q}+\boldsymbol{q}_t)-\boldsymbol{f},\quad
-\boldsymbol{m}_s = (\rho\boldsymbol{R}\boldsymbol{J}\boldsymbol{\omega})_t
--\hat{\boldsymbol{p}}_s\boldsymbol{n}-\boldsymbol{l}.
-\end{equation}
-This class of models is especially relevant to this thesis where tendon
-friction/hysteresis, backlash compensation, and post-swap recalibration are
-coupled through compliant routing effects rather than purely rigid kinematics
-(Janabi-Sharifi et al., 2021).
+When compliance, external loading, and routing-dependent behaviour become
+dominant, mechanics-based approaches such as Cosserat-rod models provide a more
+complete representation of continuum dynamics. These models capture distributed
+force and moment balance along the manipulator backbone, enabling analysis of
+tendon friction, hysteresis, and deformation under load
+\cite{janabi2021continuum}.
 
-In critical terms, the literature indicates that no single layer is sufficient
-for workflow-ready surgical performance: kinematic models are computationally
-efficient but can under-represent load-dependent effects, while full
-mechanics-based models are more expressive but harder to identify and maintain
-in real time. This trade-off directly motivates hybrid compensation strategies
-in the subsequent teleoperation and modularity sections.
+In critical terms, the literature indicates that no single modelling layer is
+sufficient for workflow-ready surgical performance: kinematic models are fast
+but approximate, while full mechanics-based models are more expressive but
+computationally intensive and harder to identify in real time. This trade-off
+directly motivates hybrid modelling and compensation strategies in modern
+teleoperation systems.
 
-Within this control context, the relevant evidence can be read in five linked
-layers: tremor suppression, latency compensation, robust state estimation,
-predictive bilateral control, and intent-aware shared autonomy.
+Within this control context, the relevant evidence can be interpreted across
+five linked layers: tremor suppression, latency compensation, robust state
+estimation, predictive bilateral control, and intent-aware shared autonomy.
+This layered interpretation is summarised in Fig.~\ref{fig:teleop_control_layers}.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    node distance=0.6cm,
+    layer/.style={
+        rectangle,
+        rounded corners,
+        draw=black,
+        minimum width=0.82\textwidth,
+        minimum height=1.0cm,
+        align=center
+    },
+    title/.style={font=\bfseries}
+]
+
+\node[layer] (shared) {\textbf{Shared Control / Intent Mapping}\\
+Task-level assistance, operator intent inference, authority blending};
+
+\node[layer, below=of shared] (predictive) {\textbf{Predictive Bilateral Control}\\
+Delay compensation, motion prediction, force prediction, transparency management};
+
+\node[layer, below=of predictive] (estimation) {\textbf{State Estimation}\\
+Kalman filtering, model identification, missing/delayed state reconstruction};
+
+\node[layer, below=of estimation] (filtering) {\textbf{Filtering / Tremor Suppression}\\
+Noise attenuation, tremor reduction, low-phase-delay smoothing};
+
+\node[layer, below=of filtering] (transmission) {\textbf{Transmission Compensation}\\
+Backlash, hysteresis, tendon--sheath nonlinearity, distal force safety};
+
+\draw[-{Latex[length=3mm]}] (shared) -- (predictive);
+\draw[-{Latex[length=3mm]}] (predictive) -- (estimation);
+\draw[-{Latex[length=3mm]}] (estimation) -- (filtering);
+\draw[-{Latex[length=3mm]}] (filtering) -- (transmission);
+
+\end{tikzpicture}
+\caption{Linked control layers relevant to teleoperation in macro--micro surgical robotics. The literature reviewed in this subsection can be interpreted across these interacting layers, from low-level transmission effects to high-level shared control.}
+\label{fig:teleop_control_layers}
+\end{figure}
 
 \subsubsection{Tremor Suppression and Delay-Robust Interaction}
 
 Human physiological tremor is a central control challenge in robot-assisted MIS
 because involuntary operator motion is transmitted through the teleoperation loop
 and can appear as vibration at the surgical instrument tip, degrading precision
-during fine tissue manipulation, suturing, and needle handling. Sang et al.
-(2016) report that tremor suppression methods must balance two competing
+during fine tissue manipulation, suturing, and needle handling. \textcite{sang2016zero}
+report that tremor suppression methods must balance two competing
 requirements: strong attenuation of involuntary motion and minimal phase delay,
 as latency in the command pathway can directly reduce teleoperation quality.
 Their zero-phase adaptive fuzzy Kalman filter (ZPAFKF) combines a zero-phase
 prefilter with adaptive Kalman estimation to improve tremor estimation and
-compensation in real time, and experimental master-slave results show lower
+compensation in real time, and experimental master--slave results show lower
 error and reduced tip vibration relative to standard filtering baselines. This
 is directly relevant to the present thesis because it frames tremor control not
 as a standalone signal-processing problem, but as a coupled teleoperation and
 tracking problem in which compensation quality, delay, and manipulator dynamics
-must be considered together (Sang et al., 2016).
+must be considered together \parencite{sang2016zero}.
 
 System latency is a second critical bottleneck in bilateral teleoperation,
-particularly when haptic feedback is included. Batty et al. (2022) show that
-communication delay creates a fundamental transparency-stability trade-off:
+particularly when haptic feedback is included. \textcite{batty2022transparent}
+show that communication delay creates a fundamental transparency--stability trade-off:
 increasing direct force correspondence can degrade stability, while aggressive
 stabilisation can mute the fidelity of operator feedback. In response, they
 implement an environment-estimation and force-prediction architecture, where
@@ -367,19 +402,20 @@ slave-side contact parameters are estimated online (EWRLS) and master feedback
 is generated through a predicted virtual environment rather than delayed direct
 force reflection. Their human-in-the-loop palpation experiments demonstrate that
 this predictive approach substantially reduces force prediction error (with the
-Hunt-Crossley model outperforming Kelvin-Voigt and direct force feedback), and
+Hunt--Crossley model outperforming Kelvin--Voigt and direct force feedback), and
 improves teleoperation transparency under delay. A key implication in the
 literature is that latency management should be treated as a control-architecture
 problem, not solely a communications problem, and that model quality strongly
-influences the practical quality of teleoperated manipulation (Batty et al.,
-2022).
+influences the practical quality of teleoperated manipulation \parencite{batty2022transparent}. 
+Effective solutions must therefore balance filtering,
+prediction, and system dynamics to maintain both stability and responsiveness.
 
 \subsubsection{State Estimation and Predictive Bilateral Architectures}
 
 Filtering is therefore not optional in surgical teleoperation; it is a
 foundational requirement for maintaining stable and trustworthy state estimates
-when measurements are noisy and network transport is imperfect. Lashari et al.
-(2025) show that a Kalman filter paired with MOESP-identified state-space
+when measurements are noisy and network transport is imperfect. \textcite{lashari2025enhancing}
+show that a Kalman filter paired with MOESP-identified state-space
 models can estimate patient-side manipulator position with high robustness under
 delay, jitter, and packet loss, while remaining computationally lightweight for
 real-time use. This is especially relevant when exact plant dynamics are not
@@ -391,15 +427,15 @@ delayed information, and preserve control continuity so that downstream motion
 control and haptic/visual feedback remain clinically usable. A key limitation,
 however, is that the reported performance is primarily based on dataset-driven
 modelling and simulated network impairments, so in vivo generalisability and
-cross-platform transfer still require further validation (Lashari et al., 2025).
+cross-platform transfer still require further validation \parencite{lashari2025enhancing}.
 
 Predictive bilateral control is also emerging as a practical strategy for
-continuum and snake-like teleoperation under delay. Ebrahimian et al. (2024)
+continuum and snake-like teleoperation under delay. \textcite{ebrahimian2024online}
 propose an online architecture that combines model-mediated force prediction on
 the master side with ANN-based operator motion prediction on the slave side,
 with the explicit goal of reducing perceived communication lag while preserving
 position synchronisation and haptic transparency. This is highly relevant to the
-macro-micro literature because it addresses the same core bottleneck as
+macro--micro literature because it addresses the same core bottleneck as
 latency and filtering studies, but at the controller-architecture level: delay
 compensation is handled through coordinated forward and backward prediction,
 rather than through one-sided compensation only. Their simulation results show
@@ -407,12 +443,14 @@ strong delay bypass for known constant delays in snake-like robot teleoperation,
 but a key limitation is that performance is demonstrated mainly in simulation
 with structured assumptions (e.g., known constant delay and constrained robot
 DOFs), which may not fully capture variable-delay clinical networks or
-higher-complexity surgical interaction dynamics (Ebrahimian et al., 2024).
+higher-complexity surgical interaction dynamics \parencite{ebrahimian2024online}.
+Together, these approaches highlight that robust teleoperation under delay requires 
+both reliable state estimation and predictive control, reinforcing the need for integrated architectures rather than isolated solutions.
 
 \subsubsection{Shared Control, Immersion, and Haptic Force Awareness}
 
 Beyond tremor and delay, user intent mapping is a central teleoperation design
-problem in shared control. Bowman et al. (2024) argue that direct motion
+problem in shared control. \textcite{bowman2024intent} argue that direct motion
 mapping alone is insufficient for robust telemanipulation when the human and
 robot hands are physically dissimilar, because low-level geometric tracking does
 not necessarily preserve high-level task success. Their intent-based task-oriented
@@ -420,11 +458,11 @@ shared control framework instead blends operator-following behaviour with
 autonomous task assistance using inferred intent probabilities and adaptive
 arbitration weights. Critically, this contribution is not just another blending
 policy: it formalises how authority should shift based on hand-structure
-discrepancy and task constraints, which is directly relevant to macro-micro MIS
+discrepancy and task constraints, which is directly relevant to macro--micro MIS
 systems where distal tools cannot perfectly mimic surgeon hand kinematics.
 This supports the broader literature position that intuitive teleoperation
 should be evaluated by both task completion and perceived control, rather than
-endpoint tracking error alone (Bowman et al., 2024).
+endpoint tracking error alone \parencite{bowman2024intent}.
 
 However, an important limitation is that the reported validation is constrained
 to controlled grasping tasks and specific intent models, so transferability to
@@ -433,62 +471,129 @@ an open question.
 
 Recent review-level synthesis also indicates that immersive visualisation and
 haptic augmentation are transitioning from laboratory prototypes toward
-clinically relevant teleoperation workflows (Bogue, 2024). Across the studies
-summarised, VR-based viewpoint control and stereoscopic scene rendering improve
-situational awareness in tasks where fixed-camera teleoperation typically
-underperforms. Representative evidence includes an increase in pick-and-place
-success from 62.5\% to 90.0\% in a viewpoint-independent VR interface trial,
-and reduced operator workload/time in mixed-reality assisted manipulation tasks
-reported in comparative experiments (Bogue, 2024).
+clinically relevant teleoperation workflows \parencite{bogue2024developments}.
+Across the studies summarised, VR-based viewpoint control and stereoscopic scene
+rendering improve situational awareness in tasks where fixed-camera teleoperation
+typically underperforms. Representative evidence includes an increase in
+pick-and-place success from 62.5\% to 90.0\% in a viewpoint-independent VR
+interface trial, and reduced operator workload and task time in mixed-reality
+assisted manipulation experiments \parencite{bogue2024developments}.
 
 For MIS relevance, the strongest transferable point is not immersion alone but
-the interaction between perception quality and force regulation. Bogue (2024)
-reports that force-feedback-enabled surgical platforms are now appearing in
+the interaction between perception quality and force regulation. \textcite{bogue2024developments}
+report that force-feedback-enabled surgical platforms are now appearing in
 commercial systems, including preclinical da Vinci 5 results where surgeons
 applied 43\% less tissue force with haptic-enabled instruments, and Saroa trial
 results showing mean grasp-force reduction from 2.14 N to 0.63 N in a delicate
-transfer task. These results support including haptic/force-awareness as a
+transfer task. These results support including haptic and force-awareness as a
 safety-linked teleoperation design variable in this thesis, rather than treating
-it as optional interface enhancement.
+it as an optional interface enhancement.
 
 The key limitation is evidentiary heterogeneity: the article aggregates diverse
 platforms, task types, and evaluation protocols, so direct cross-study
-performance comparison is weak. For thesis use, this source is therefore most
-valuable as trend evidence motivating your evaluation criteria (situational
-awareness, workload, and applied-force moderation), while primary validation
-claims should still rely on the underlying experimental papers.
+performance comparison is limited. For thesis use, this source is therefore most
+valuable as trend evidence motivating evaluation criteria such as situational
+awareness, workload, and applied-force moderation, while primary validation
+claims should still rely on the underlying experimental studies.
+
 
 \subsubsection{Transmission Nonlinearity and Distal Force Safety}
 
 Transmission backlash in cable-pulley drives is another directly relevant
 control bottleneck for laparoscopic end-effectors because direction reversals
-create delay and transition phases in which distal motion/torque do not track
-proximal commands linearly. Zou et al. (2022) model this explicitly and use a
-feedforward compensation term linked to output-side backlash,
-$\theta_{comp}=\Delta\theta_{out}\,R_5/R_0$, together with grasping torque
-estimation and saturation limiting, $M_{grasp}=M_{out}-M_{fric}$, to reduce
-tracking error and limit unsafe distal force. Their results indicate meaningful
-improvements in position and force control for cable-pulley laparoscopic
-instruments: reported distal-grasper position error is reduced to approximately
-1.03$^\circ$ mean (3.49$^\circ$ max), and grasping torque tracking error is
-reported below 0.025 N$\cdot$m in their compensated instrument tests. Nonetheless,
-residual error around direction reversal remains, highlighting that compensation
-quality still depends on parameter identification and friction-model fidelity.
+create delay and transition phases in which distal motion and torque do not
+track proximal commands linearly. \textcite{zou2022transmission} model this
+explicitly and use a feedforward compensation term linked to output-side
+backlash, $\theta_{comp}=\Delta\theta_{out},R_5/R_0$, together with grasping
+torque estimation and saturation limiting, $M_{grasp}=M_{out}-M_{fric}$, to
+reduce tracking error and limit unsafe distal force. Their results indicate
+meaningful improvements in position and force control for cable-pulley
+laparoscopic instruments: reported distal-grasper position error is reduced to
+approximately 1.03$^\circ$ mean (3.49$^\circ$ max), and grasping torque tracking
+error is reported below 0.025 N$\cdot$m in compensated instrument tests.
+Nonetheless, residual error around direction reversal remains, highlighting that
+compensation quality still depends on parameter identification and friction-model
+fidelity \parencite{zou2022transmission}.
 
-Related tendon--sheath evidence further strengthens this point in shape-variable
-conditions. Hong et al. (2025) model backlash-like hysteresis in tendon--sheath
-pairs using an equivalent-circle representation, where deadband is linked to
-master/slave deformation mismatch ($D=\delta_{TSM(master)}-
-\delta_{TSM(slave)}$) and then compensated by feedforward updated from
-proximal calibration without distal sensing. Their reported results show RMSE
-reduction from 1.31 mm to 0.19 mm on average (85.5\% reduction). This is
-highly relevant to laparoscopic routing uncertainty; however, the approach still
-depends on reliable calibration and assumptions about unchanged geometric
-conditions during each compensation interval.
+Related tendon--sheath evidence further strengthens this point in
+shape-variable conditions. \textcite{hong2025backlash} model backlash-like
+hysteresis in tendon--sheath pairs using an equivalent-circle representation,
+where deadband is linked to master/slave deformation mismatch
+($D=\delta_{TSM(master)}-\delta_{TSM(slave)}$) and then compensated by
+feedforward updated from proximal calibration without distal sensing. Their
+results show RMSE reduction from 1.31 mm to 0.19 mm on average (85.5%
+reduction). This is highly relevant to laparoscopic routing uncertainty;
+however, the approach still depends on reliable calibration and assumptions
+about unchanged geometric conditions during each compensation interval
+\parencite{hong2025backlash}.
 
-Collectively, these control studies establish clear performance requirements for
-low-cost macro-micro platforms and provide a direct conceptual bridge to modular
-continuum hardware discussions.
+Collectively, these studies highlight that transmission nonlinearity remains a
+critical limitation in tendon-driven surgical manipulators, particularly under
+variable routing and loading conditions. While feedforward compensation can
+significantly reduce tracking and force errors, performance remains dependent on
+accurate parameter identification and stable system geometry.
+
+These findings establish clear performance requirements for low-cost macro--micro
+platforms and provide a direct conceptual bridge to modular continuum hardware
+discussions. The relationship between these control problems within the overall
+teleoperation loop is illustrated in Fig.~\ref{fig:teleop_architecture}.
+
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    node distance=0.9cm and 1.0cm,
+    >=Latex,
+    block/.style={
+        rectangle,
+        draw=black,
+        rounded corners,
+        minimum width=2.3cm,
+        minimum height=1.0cm,
+        align=center,
+        font=\small
+    },
+    smallblock/.style={
+        rectangle,
+        draw=black,
+        rounded corners,
+        minimum width=2.2cm,
+        minimum height=0.9cm,
+        align=center,
+        font=\small
+    }
+]
+
+% Main row
+\node[block] (human) {Human\\Operator};
+\node[block, right=of human] (master) {Master Interface\\(haptic/input)};
+\node[block, right=of master] (controller) {Teleoperation\\Controller};
+\node[block, right=of controller] (slave) {Slave Robot\\(macro--micro)};
+\node[block, right=of slave] (env) {Surgical\\Environment};
+
+% Supporting blocks
+\node[smallblock, above=1.2cm of controller] (shared) {Shared Control\\and Intent Mapping};
+\node[smallblock, below=1.4cm of controller] (state) {State Estimation\\and Filtering};
+\node[smallblock, below=1.4cm of slave] (transmission) {Backlash / Hysteresis\\Compensation};
+
+% Main arrows
+\draw[->] (human) -- (master);
+\draw[->] (master) -- node[above, font=\tiny] {command} (controller);
+\draw[->] (controller) -- node[above, font=\tiny] {control} (slave);
+\draw[->] (slave) -- node[above, font=\tiny] {action} (env);
+
+% Support arrows
+\draw[->] (shared) -- (controller);
+\draw[->] (state) -- (controller);
+\draw[->] (transmission) -- (slave);
+
+% Feedback path
+\draw[->] (env.south) |- ++(0,-1.3) -| node[pos=0.25, above, font=\tiny] {feedback} (master.south);
+
+\end{tikzpicture}
+\caption{Simplified teleoperation architecture for macro--micro surgical robotics. The reviewed literature addresses different parts of this loop, including state estimation, shared control, predictive control, and transmission compensation.}
+\label{fig:teleop_architecture}
+\end{figure}
 
 \subsection{Modularity and Tendon-Driven Continuum Manipulators}
 In this review, a \textit{monolithic} distal architecture is defined as a single

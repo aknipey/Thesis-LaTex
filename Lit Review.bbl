@@ -45,6 +45,49 @@
       \field{type}{Honours thesis}
       \field{year}{2023}
     \endentry
+    \entry{vitiello2013emerging}{article}{}
+      \name{author}{4}{}{%
+        {{hash=d573dddff6afd21e4bee4a89e313a124}{%
+           family={Vitiello},
+           familyi={V\bibinitperiod},
+           given={Valentina},
+           giveni={V\bibinitperiod}}}%
+        {{hash=1c4987473fda324f28b78d6ba0454d69}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Su-Lin},
+           giveni={S\bibinithyphendelim L\bibinitperiod}}}%
+        {{hash=66ffe9507255f4320baab2ce0007e62d}{%
+           family={Cundy},
+           familyi={C\bibinitperiod},
+           given={Thomas\bibnamedelima P.},
+           giveni={T\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=fcdeef628f31c9c5305ee39311f1fcc6}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Guang-Zhong},
+           giveni={G\bibinithyphendelim Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{8d5df85593c14f3bf36ec1fb109c6503}
+      \strng{fullhash}{42a286591ad6341d404c4864eefe54b6}
+      \strng{bibnamehash}{42a286591ad6341d404c4864eefe54b6}
+      \strng{authorbibnamehash}{42a286591ad6341d404c4864eefe54b6}
+      \strng{authornamehash}{8d5df85593c14f3bf36ec1fb109c6503}
+      \strng{authorfullhash}{42a286591ad6341d404c4864eefe54b6}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Reviews in Biomedical Engineering}
+      \field{title}{Emerging robotic platforms for minimally invasive surgery}
+      \field{volume}{6}
+      \field{year}{2013}
+      \field{pages}{111\bibrangedash 126}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1109/RBME.2012.2236311
+      \endverb
+    \endentry
     \entry{hargest2021five}{article}{}
       \name{author}{1}{}{%
         {{hash=77bda72b1e5babf25becbf02b56bb4fd}{%
@@ -129,10 +172,17 @@
       \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://www.intuitive.com/en-us/products-and-services/da-vinci}}
-      \field{note}{Accessed: 19 April 2026}
       \field{title}{Da Vinci Robotic Surgical Systems}
-      \field{year}{n.d.}
+      \field{urlday}{19}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.intuitive.com/en-us/products-and-services/da-vinci
+      \endverb
+      \verb{url}
+      \verb https://www.intuitive.com/en-us/products-and-services/da-vinci
+      \endverb
     \endentry
     \entry{ko2025tool}{article}{}
       \name{author}{4}{}{%
@@ -212,6 +262,102 @@
       \verb 10.3390/robotics11030057
       \endverb
     \endentry
+    \entry{razjigaev2021snakeraven}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=1649e3b21fdb1cb06bf7e66bd83f259e}{%
+           family={Razjigaev},
+           familyi={R\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod}}}%
+        {{hash=52c27fb5e3abef36fdfa839ad9bf0f52}{%
+           family={Pandey},
+           familyi={P\bibinitperiod},
+           given={Ajay\bibnamedelima K.},
+           giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=83bc56621eaf89ee5056a417703ee5b9}{%
+           family={Howard},
+           familyi={H\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=65b931b85958ad179656a050cf28cf72}{%
+           family={Roberts},
+           familyi={R\bibinitperiod},
+           given={Jonathan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=e726fab8db6c93b18b8a1d70d62867fa}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Liao},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{b977d43b4125e7486cea3c756a382c93}
+      \strng{fullhash}{09c8c4311e118343d6942ac7ac120529}
+      \strng{bibnamehash}{09c8c4311e118343d6942ac7ac120529}
+      \strng{authorbibnamehash}{09c8c4311e118343d6942ac7ac120529}
+      \strng{authornamehash}{b977d43b4125e7486cea3c756a382c93}
+      \strng{authorfullhash}{09c8c4311e118343d6942ac7ac120529}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2021 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)}
+      \field{title}{{SnakeRaven}: Teleoperation of a 3D printed snake-like manipulator integrated to the {RAVEN II} surgical robot}
+      \field{year}{2021}
+      \field{pages}{5282\bibrangedash 5288}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1109/IROS51168.2021.9636878
+      \endverb
+    \endentry
+    \entry{eckhoff2023costs}{article}{}
+      \name{author}{5}{}{%
+        {{hash=062b6c6552c95249390c4f46beddf693}{%
+           family={Eckhoff},
+           familyi={E\bibinitperiod},
+           given={Jennifer\bibnamedelima A.},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=b9d413f970cda9bb2df82867f09679d1}{%
+           family={Mueller},
+           familyi={M\bibinitperiod},
+           given={Dolores\bibnamedelima T.},
+           giveni={D\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=c740220793e495f9e221a875317517cd}{%
+           family={Brunner},
+           familyi={B\bibinitperiod},
+           given={Stefanie\bibnamedelima N.},
+           giveni={S\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=9592571a273955d3af810d7393f66861}{%
+           family={Fuchs},
+           familyi={F\bibinitperiod},
+           given={Hans\bibnamedelima F.},
+           giveni={H\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=6fe5d3ef41beb280303a6336ca36c1d7}{%
+           family={Meireles},
+           familyi={M\bibinitperiod},
+           given={Ozanan\bibnamedelima R.},
+           giveni={O\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{a0eefd0993ba6e96331ec145f6768835}
+      \strng{fullhash}{5dc728ffed773f9dd74bdd1d48fa26d4}
+      \strng{bibnamehash}{5dc728ffed773f9dd74bdd1d48fa26d4}
+      \strng{authorbibnamehash}{5dc728ffed773f9dd74bdd1d48fa26d4}
+      \strng{authornamehash}{a0eefd0993ba6e96331ec145f6768835}
+      \strng{authorfullhash}{5dc728ffed773f9dd74bdd1d48fa26d4}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Abdominal Wall and Hernia Surgery}
+      \field{number}{2}
+      \field{title}{Do the costs of robotic surgery present an insurmountable obstacle? A narrative review}
+      \field{volume}{6}
+      \field{year}{2023}
+      \field{pages}{71}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.4103/ijawhs.IJAWHS_62_22
+      \endverb
+    \endentry
     \entry{raza2024transforming}{article}{}
       \name{author}{4}{}{%
         {{hash=64c9d2cedbd58c8e2cd9f0898472a109}{%
@@ -272,14 +418,469 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://standardbots.com/blog/universal-robot-price}}
-      \field{note}{Accessed: 20 April 2026}
       \field{title}{Universal Robots price guide: What to expect (new and used costs)}
-      \field{year}{n.d.}
+      \field{urlday}{20}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://standardbots.com/blog/universal-robot-price
+      \endverb
+      \verb{url}
+      \verb https://standardbots.com/blog/universal-robot-price
+      \endverb
+    \endentry
+    \entry{burgnerkahrs2015continuum}{article}{}
+      \name{author}{3}{}{%
+        {{hash=a338e7425873703caeddb78596ed3f88}{%
+           family={Burgner-Kahrs},
+           familyi={B\bibinithyphendelim K\bibinitperiod},
+           given={Jessica},
+           giveni={J\bibinitperiod}}}%
+        {{hash=610974f4adb5aa8155e61dd2ced773c0}{%
+           family={Rucker},
+           familyi={R\bibinitperiod},
+           given={D.\bibnamedelimi Caleb},
+           giveni={D\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=72811108dcbc25428de5c7e317f511ed}{%
+           family={Choset},
+           familyi={C\bibinitperiod},
+           given={Howie},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{2defcfb3047c984a8f33ab753a710c42}
+      \strng{fullhash}{2defcfb3047c984a8f33ab753a710c42}
+      \strng{bibnamehash}{2defcfb3047c984a8f33ab753a710c42}
+      \strng{authorbibnamehash}{2defcfb3047c984a8f33ab753a710c42}
+      \strng{authornamehash}{2defcfb3047c984a8f33ab753a710c42}
+      \strng{authorfullhash}{2defcfb3047c984a8f33ab753a710c42}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Robotics}
+      \field{number}{6}
+      \field{title}{Continuum robots for medical applications: A survey}
+      \field{volume}{31}
+      \field{year}{2015}
+      \field{pages}{1261\bibrangedash 1280}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1109/TRO.2015.2489500
+      \endverb
+    \endentry
+    \entry{dupont2022continuum}{article}{}
+      \name{author}{4}{}{%
+        {{hash=af5e27dd0e5ebc3161a0a2b97cf57f38}{%
+           family={Dupont},
+           familyi={D\bibinitperiod},
+           given={Pierre\bibnamedelima E.},
+           giveni={P\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=c8898705082ae0805f9c0f0629163532}{%
+           family={Simaan},
+           familyi={S\bibinitperiod},
+           given={Nabil},
+           giveni={N\bibinitperiod}}}%
+        {{hash=72811108dcbc25428de5c7e317f511ed}{%
+           family={Choset},
+           familyi={C\bibinitperiod},
+           given={Howie},
+           giveni={H\bibinitperiod}}}%
+        {{hash=ffdc381f848483dbbe669f803386ddd6}{%
+           family={Rucker},
+           familyi={R\bibinitperiod},
+           given={Caleb},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{39c9663d3519ebcd967a464e489f721c}
+      \strng{fullhash}{ed945d51c902a67298ac53d55205341a}
+      \strng{bibnamehash}{ed945d51c902a67298ac53d55205341a}
+      \strng{authorbibnamehash}{ed945d51c902a67298ac53d55205341a}
+      \strng{authornamehash}{39c9663d3519ebcd967a464e489f721c}
+      \strng{authorfullhash}{ed945d51c902a67298ac53d55205341a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the IEEE}
+      \field{number}{7}
+      \field{title}{Continuum robots for medical interventions}
+      \field{volume}{110}
+      \field{year}{2022}
+      \field{pages}{847\bibrangedash 870}
+      \range{pages}{24}
+      \verb{doi}
+      \verb 10.1109/JPROC.2022.3141338
+      \endverb
+    \endentry
+    \entry{wang2022fiora}{article}{}
+      \name{author}{8}{}{%
+        {{hash=3768cb3691d9f8be784a4b189ba55772}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+        {{hash=39856f0439f35f79a8eed8b12d26166c}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+        {{hash=8e5e7d22e5fbcb53cb046f5199bbbeb1}{%
+           family={Luo},
+           familyi={L\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=818c12f185f4dfee907def4a3bb0fc71}{%
+           family={Kang},
+           familyi={K\bibinitperiod},
+           given={X.},
+           giveni={X\bibinitperiod}}}%
+        {{hash=f46cff6a47143fdbd36ae8842919e073}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+        {{hash=a3dc9bcfb5487bf8014255e1339e1a5a}{%
+           family={Lu},
+           familyi={L\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+        {{hash=f374d6be8181acd345c04516d10bea90}{%
+           family={Dong},
+           familyi={D\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=64ba599feaf2495192fcb4c428e737a4}{%
+           family={Jia},
+           familyi={J\bibinitperiod},
+           given={X.},
+           giveni={X\bibinitperiod}}}%
+      }
+      \strng{namehash}{54263cdd6e182ae9a9d351d467887cad}
+      \strng{fullhash}{4012c3c071591facaea306ece45aba7d}
+      \strng{bibnamehash}{54263cdd6e182ae9a9d351d467887cad}
+      \strng{authorbibnamehash}{54263cdd6e182ae9a9d351d467887cad}
+      \strng{authornamehash}{54263cdd6e182ae9a9d351d467887cad}
+      \strng{authorfullhash}{4012c3c071591facaea306ece45aba7d}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Robotics and Automation Letters}
+      \field{number}{2}
+      \field{title}{{FIORA}: A flexible tendon-driven continuum manipulator for laparoscopic surgery}
+      \field{volume}{7}
+      \field{year}{2022}
+      \field{pages}{1166\bibrangedash 1173}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/LRA.2021.3134276
+      \endverb
+    \endentry
+    \entry{sang2016zero}{article}{}
+      \name{author}{6}{}{%
+        {{hash=59471b9d7348d3bc29c0931150e7dc84}{%
+           family={Sang},
+           familyi={S\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+        {{hash=8a9ab49f0fe827e25142df0f1ec23209}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=5f5501ee3881a72f69061a6d21e20416}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+        {{hash=665a09a707a05b19f73b9dae8ebc728e}{%
+           family={Yun},
+           familyi={Y\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=21df3ded68ff5893ad0942143be778ae}{%
+           family={Jin},
+           familyi={J\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=4e6fe5946a342625d61c1d8e3370d779}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{f34f2d5c06b3b7c2d9eb83a330af1364}
+      \strng{fullhash}{52395af1fac11461cdc8f32cabfe5b0f}
+      \strng{bibnamehash}{52395af1fac11461cdc8f32cabfe5b0f}
+      \strng{authorbibnamehash}{52395af1fac11461cdc8f32cabfe5b0f}
+      \strng{authornamehash}{f34f2d5c06b3b7c2d9eb83a330af1364}
+      \strng{authorfullhash}{52395af1fac11461cdc8f32cabfe5b0f}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The International Journal of Medical Robotics and Computer Assisted Surgery}
+      \field{number}{4}
+      \field{title}{A zero phase adaptive fuzzy Kalman filter for physiological tremor suppression in robotically assisted minimally invasive surgery}
+      \field{volume}{12}
+      \field{year}{2016}
+      \field{pages}{658\bibrangedash 669}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1002/rcs.1741
+      \endverb
+    \endentry
+    \entry{batty2022transparent}{article}{}
+      \name{author}{5}{}{%
+        {{hash=d3cfe60fc11aad7aa5e166ea6b89747f}{%
+           family={Batty},
+           familyi={B\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=bbc24a8f9abfc5fc05166f538da80446}{%
+           family={Ehrampoosh},
+           familyi={E\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=aef7a669ff5aff98420893f480e848ad}{%
+           family={Shirinzadeh},
+           familyi={S\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=72d6a37650ca2c6452d0956f6d2e2c7f}{%
+           family={Zhong},
+           familyi={Z\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=b18f02a97cf23823923df8c18784f5df}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{ee5871ba0bfd981684d985305310046e}
+      \strng{fullhash}{265e17d0110bb0b273fd2fc4abd062c8}
+      \strng{bibnamehash}{265e17d0110bb0b273fd2fc4abd062c8}
+      \strng{authorbibnamehash}{265e17d0110bb0b273fd2fc4abd062c8}
+      \strng{authornamehash}{ee5871ba0bfd981684d985305310046e}
+      \strng{authorfullhash}{265e17d0110bb0b273fd2fc4abd062c8}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Sensors}
+      \field{number}{24}
+      \field{title}{A transparent teleoperated robotic surgical system with predictive haptic feedback and force modelling}
+      \field{volume}{22}
+      \field{year}{2022}
+      \field{pages}{9770}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/s22249770
+      \endverb
+    \endentry
+    \entry{ebrahimian2024online}{article}{}
+      \name{author}{5}{}{%
+        {{hash=73bac2ffcf9ee9d8c6065989b2821b26}{%
+           family={Ebrahimian},
+           familyi={E\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=48b0ac7f480f9c659e806ca5050f7ef7}{%
+           family={Pourmokhtari},
+           familyi={P\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=b22fc8ead001d237263c33a8bf48628c}{%
+           family={Ghiyasi},
+           familyi={G\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=fb52fbc5136b3bb35033c29dd24b9203}{%
+           family={Yazdankhoo},
+           familyi={Y\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=4b29c6b94f68e8635b4b351b379f2729}{%
+           family={Beigzadeh},
+           familyi={B\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{ba2678844fdbf0317a53b4da388ae926}
+      \strng{fullhash}{7b434154b194fcea5ec954ebb748ccba}
+      \strng{bibnamehash}{7b434154b194fcea5ec954ebb748ccba}
+      \strng{authorbibnamehash}{7b434154b194fcea5ec954ebb748ccba}
+      \strng{authornamehash}{ba2678844fdbf0317a53b4da388ae926}
+      \strng{authorfullhash}{7b434154b194fcea5ec954ebb748ccba}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Intelligent \& Robotic Systems}
+      \field{title}{Online bilateral predictive control for time-delayed teleoperation of snake-like robots}
+      \field{volume}{110}
+      \field{year}{2024}
+      \field{pages}{80}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1007/s10846-024-02113-3
+      \endverb
+    \endentry
+    \entry{bowman2024intent}{article}{}
+      \name{author}{3}{}{%
+        {{hash=7a1e6a5b1443e877e1ada47980b8c47d}{%
+           family={Bowman},
+           familyi={B\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=8afab9bdc9b292debbeb136dfd97036c}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=30ff3ef4a89e0c6777f480da5386b053}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={X.},
+           giveni={X\bibinitperiod}}}%
+      }
+      \strng{namehash}{0749d942a2c5ec031503c4839fd91799}
+      \strng{fullhash}{0749d942a2c5ec031503c4839fd91799}
+      \strng{bibnamehash}{0749d942a2c5ec031503c4839fd91799}
+      \strng{authorbibnamehash}{0749d942a2c5ec031503c4839fd91799}
+      \strng{authornamehash}{0749d942a2c5ec031503c4839fd91799}
+      \strng{authorfullhash}{0749d942a2c5ec031503c4839fd91799}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Intelligent \& Robotic Systems}
+      \field{title}{Intent-based task-oriented shared control for intuitive telemanipulation}
+      \field{volume}{110}
+      \field{year}{2024}
+      \field{pages}{167}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1007/s10846-024-02185-1
+      \endverb
+    \endentry
+    \entry{bogue2024developments}{article}{}
+      \name{author}{1}{}{%
+        {{hash=184a3a005152bcc5d3a1925d04bcd19f}{%
+           family={Bogue},
+           familyi={B\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{184a3a005152bcc5d3a1925d04bcd19f}
+      \strng{fullhash}{184a3a005152bcc5d3a1925d04bcd19f}
+      \strng{bibnamehash}{184a3a005152bcc5d3a1925d04bcd19f}
+      \strng{authorbibnamehash}{184a3a005152bcc5d3a1925d04bcd19f}
+      \strng{authornamehash}{184a3a005152bcc5d3a1925d04bcd19f}
+      \strng{authorfullhash}{184a3a005152bcc5d3a1925d04bcd19f}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Industrial Robot}
+      \field{number}{5}
+      \field{title}{Developments in robotic teleoperation}
+      \field{volume}{51}
+      \field{year}{2024}
+      \field{pages}{697\bibrangedash 703}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1108/IR-08-2024-0358
+      \endverb
+    \endentry
+    \entry{zou2022transmission}{article}{}
+      \name{author}{3}{}{%
+        {{hash=8d8c84869a4d7edbb334732cba2b8c5b}{%
+           family={Zou},
+           familyi={Z\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=0f2234b06477ac71f67fe16d3e2b397f}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=cae9da35ae12a6cbd407d07b86b4e18c}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{3d791534ae317dee3a240757217fa06c}
+      \strng{fullhash}{3d791534ae317dee3a240757217fa06c}
+      \strng{bibnamehash}{3d791534ae317dee3a240757217fa06c}
+      \strng{authorbibnamehash}{3d791534ae317dee3a240757217fa06c}
+      \strng{authornamehash}{3d791534ae317dee3a240757217fa06c}
+      \strng{authorfullhash}{3d791534ae317dee3a240757217fa06c}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Applied Sciences}
+      \field{number}{23}
+      \field{title}{Transmission backlash compensation and grasping force estimation of surgical instruments for the laparoscopic minimally invasive surgery robot}
+      \field{volume}{12}
+      \field{year}{2022}
+      \field{pages}{12126}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/app122312126
+      \endverb
+    \endentry
+    \entry{hong2025backlash}{article}{}
+      \name{author}{4}{}{%
+        {{hash=4d9d44918fd3389c5579c8a660aeff77}{%
+           family={Hong},
+           familyi={H\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=e9d5d620810e3b5d062561aad9b7b29b}{%
+           family={Hong},
+           familyi={H\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=6e6f57a4a2529dec95830ee0d8c3245a}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=ae13f91357d1c1b6eb77e56d1256970c}{%
+           family={Won},
+           familyi={W\bibinitperiod},
+           given={S.\bibnamedelimi H.},
+           giveni={S\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{ab8da8f83eee156ba61fe34e587e886e}
+      \strng{fullhash}{f002489ebf10acdb9eba2172dc3e66a3}
+      \strng{bibnamehash}{f002489ebf10acdb9eba2172dc3e66a3}
+      \strng{authorbibnamehash}{f002489ebf10acdb9eba2172dc3e66a3}
+      \strng{authornamehash}{ab8da8f83eee156ba61fe34e587e886e}
+      \strng{authorfullhash}{f002489ebf10acdb9eba2172dc3e66a3}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Mechanisms and Robotics}
+      \field{number}{5}
+      \field{title}{Modeling backlash-like hysteresis and feedforward control of tendon-sheath mechanism pair with arbitrary shape: Excluding distal sensory input}
+      \field{volume}{17}
+      \field{year}{2025}
+      \field{pages}{051009}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1115/1.4067020
+      \endverb
     \endentry
   \enddatalist
-  \missing{razjigaev2021snake}
-  \missing{scott2022macro}
+  \missing{janabi2021continuum}
+  \missing{lashari2025enhancing}
 \endrefsection
 \endinput
 
