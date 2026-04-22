@@ -1,0 +1,285 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{scott2023macro}{thesis}{}
+      \name{author}{1}{}{%
+        {{hash=07b7760714a0fed508f28f59d2c52c1f}{%
+           family={Scott},
+           familyi={S\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {UNSW Sydney}%
+      }
+      \strng{namehash}{07b7760714a0fed508f28f59d2c52c1f}
+      \strng{fullhash}{07b7760714a0fed508f28f59d2c52c1f}
+      \strng{bibnamehash}{07b7760714a0fed508f28f59d2c52c1f}
+      \strng{authorbibnamehash}{07b7760714a0fed508f28f59d2c52c1f}
+      \strng{authornamehash}{07b7760714a0fed508f28f59d2c52c1f}
+      \strng{authorfullhash}{07b7760714a0fed508f28f59d2c52c1f}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{unpublished, provided by prof. Liao Wu}
+      \field{title}{Design and development of a macro-micro robotic system for minimally invasive surgery}
+      \field{type}{Honours thesis}
+      \field{year}{2023}
+    \endentry
+    \entry{hargest2021five}{article}{}
+      \name{author}{1}{}{%
+        {{hash=77bda72b1e5babf25becbf02b56bb4fd}{%
+           family={Hargest},
+           familyi={H\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{77bda72b1e5babf25becbf02b56bb4fd}
+      \strng{fullhash}{77bda72b1e5babf25becbf02b56bb4fd}
+      \strng{bibnamehash}{77bda72b1e5babf25becbf02b56bb4fd}
+      \strng{authorbibnamehash}{77bda72b1e5babf25becbf02b56bb4fd}
+      \strng{authornamehash}{77bda72b1e5babf25becbf02b56bb4fd}
+      \strng{authorfullhash}{77bda72b1e5babf25becbf02b56bb4fd}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of the Royal Society of Medicine}
+      \field{number}{1}
+      \field{title}{Five thousand years of minimal access surgery: 1850 to 1990: Technological developments}
+      \field{volume}{114}
+      \field{year}{2021}
+      \field{pages}{19\bibrangedash 29}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1177/0141076820967918
+      \endverb
+    \endentry
+    \entry{hatzinger2014ott}{article}{}
+      \name{author}{3}{}{%
+        {{hash=4aa7275b3e8514b457490daa60f4779d}{%
+           family={Hatzinger},
+           familyi={H\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=afcb28bd8383c4712518997808c23d2d}{%
+           family={Fesenko},
+           familyi={F\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=36f28b4f4d2f59d4063f4c5e509be0e4}{%
+           family={Sohn},
+           familyi={S\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{f20f71e30f5c7e1ba57310700171ba9b}
+      \strng{fullhash}{f20f71e30f5c7e1ba57310700171ba9b}
+      \strng{bibnamehash}{f20f71e30f5c7e1ba57310700171ba9b}
+      \strng{authorbibnamehash}{f20f71e30f5c7e1ba57310700171ba9b}
+      \strng{authornamehash}{f20f71e30f5c7e1ba57310700171ba9b}
+      \strng{authorfullhash}{f20f71e30f5c7e1ba57310700171ba9b}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Urologia Internationalis}
+      \field{number}{4}
+      \field{title}{The first human laparoscopy and {NOTES} operation: Dimitrij Oscarovic Ott (1855--1929)}
+      \field{volume}{92}
+      \field{year}{2014}
+      \field{pages}{387\bibrangedash 391}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1159/000358016
+      \endverb
+    \endentry
+    \entry{davinci_intuitive}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=d555cdcf079061fce6cf7886a9ce97dd}{%
+           family={{Intuitive}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{d555cdcf079061fce6cf7886a9ce97dd}
+      \strng{fullhash}{d555cdcf079061fce6cf7886a9ce97dd}
+      \strng{bibnamehash}{d555cdcf079061fce6cf7886a9ce97dd}
+      \strng{authorbibnamehash}{d555cdcf079061fce6cf7886a9ce97dd}
+      \strng{authornamehash}{d555cdcf079061fce6cf7886a9ce97dd}
+      \strng{authorfullhash}{d555cdcf079061fce6cf7886a9ce97dd}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.intuitive.com/en-us/products-and-services/da-vinci}}
+      \field{note}{Accessed: 19 April 2026}
+      \field{title}{Da Vinci Robotic Surgical Systems}
+      \field{year}{n.d.}
+    \endentry
+    \entry{ko2025tool}{article}{}
+      \name{author}{4}{}{%
+        {{hash=79649dc33ffbcf23d2de927f241b13b8}{%
+           family={Ko},
+           familyi={K\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=03f38c879ca0bc9f1dcbada69ea0519a}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=cedcd63ee975d99e2236495f734a2221}{%
+           family={Lim},
+           familyi={L\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+        {{hash=20b4de09eb2c0f6fbdf0febbafea948d}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{1c8b7cc9a1aa34127d91b775fed02188}
+      \strng{fullhash}{f79076200c445a4c2fe83229fc8f37e6}
+      \strng{bibnamehash}{f79076200c445a4c2fe83229fc8f37e6}
+      \strng{authorbibnamehash}{f79076200c445a4c2fe83229fc8f37e6}
+      \strng{authornamehash}{1c8b7cc9a1aa34127d91b775fed02188}
+      \strng{authorfullhash}{f79076200c445a4c2fe83229fc8f37e6}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The International Journal of Medical Robotics and Computer Assisted Surgery}
+      \field{number}{5}
+      \field{title}{Design of automatic tool replacement mechanism for laparoscopic surgical robot arm for solo surgery}
+      \field{volume}{21}
+      \field{year}{2025}
+      \field{pages}{e70106}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1002/rcs.70106
+      \endverb
+    \endentry
+    \entry{seetohul2022snake}{article}{}
+      \name{author}{2}{}{%
+        {{hash=a28331f2491cd185f5956a018d4021d3}{%
+           family={Seetohul},
+           familyi={S\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=451c29927235c29f1294e815451c1a6e}{%
+           family={Shafiee},
+           familyi={S\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{fd44a62b8860d7061f23796e3a9fe602}
+      \strng{fullhash}{fd44a62b8860d7061f23796e3a9fe602}
+      \strng{bibnamehash}{fd44a62b8860d7061f23796e3a9fe602}
+      \strng{authorbibnamehash}{fd44a62b8860d7061f23796e3a9fe602}
+      \strng{authornamehash}{fd44a62b8860d7061f23796e3a9fe602}
+      \strng{authorfullhash}{fd44a62b8860d7061f23796e3a9fe602}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Robotics}
+      \field{number}{3}
+      \field{title}{Snake robots for surgical applications: A review}
+      \field{volume}{11}
+      \field{year}{2022}
+      \field{pages}{57}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/robotics11030057
+      \endverb
+    \endentry
+    \entry{raza2024transforming}{article}{}
+      \name{author}{4}{}{%
+        {{hash=64c9d2cedbd58c8e2cd9f0898472a109}{%
+           family={Raza},
+           familyi={R\bibinitperiod},
+           given={Z.},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=0da445440bc469acc64ffe4a74f0d588}{%
+           family={Saqib},
+           familyi={S\bibinitperiod},
+           given={S.\bibnamedelimi U.},
+           giveni={S\bibinitperiod\bibinitdelim U\bibinitperiod}}}%
+        {{hash=d53bbdb12061217354a025c75e0e6ceb}{%
+           family={Zafar},
+           familyi={Z\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+        {{hash=b8fbdcebc28145a973312fe0f1466582}{%
+           family={Islam},
+           familyi={I\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{1b51552225a3e8f99d50a0c0eb50f2ed}
+      \strng{fullhash}{ef7abc2cc79b9b0d6dbfa23e9691ec5e}
+      \strng{bibnamehash}{ef7abc2cc79b9b0d6dbfa23e9691ec5e}
+      \strng{authorbibnamehash}{ef7abc2cc79b9b0d6dbfa23e9691ec5e}
+      \strng{authornamehash}{1b51552225a3e8f99d50a0c0eb50f2ed}
+      \strng{authorfullhash}{ef7abc2cc79b9b0d6dbfa23e9691ec5e}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of the Pakistan Medical Association}
+      \field{number}{Suppl. 4}
+      \field{title}{Transforming surgical landscapes: obstacles in the integration of robotic surgery in Pakistan -- is cost the only limiting factor?}
+      \field{volume}{74}
+      \field{year}{2024}
+      \field{pages}{S151\bibrangedash S157}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.47391/JPMA.AKU-9S-23
+      \endverb
+    \endentry
+    \entry{standardbots_priceguide}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b50a8f876fbb5e9ff7a6c38e380c2d19}{%
+           family={{Standard Bots}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{b50a8f876fbb5e9ff7a6c38e380c2d19}
+      \strng{fullhash}{b50a8f876fbb5e9ff7a6c38e380c2d19}
+      \strng{bibnamehash}{b50a8f876fbb5e9ff7a6c38e380c2d19}
+      \strng{authorbibnamehash}{b50a8f876fbb5e9ff7a6c38e380c2d19}
+      \strng{authornamehash}{b50a8f876fbb5e9ff7a6c38e380c2d19}
+      \strng{authorfullhash}{b50a8f876fbb5e9ff7a6c38e380c2d19}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://standardbots.com/blog/universal-robot-price}}
+      \field{note}{Accessed: 20 April 2026}
+      \field{title}{Universal Robots price guide: What to expect (new and used costs)}
+      \field{year}{n.d.}
+    \endentry
+  \enddatalist
+  \missing{razjigaev2021snake}
+  \missing{scott2022macro}
+\endrefsection
+\endinput
+

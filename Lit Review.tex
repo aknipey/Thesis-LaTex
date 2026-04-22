@@ -15,9 +15,8 @@
 \usepackage{amsmath}
 \usepackage{bm}
 \usepackage{xurl}
-% Use biblatex for reference management
 \usepackage[backend=biber,style=ieee]{biblatex}
-% \addbibresource{References.bib} % Uncomment and create References.bib to use
+\addbibresource{references.bib}
 
 % Reduce common layout warnings from long URLs and dense prose.
 \setlength{\emergencystretch}{3em}
@@ -29,9 +28,6 @@
 \fancyfoot[C]{\textcolor{gray}{A. Knipe, Thesis Progress Report}}
 \renewcommand{\headrulewidth}{0pt} % remove header rule
 \renewcommand{\footrulewidth}{0pt} % remove footer rule
-
-% Section numbering style (Roman)
-\renewcommand{\thesection}{\Roman{section}}
 
 \begin{document}
 \hypersetup{pageanchor=false}
@@ -75,21 +71,12 @@
 \newpage
 % --- Abstract ---
 \begin{abstract}
-This draft literature review is structured for a thesis on a UR5e-based macro-micro robotic system with a flexible continuum tip for minimally invasive surgery (MIS). It consolidates relevant findings from prior work in the \textit{Lachlan Report}, identifies which foundations remain valid, and highlights where the state of the art now requires updated evidence. The review prioritizes three technical threads central to this thesis: (1) tendon-driven continuum manipulator design and motion algorithms, (2) integration with a macro robot (UR5e) with improved teleoperation behaviour, and (3) rapid end-effector exchange mechanisms. It also includes explicit ``missing area'' headings to direct next-stage searching, reading, and synthesis.
+This interim report and project plan is a Thesis A submission that lays the groundwork for improvements to a UR5e-based macro-micro robotic system with a flexible continuum tip for minimally invasive surgery (MIS).
+It consolidates relevant findings from prior work and available literature in relevant fields, and critically analyses how these prior works are related to this thesis. 
+The review explores three technical threads relating to improvements of the UR5e-based system. Control improvemments for teleoperation, tool exchange mechanisms for modularity, 
+and safety and reliability considerations are reviewed, with a focus on identifying specific gaps that this thesis can address. The report finds clear research opportunities in these areas,
+specifically around smoothing for teleoperative control, integrated tool exchange validation, and comprehensive safety analysis.
 \end{abstract}
-
-\newpage
-% --- Originality Statement ---
-\section*{ORIGINALITY STATEMENT}
-\addcontentsline{toc}{section}{Originality Statement}
-
-\textit{`I hereby declare that this submission is my own work and to the best of my knowledge it contains no materials previously published or written by another person, or substantial proportions of material which have been accepted for the award of any other degree or diploma at UNSW or any other educational institution, except where due acknowledgement is made in the thesis. Any contribution made to the research by others, with whom I have worked at UNSW or elsewhere, is explicitly acknowledged in the thesis. I also declare that the intellectual content of this thesis is the product of my own work, except to the extent that assistance from others in the project's design and conception or in style, presentation and linguistic expression is acknowledged.'} \\
-
-\vspace{1cm}
-		Signed: \rule{5cm}{0.4pt} \\
-
-\vspace{1cm}
-Date: \hspace{0.1cm} \rule{5cm}{0.4pt}
 
 \newpage
 % --- Table of Contents, Figures, Tables ---
@@ -128,10 +115,6 @@ $\boldsymbol{p}$ & = & rod centerline position in Cosserat formulation \\
 $\boldsymbol{R}$ & = & rod orientation in Cosserat formulation \\
 $\boldsymbol{n}$ & = & internal force in Cosserat formulation \\
 $\boldsymbol{m}$ & = & internal moment in Cosserat formulation \\
-$C_p$ & = & \dots \\
-$C_x$ & = & \dots \\
-$C_y$ & = & \dots \\
-$\alpha$ & = & \dots \\
 MIS & = & minimally invasive surgery \\
 TLA & = & \dots \\
 \end{tabular}
@@ -143,33 +126,30 @@ TLA & = & \dots \\
 
 \section{Introduction}
 \subsection{Project Context and Problem Significance}
-This thesis extends prior macro-micro robotic surgery work by coupling a UR5e macro manipulator with a new flexible continuum tip, then improving movement algorithms inherited from earlier implementations. The applied significance is strong: MIS demands dexterity in constrained spaces, low tissue interaction force, high positional repeatability, and robust safety controls.
-
-From the earlier project, the macro-micro concept and teleoperation feasibility are already established at a proof-of-concept level. The key opportunity now is to move from demonstration toward a more clinically credible engineering argument through stronger modeling, improved control reliability, and modular hardware architecture (rapid tool exchange).
-
-\subsection{Working Thesis Gap Statement (Draft)}
-Current literature and prior project work support feasibility of macro-micro MIS manipulation, but leave a practical translation gap at the intersection of \textbf{accurate continuum movement control}, \textbf{stable and reliable teleoperation}, and \textbf{fast, repeatable end-effector reconfiguration}. This thesis addresses that gap on a UR5e-based platform by improving inherited motion algorithms and integrating reliability and modularity mechanisms necessary for repeatable experimental deployment.
+This thesis aims to extend on previous macro-micro robotic surgery work by 2023 UNSW thesis student Lachlan Scott \cite{scott2023macro}.
+Scott partially identified areas of improvement that he saw for his own system, which this thesis aims to address. Furthermore, new improvement and research possibilities 
+have been identified that also build on Scott's work. The main areas of possible improvement are in the teleoperation control and motion of the system,
+the modularity of the system and thus ease of tool exchange, and the safety and reliability of the system for clinical use.
+Scott's earlier project has established the viability of the system that will be discussed at a proof-of-concept level.
+Hence, this review of the literature and the thesis question that follow need to recognise this context with regards to Scott's work.
 
 \section{Literature Review}
 
-\subsection{Introduction to Minimally Invasive Surgery (MIS) and Robotics}
+\subsection{Minimally Invasive Surgery (MIS) and Robotic Systems}
+
+\subsubsection{Historical Progression of Surgery and MIS Robotics}
+
+Technology and surgery have been inseparable for centuries as every surgical advancement or care improvement has been enabled by the parallel development of instruments and tools.
+From anaesthesia to antiseptics, innovation has enabled surgeons to reduce risk and expand the scope of treatable conditions \cite{vitiello2013emerging}.
+In the 19th century, innovations such as the transition from candlelight to electric lighting allowed for practical internal visualisation, marking the beginning of a major paradigm shift in the surgical field (Hargest five thousand years).
+Electricity also enable the development of various specialised surgical procedures, such as electrocautery for haemostatasis and the use of electric drills for orthopaedic surgery \cite{hargest2021five}.
+These innovations allowed for a stronger focus on precision and dexterity, and techniques such as laparoscopy and endoscopy were developed at the beginning of the 20th century, resulting in some of the first minimally invasive surgeries (MIS) \cite{hatzinger2014ott}.
+This trend towards less invasive procedures has continued, with the development of revolutionary robotic surgical systems such as the da Vinci Surgical System in the late 1990s, which has become widely adopted for various surgical procedures \cite{davinci_intuitive}.
 Laparoscopic surgery is a core MIS approach in which instruments are inserted
 through small abdominal incisions using trocar access ports, rather than a
-large open incision (Ko et al., 2025). In this report, MIS denotes procedures
+large open incision \cite{ko2025tool}. In this report, MIS denotes procedures
 that use these reduced-access pathways to lower tissue trauma and recovery
 burden relative to open surgery.
-
-\begin{itemize}
-    \item The clinical motivation: Why do we need surgical robots? (Precision, dexterity, patient outcomes).
-    \item The rise of Macro-Micro systems (combining a large positioning arm like a UR5e with a delicate continuum tip).
-\end{itemize}
-\paragraph{Historical progression of surgery and MIS robotics}
-Technology and surgery have been inseparable for centuries as every surgical advancement or care improvement has been enabled by the parallel development of instruments and tools. 
-From anaesthesia to antiseptics, innovation has enabled surgeons to reduce risk and expand the scope of treatable conditions (Emerging Robotic Platforms for Minimally Invasive Surgery)
-In the 19th century, innovations such as the transition from candlelight to electric lighting allowed for practical internal visualisation, marking the beginning of a major paradigm shift in the surgical field (Hargest five thousand years).
-Electricity also enable the development of various specialised surgical procedures, such as electrocautery for haemostatasis and the use of electric drills for orthopaedic surgery (hargest 5000 years).
-These innovations allowed for a stronger focus on precision and dexterity, and techniques such as laparoscopy and endoscopy were developed at the beginning of the 20th century, resulting in some of the first minimally invasive surgeries (MIS)(Hatzinger M, Fesenko A, Sohn M. The first human laparoscopy and NOTES operation: Dimitrij Oscarovic Ott (1855-1929). Urol Int. 2014;92(4):387-91. doi: 10.1159/000358016. Epub 2014 May 20. PMID: 24852454.).
-This trend towards less invasive procedures has continued, with the development of revolutionary robotic surgical systems such as the da Vinci Surgical System in the late 1990s, which has become widely adopted for various surgical procedures (Intuitive Surgical. da Vinci Surgical System. \url{https://www.intuitive.com/en-us/products-and-services/da-vinci/surgical-systems}. Accessed June 2024).
 
 \begin{figure}[H]
     \centering
@@ -178,92 +158,127 @@ This trend towards less invasive procedures has continued, with the development 
     \label{fig:progression_of_surgery}
 \end{figure}
 
-\paragraph{Macro-micro architecture motivation}
-The modern frontier of surgical robotics is achieving human-level dexterity,
-accuracy, and force control in increasingly small and complex anatomical spaces.
+\subsubsection{Macro--Micro Architecture for Surgical Robotics}
+
+The current aspiration of modern surgical robotics is achieving human-level dexterity,
+accuracy, and force control in increasingly small and complex anatomical spaces that may have limited access or visualisation.
 One key technological direction enabling this transition is minimally invasive
-surgical tooling with a macro-micro architecture.
+surgical tooling with a macro--micro architecture. This terminology refers to a two-stage robotic system in which a larger, more rigid macro manipulator provides gross positioning and stability,
+while a smaller, more flexible micro manipulator is attached to the distal end of the macro arm to provide fine manipulation capabilities in confined spaces \cite{scott2023macro}.
+
 The macro unit provides large-workspace positioning and efficiency; however,
-its larger structure can be prone to deformation and vibration.
-The micro manipulation unit is then attached to the larger arm and provides the
-distal dexterity required for manipulation in confined anatomy, where surgical
+its larger structure can be prone to deformation and vibration. In contrast, the micro manipulation unit provides the distal dexterity required for manipulation in confined anatomy, where surgical
 targets often require end-effectors in the 3--4 mm class for practical access
-through narrow channels and natural orifices. In current snake-robot literature,
-this micro stage is typically tendon/cable-actuated to achieve high local
-curvature and fine orientation control, but its performance depends strongly on
-motion transmission quality, sensing, and control architecture (Seetohul and
-Shafiee, 2022). In a macro-micro arrangement, this local dexterity complements
-the macro arm's gross positioning capability and helps isolate the endpoint from
-macro-stage vibration through coordinated control (Scott, 2022).
+through narrow channels and natural orifices.
 
-\paragraph{Cost and accessibility context}
-With growing demand and a rapidly expanding surgical robotics market, there is
-ongoing debate over whether the high cost of integrated platforms such as da
-Vinci limits accessibility, with acquisition costs reported up to \$4 million
-AUD and per-procedure costs of roughly \$1000--\$5000 (Do the costs of robotic
-surgery present an insurmountable obstacle? A narrative review).
-Despite clear clinical benefits, providers must still evaluate cost-effectiveness,
-especially in resource-limited settings (Do the costs of robotic surgery present
-an insurmountable obstacle? A narrative review).
-Evidence from low-to-middle income settings further shows that adoption barriers
-are not limited to purchase price alone: recurring maintenance, disposable
-instrument costs, and sustained training requirements can prevent programme
-continuity even after initial installation (Raza et al., 2024).
-The same review also highlights system-level constraints, including limited
-infrastructure, workforce training gaps, and tension between investing in
-robotics versus addressing unmet basic surgical needs, reinforcing a clear
-translational gap for scalable low-cost platforms (Raza et al., 2024).
-Taken together, these findings indicate a specific gap: affordable macro-micro
-systems that combine low-cost hardware with delay-robust, clinically credible
-teleoperation performance are still underdeveloped.
-These findings support the broader literature position that low-cost macro-micro
-architectures, including off-the-shelf hardware and open-source software stacks,
-are an important direction for improving accessibility while maintaining MIS
-precision and safety requirements (Scott, 2022).
+An example of this macro--micro architecture is shown in Fig.~\ref{fig:lachlan_combined_teleop}, where a UR5e macro robotic arm is integrated with a tendon-driven continuum micro-manipulator \cite{scott2023macro}.
 
-\paragraph{UR5e baseline and observed limitation}
-Specifically, the UR5e is a widely used, cost-effective robotic arm that can
-serve as the macro stage, with reported pricing around \$50,000--\$60,000 AUD,
-and can be integrated with a range of custom micro systems (Universal Robots
-price guide: What to expect (new and used costs)).
-The use of a UR5e-based macro-micro architecture has been demonstrated in prior
-thesis work by L. Scott (2022), which provided a proof-of-concept teleoperation
-pipeline using open-source ROS2.
-However, as highlighted by Scott, translational macro-arm commands produced
-observable vibration in the integrated system. Reducing this behaviour is
-necessary to meet clinical expectations for safety, repeatability, and motion
-quality in operating environments.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Images/LaxhlanCombinedTeleop.jpeg}
+    \caption{Macro--micro teleoperation system combining a UR5e robotic arm with a continuum-tip manipulator \cite{scott2023macro}.}
+    \label{fig:lachlan_combined_teleop}
+\end{figure}
 
-Continuum tips are a clinically relevant class of hyper-redundant end-effectors for MIS
-because they combine high dexterity with slender geometries that can be advanced
-through confined access pathways (e.g., lumens, natural orifices, and small
-incisions), where conventional rigid instruments are mechanically constrained.
+In current snake-robot literature, this micro stage is typically tendon or cable-actuated to achieve high local curvature and fine orientation control, 
+but its performance depends strongly on motion transmission quality, sensing, and control architecture \cite{seetohul2022snake}.
+Within a macro--micro arrangement, this local dexterity complements the macro arm's gross positioning capability and 
+can help isolate the endpoint from macro-stage vibration through coordinated control \cite{scott2023macro}.
+
+A system-level representation of this architecture is shown in Fig.~\ref{fig:lachlan_final_system_architecture}, illuminating the component integration.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Images/LachlanFinalSystemArchitecture.png}
+    \caption{System architecture of a UR5e-based macro--micro surgical manipulator, including teleoperation and continuum-tip integration \cite{scott2023macro}.}
+    \label{fig:lachlan_final_system_architecture}
+\end{figure}
+
+\subsubsection{Continuum Manipulators for MIS}
+
+This review is primarily focused on continuum tips, which are a type of hyper-redundant end-effectors for MIS.
+They combine high dexterity with slender geometries so that they can inserted through tightly constrained pathways 
+(e.g., lumens, natural orifices, and smallincisions), where traditional rigid tools may not fit.
+
 In the tendon-driven subclass, curvature is generated through differential tendon
 tension about a central backbone or articulated serial structure, enabling
 multi-DOF distal steering with compact proximal actuation and making these devices
-well suited to macro-micro architectures (Scott, 2022; Razjigaev et al., 2021;
-Seetohul and Shafiee, 2022).
+well suited to macro-micro architectures \cite{seetohul2022snake}. 
+An example of this is shown in Fig.~\ref{fig:snake_raven_reference}, 
+where a tendon-driven continuum tip is integrated with a Raven II surgical robot for teleoperation \cite{razjigaev2021snake}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{Images/snake_raven_reference.png}
-    \caption{SnakeRaven macro-micro surgical manipulator concept used as a relevant
-    continuum-tip reference from prior work (Scott, 2022; Razjigaev et al., 2021).}
+    \caption{SnakeRaven macro--micro surgical manipulator concept \cite{razjigaev2021snakeraven}.}
     \label{fig:snake_raven_reference}
 \end{figure}
 
-Within this context, current UR5e-based continuum implementations in the local
-literature follow the tendon-driven snake-like micro-manipulator direction
-established in Lachlan
-Scott's thesis, including a 4 mm-class distal tool, macro-micro integration with
-a UR5e platform, and teleoperation via a haptic interface. Scott reports
-preliminary electromagnetic-tracking validation showing close pose mirroring under
-teleoperation (reported average absolute position errors of 0.0272 mm and
-0.0161 mm across trial groups), while also identifying practical engineering
-constraints that remain unresolved, including macro-stage
-translational vibration and the time-consuming exchange of tendon-driven
-end-effectors in the current modular workflow (Scott, 2022; Razjigaev et al.,
-2021; Razjigaev et al., 2022; Seetohul and Shafiee, 2022).
+\subsubsection{Cost and Accessibility Considerations}
+
+With growing demand and a rapidly expanding surgical robotics market, there is
+ongoing debate over whether the high cost of integrated platforms such as the
+da Vinci system limits accessibility. Acquisition costs have been reported up to
+
+\$4 million AUD, with additional per-procedure costs of approximately
+\$1000--\$5000 \cite{eckhoff2023costs}.
+
+Despite clear clinical benefits, providers must still evaluate cost-effectiveness,
+particularly in resource-limited settings \cite{eckhoff2023costs}. Evidence from
+low and middle-income environments shows that there are more uptake barriers than the initial cost. 
+Recurring maintenance, disposable instrument costs, and
+sustained training requirements can prevent programme continuity even after
+installation \cite{raza2024transforming}.
+
+At a system level, further constraints arise from limited infrastructure,
+workforce training gaps, and the need to prioritise basic surgical capacity over
+advanced robotic systems \cite{raza2024transforming}. These factors collectively
+highlight a significant translational gap between technological capability and
+real-world clinical deployment.
+
+Taken together, the literature indicates that scalable, cost-effective robotic
+solutions remain underdeveloped. In particular, there is a need for affordable
+macro--micro systems that combine low-cost hardware with clinically credible and
+robust teleoperation performance.
+
+This aligns with broader research directions advocating the use of off-the-shelf
+hardware and open-source software frameworks to reduce system cost while
+maintaining the precision and safety requirements of minimally invasive surgery
+\cite{scott2022macro}.
+
+
+\subsubsection{UR5e-Based Systems and Identified Limitations}
+
+The UR5e is a widely used, cost-effective robotic manipulator that can serve as
+the macro stage in macro--micro surgical architectures, with reported pricing
+around \$50{,}000 to \$60{,}000 AUD \cite{standardbots_priceguide}. Its relatively
+low cost and flexibility make it a suitable platform for integration with
+custom micro-manipulation systems.
+
+The feasibility of a UR5e-based macro--micro architecture has been demonstrated
+in prior thesis work by Scott (2022), which implemented a proof-of-concept
+teleoperation pipeline using open-source ROS2. Within this framework, a
+tendon-driven continuum micro-manipulator was integrated with the macro arm and
+operated via a haptic interface, following the snake-like design approaches
+commonly reported in the literature.
+
+Preliminary validation using electromagnetic tracking demonstrated close pose
+mirroring under teleoperation, with reported average absolute position errors
+of 0.0272 mm and 0.0161 mm across trial groups. These results indicate that
+high-precision control is achievable within such macro--micro configurations.
+
+However, several practical engineering limitations remain. In particular,
+translational commands at the macro stage were observed to induce vibration in
+the integrated system, negatively affecting motion stability and repeatability.
+Additionally, the current modular workflow requires manual exchange of
+tendon-driven end-effectors, resulting in increased setup time and reduced
+operational efficiency.
+
+These limitations highlight a key gap in existing UR5e-based macro--micro
+systems: while feasibility and precision have been demonstrated, improvements in
+vibration suppression, system robustness, and workflow integration are required
+to meet clinical expectations for safety and usability in real-world operating
+environments \cite{scott2022macro, razjigaev2021snakeraven, seetohul2022snake}.
 
 \subsection{Teleoperation and Control in Surgical Robotics}
 \begin{itemize}
@@ -324,6 +339,8 @@ Within this control context, the relevant evidence can be read in five linked
 layers: tremor suppression, latency compensation, robust state estimation,
 predictive bilateral control, and intent-aware shared autonomy.
 
+\subsubsection{Tremor Suppression and Delay-Robust Interaction}
+
 Human physiological tremor is a central control challenge in robot-assisted MIS
 because involuntary operator motion is transmitted through the teleoperation loop
 and can appear as vibration at the surgical instrument tip, degrading precision
@@ -356,6 +373,8 @@ literature is that latency management should be treated as a control-architectur
 problem, not solely a communications problem, and that model quality strongly
 influences the practical quality of teleoperated manipulation (Batty et al.,
 2022).
+
+\subsubsection{State Estimation and Predictive Bilateral Architectures}
 
 Filtering is therefore not optional in surgical teleoperation; it is a
 foundational requirement for maintaining stable and trustworthy state estimates
@@ -390,6 +409,8 @@ with structured assumptions (e.g., known constant delay and constrained robot
 DOFs), which may not fully capture variable-delay clinical networks or
 higher-complexity surgical interaction dynamics (Ebrahimian et al., 2024).
 
+\subsubsection{Shared Control, Immersion, and Haptic Force Awareness}
+
 Beyond tremor and delay, user intent mapping is a central teleoperation design
 problem in shared control. Bowman et al. (2024) argue that direct motion
 mapping alone is insufficient for robust telemanipulation when the human and
@@ -400,15 +421,44 @@ autonomous task assistance using inferred intent probabilities and adaptive
 arbitration weights. Critically, this contribution is not just another blending
 policy: it formalises how authority should shift based on hand-structure
 discrepancy and task constraints, which is directly relevant to macro-micro MIS
-systems where distal tools cannot perfectly mimic surgeon hand kinematics. This
-supports the broader literature position that intuitive teleoperation should be evaluated by
-both task completion and perceived control, rather than endpoint tracking error
-alone (Bowman et al., 2024).
+systems where distal tools cannot perfectly mimic surgeon hand kinematics.
+This supports the broader literature position that intuitive teleoperation
+should be evaluated by both task completion and perceived control, rather than
+endpoint tracking error alone (Bowman et al., 2024).
 
 However, an important limitation is that the reported validation is constrained
 to controlled grasping tasks and specific intent models, so transferability to
 highly dynamic, deformable, and safety-critical in vivo surgical contexts remains
 an open question.
+
+Recent review-level synthesis also indicates that immersive visualisation and
+haptic augmentation are transitioning from laboratory prototypes toward
+clinically relevant teleoperation workflows (Bogue, 2024). Across the studies
+summarised, VR-based viewpoint control and stereoscopic scene rendering improve
+situational awareness in tasks where fixed-camera teleoperation typically
+underperforms. Representative evidence includes an increase in pick-and-place
+success from 62.5\% to 90.0\% in a viewpoint-independent VR interface trial,
+and reduced operator workload/time in mixed-reality assisted manipulation tasks
+reported in comparative experiments (Bogue, 2024).
+
+For MIS relevance, the strongest transferable point is not immersion alone but
+the interaction between perception quality and force regulation. Bogue (2024)
+reports that force-feedback-enabled surgical platforms are now appearing in
+commercial systems, including preclinical da Vinci 5 results where surgeons
+applied 43\% less tissue force with haptic-enabled instruments, and Saroa trial
+results showing mean grasp-force reduction from 2.14 N to 0.63 N in a delicate
+transfer task. These results support including haptic/force-awareness as a
+safety-linked teleoperation design variable in this thesis, rather than treating
+it as optional interface enhancement.
+
+The key limitation is evidentiary heterogeneity: the article aggregates diverse
+platforms, task types, and evaluation protocols, so direct cross-study
+performance comparison is weak. For thesis use, this source is therefore most
+valuable as trend evidence motivating your evaluation criteria (situational
+awareness, workload, and applied-force moderation), while primary validation
+claims should still rely on the underlying experimental papers.
+
+\subsubsection{Transmission Nonlinearity and Distal Force Safety}
 
 Transmission backlash in cable-pulley drives is another directly relevant
 control bottleneck for laparoscopic end-effectors because direction reversals
@@ -523,96 +573,151 @@ must be quantified together under clinically realistic routing and sterilisation
 conditions.
 
 \subsection{System Safety and Reliability Considerations}
-This section is structured as a staged argument from hazard definition to
-quantified residual risk, so that the final gap is explicit and testable.
+This section is organised from hazard definition to detection, consequence,
+mitigation, and lifecycle reliability so that one integrated safety gap is
+stated at the end.
 
-\subsubsection{3.1 Safety-Critical Hazard Model for Macro-Micro MIS}
-\textit{Purpose:} Define what can go wrong and what must be bounded.
-\begin{itemize}
-    \item enumerate hazard classes: unintended contact, excessive distal force, delayed response, post-swap miscalibration, and control-state mismatch after direction reversal,
-    \item state measurable safety variables: distal force/torque limits, position error, response latency, and allowed deadband/backlash window,
-    \item link each hazard to literature-supported mechanism/control causes.
-\end{itemize}
+\subsubsection{Safety Constraint Model and Hazard Taxonomy}
+Safety in macro-micro MIS is treated here as constrained execution under
+mechanical, control, and workflow limits. At the kinematic level, trocar
+constraint enforcement is represented by
+\begin{equation}
+\mathbf{v}_{RCM} = J_{RCM}\dot{\mathbf{q}} = \mathbf{0},
+\end{equation}
+and in constrained form
+\begin{equation}
+\dot{\mathbf{x}}_e = J_c\dot{\mathbf{q}}_I,
+\quad
+J_c = J_eT
+\begin{bmatrix}
+I_n \\
+-J_{II}^{-1}J_I
+\end{bmatrix}.
+\end{equation}
+For moving trocar conditions,
+\begin{equation}
+\dot{\mathbf{q}}_{II} = J_{II}^{-1}\left(\mathbf{v}_{trc}-J_I\dot{\mathbf{q}}_I\right),
+\end{equation}
+which preserves explicit constraint compensation under disturbance.
 
-\subsubsection{3.2 Distal Contact and Force-Limiting Strategies}
-\textit{Purpose:} Show how current work constrains tissue interaction risk.
-\begin{itemize}
-    \item compare force-limiting approaches: intrinsic compliance, model-based force estimation, and torque saturation,
-    \item extract quantitative thresholds/results where available (e.g., force-tracking and grasp-safety outcomes),
-    \item identify missing evidence: transfer from benchtop/tissue-phantom performance to clinically variable in vivo conditions.
-\end{itemize}
+These equations define one hazard layer (constraint violation), but safety risk
+in this thesis is broader and includes: distal force overshoot, device
+malfunction, post-swap state mismatch, delayed recovery from recoverable faults,
+and degradation from repeated reprocessing.
 
-\subsubsection{3.3 Teleoperation Reliability Under Delay, Jitter, and Tremor}
-\textit{Purpose:} Establish reliability limits of the command loop itself.
-\begin{itemize}
-    \item synthesise predictive control, filtering, and intent arbitration literature as complementary layers,
-    \item assess robustness to delay and packet-loss assumptions versus real operating-network variability,
-    \item identify unresolved issue: consistent safety-performance under simultaneous delay, model mismatch, and human adaptation.
-\end{itemize}
+\subsubsection{Error Detection and Reporting Architecture}
+Rajih et al. (2017) provide useful evidence on practical malfunction detection,
+because errors were captured through da Vinci Si event logs, time-stamped, and
+classified as recoverable versus unrecoverable across 1228 procedures. This is
+important for this review because safety analysis depends on what is actually
+detected and recorded, not only what fails physically.
 
-\subsubsection{3.4 Backlash/Hysteresis and Compensation Stability}
-\textit{Purpose:} Connect transmission nonlinearity directly to safety and repeatability.
-\begin{itemize}
-    \item review backlash-like hysteresis models for cable-pulley and tendon-sheath paths,
-    \item summarise compensation mathematics and reported residual errors,
-    \item identify reliability gap at direction reversals and post-calibration drift.
-\end{itemize}
+Their workflow separates events by timing (pre-anesthesia setup, intraoperative,
+and post-undocking) and by subsystem category, creating a useful template for
+future macro-micro logging: event source, recoverability, corrective action,
+and impact on operative flow.
 
-\subsubsection{3.5 Tool-Exchange Safety Recovery}
-\textit{Purpose:} Treat swap events as safety-critical state transitions, not only mechanical operations.
-\begin{itemize}
-    \item define post-swap recovery requirements: tension re-establishment, deadband update, re-zeroing, and force-limit consistency,
-    \item evaluate what exchange studies quantify versus what they omit (repeated-cycle degradation, sterilisation-driven wear, and cumulative calibration burden),
-    \item identify coupling gap: mechanism docking success does not guarantee control-state safety restoration.
-\end{itemize}
+\subsubsection{Malfunction Frequency and Immediate Clinical Consequence}
+Across the same cohort, Rajih et al. (2017) report overall malfunctions in
+4.97\% (61/1228) of cases, with recoverable errors dominant (46/61). The most
+common event type was arm pressure/output limit faults (2.04\%, 25/1228),
+followed by communication-related errors (1.06\%, 13/1228), failed encoder
+errors (0.57\%, 7/1228), illuminator faults (0.33\%, 4/1228), and smaller
+electronic categories.
 
-\subsubsection{3.6 Fault Handling and Safe-State Behavior}
-\textit{Purpose:} Evaluate how systems fail, not only how they track.
-\begin{itemize}
-    \item synthesise evidence on safe-stop logic, bounded fallback behavior, and operator override pathways,
-    \item map expected failure modes (sensor dropouts, cable slack, communication interruption) to mitigation strategies,
-    \item identify missing quantitative benchmarks for recovery time and residual error after fault events.
-\end{itemize}
+In immediate outcome terms, they report no malfunction-driven case abortion,
+no malfunction-driven conversion, no injury, and no death, with one delayed case
+from battery-related error. This aligns with their conclusion that malfunctions
+are not rare but are usually low-consequence when recovery pathways are present.
+However, this does not eliminate system-level risk, because consequence severity
+depends on context, detection latency, and available technical support.
 
-\subsubsection{3.7 Reliability Evidence Across Lifecycle}
-\textit{Purpose:} Determine whether reported performance is durable.
-\begin{itemize}
-    \item review evidence for repeatability across prolonged trials, repeated swaps, and changing pretension states,
-    \item include sterilisation/contamination and wear effects where available,
-    \item identify the dominant gap: limited long-horizon, clinically representative reliability datasets for low-cost macro-micro platforms.
-\end{itemize}
+To keep risk metrics explicit, this review uses
+\begin{equation}
+\hat{p}_i=\frac{N_i}{N_{tot}}, \qquad RPN_i=S_iO_iD_i,
+\end{equation}
+for category occurrence and risk-priority tracking, with confidence caveats for
+single-centre and voluntary-reporting datasets.
 
-\subsubsection{3.8 Section-Level Critical Synthesis and Gap Statement}
-\textit{Purpose:} Conclude with a single defendable knowledge gap.
-\begin{itemize}
-    \item synthesise that current literature validates isolated safety mechanisms but rarely validates integrated safety recovery after reconfiguration,
-    \item state thesis-relevant gap: jointly validated \emph{mechanism + control + recovery} safety performance under realistic routing, delay, and swap conditions,
-    \item define candidate evaluation endpoints for later chapters: post-swap recovery time, residual deadband/backlash, distal-force limit adherence, and task-level repeatability.
-\end{itemize}
+\subsubsection{Preventable Versus Non-Preventable Faults}
+The Canadian dataset helps separate preventable execution faults from
+non-preventable electronic anomalies. Rajih et al. (2017) identify collision/
+jerky-motion-related events as a major recoverable class and explicitly link
+their frequency to team learning curve and technique. In contrast,
+communication-board anomalies are treated as less predictable and often
+manufacturer-service mediated.
+
+This distinction is relevant for thesis design because mitigation strategies are
+different: port/arm planning and operator training reduce preventable faults,
+whereas non-preventable faults require fast diagnosis, recoverability logic,
+maintenance policy, and fallback workflow.
+
+\subsubsection{Lifecycle Reliability: Reconfiguration, Wear, and Reprocessing}
+Short-horizon controller performance remains necessary but insufficient for
+safety claims. Sadeghian et al. (2019) show feasible constrained tracking
+performance (including experimental task-space error on the order of
+$\pm 0.4\,\mathrm{mm}$), but this does not address prolonged workflow stress.
+
+For contamination risk, Saito et al. (2017) show that residual protein remains
+substantially higher in robotic instruments than ordinary instruments after
+in-house cleaning (robotic: 650, 550, 530 $\mu$g/instrument vs ordinary: 16,
+17, 17 $\mu$g/instrument; $P<.0001$), with estimated total residual burden of
+approximately $2.8\times10^3\,\mu$g versus 98 $\mu$g. The practical implication
+is that sterilisation/reprocessing must be treated as a tracked reliability
+variable when repeated tool exchange and reuse are core to platform operation.
+
+\subsubsection{Integrated Safety Gap and Evaluation Endpoints}
+The supported safety gap is not the absence of individual solutions; it is the
+absence of integrated validation across \emph{constraint control + malfunction
+detection/recovery + lifecycle reprocessing reliability} in one coherent
+macro-micro workflow.
+
+Accordingly, later chapters should report unified endpoints rather than isolated
+metrics: trocar-point (RCM) error bounds, malfunction detection-to-recovery time,
+post-swap recovery time, residual deadband/backlash after reconfiguration,
+distal-force limit adherence, repeatability across cycles, and
+post-reprocessing contamination bounds.
 
 \subsection{Synthesis of Literature and Knowledge Gaps}
-Across recent literature, there is strong agreement that high-quality surgical
-teleoperation depends on coordinated management of tremor, delay,
-state-estimation uncertainty, and operator intent. However, most validated
-architectures are demonstrated either on high-cost integrated systems or under
-simplifying assumptions (e.g., known constant delay, controlled tasks, or
-simulation-only evaluation), which limits generalisability to resource-constrained
-and clinically variable settings.
+The reviewed literature establishes a coherent but incomplete technical chain for
+macro-micro MIS systems. Continuum/tendon-driven hardware studies support distal
+dexterity in constrained anatomy, teleoperation/control studies show that tremor,
+delay, estimation uncertainty, and intent mapping are jointly performance-critical,
+and safety studies demonstrate that malfunction events are generally manageable but
+not negligible. Accessibility studies then add an implementation constraint: for
+translation, performance must be achieved under realistic cost, maintenance, and
+workforce limits, not only in high-resource laboratories.
 
-In parallel, continuum and snake-like end-effectors provide clear distal dexterity
-advantages for confined MIS workspaces, but persistent control difficulties remain
-around tendon friction, hysteresis, backlash, calibration drift, and repeatability
-after hardware reconfiguration. Evidence from low-to-middle income contexts also
-shows that long-term adoption depends not only on capital cost but on maintenance,
-disposables, training continuity, and infrastructure support.
+Critically, these bodies of work are usually validated in isolation. Kinematic and
+compensation papers often assume controlled routing/loads; teleoperation papers often
+assume simplified communication conditions or bounded tasks; malfunction studies are
+strong in event reporting but weaker in mechanism-level causal closure; and lifecycle
+cleaning/reprocessing studies quantify residual burden but are rarely connected to
+control-state recovery after repeated instrument exchange. This fragmentation limits
+the explanatory strength of any single paper when the research question is end-to-end
+workflow reliability.
 
-Taken together, the most consequential knowledge gaps are:
+In relation to this project specifically, the conceptual relationship is direct.
+The UR5e macro stage provides accessible gross positioning, while the continuum distal
+stage provides local dexterity, but the interface between them introduces coupled
+failure modes: vibration transmission, backlash/hysteresis, post-swap recalibration
+burden, and safety assurance under disturbance. Therefore, the research problem is
+not merely improving one controller or one mechanism; it is establishing whether a
+low-cost macro-micro architecture can preserve safety and repeatability when control,
+mechanics, and reconfiguration are exercised together.
+
+Based on this critical comparison, the principal knowledge gaps are:
 \begin{itemize}
-    \item integrated control frameworks that retain transparency and stability under realistic communication imperfections,
-    \item reproducible evaluation protocols for low-cost macro-micro systems using clinically meaningful performance metrics,
-    \item robust, repeatable modular continuum interfaces that minimise post-swap uncertainty,
-    \item long-horizon reliability evidence (wear, sterilisation, recalibration burden) for tendon-driven reconfigurable tools.
+    \item \textbf{Integrated validation gap:} limited evidence that combines constrained motion control, teleoperation robustness, and modular reconfiguration recovery in one experimental framework.
+    \item \textbf{Safety evidence gap:} limited prospective linkage between detected robotic malfunctions, recovery actions, and task-level outcome degradation under realistic operating conditions.
+    \item \textbf{Lifecycle reliability gap:} insufficient long-horizon data on wear, sterilisation/reprocessing residue, and calibration drift across repeated swap cycles for tendon-driven instruments.
+    \item \textbf{Benchmarking gap:} insufficient standardised, reproducible metrics and protocols that allow fair comparison of low-cost macro-micro platforms with clinically meaningful endpoints.
 \end{itemize}
+
+In this context, the thesis contribution is positioned as a systems-level evaluation:
+to design and assess a UR5e-based macro-micro platform using unified endpoints for
+constraint adherence, teleoperation robustness, post-swap recovery, and lifecycle
+reliability, rather than reporting isolated improvements on individual subsystems.
 
 \subsection{Priority Evidence Gaps for Additional Review}
 The review can be strengthened further by adding recent studies on:
@@ -684,113 +789,9 @@ cost-constrained deployment conditions.
 \newpage
 % --- References ---
 % To compile references, you will need to run pdflatex -> biber -> pdflatex -> pdflatex
-% \printbibliography[heading=bibintoc, title={References}]
 \section*{References}
 \addcontentsline{toc}{section}{References}
-\sloppy
-Seetohul, J., \& Shafiee, M. (2022). Snake Robots for Surgical Applications:
-A Review. \textit{Robotics}, 11(3), 57.
-\url{https://doi.org/10.3390/robotics11030057}
-
-Sang, H., Yang, C., Liu, F., Yun, J., Jin, G., \& Chen, F. (2016).
-A zero phase adaptive fuzzy Kalman filter for physiological tremor suppression
-in robotically assisted minimally invasive surgery.
-\textit{The International Journal of Medical Robotics and Computer Assisted
-Surgery}, 12(4), 658--669.
-\url{https://doi.org/10.1002/rcs.1741}
-
-Batty, T., Ehrampoosh, A., Shirinzadeh, B., Zhong, Y., \& Smith, J. (2022).
-A transparent teleoperated robotic surgical system with predictive haptic
-feedback and force modelling. \textit{Sensors}, 22(24), 9770.
-\url{https://doi.org/10.3390/s22249770}
-
-Bowman, M., Zhang, J., \& Zhang, X. (2024).
-Intent-based task-oriented shared control for intuitive telemanipulation.
-\textit{Journal of Intelligent \& Robotic Systems}, 110, 167.
-\url{https://doi.org/10.1007/s10846-024-02185-1}
-
-Lashari, M. H., Batayneh, W., Khokhar, A., \& Ahmed, S. (2025).
-Enhanced position estimation in tactile internet-enabled remote robotic surgery
-using MOESP-based Kalman filter. \textit{arXiv preprint}, arXiv:2501.16485.
-\url{https://arxiv.org/abs/2501.16485}
-
-Ebrahimian, M., Pourmokhtari, M., Ghiyasi, M., Yazdankhoo, B., \& Beigzadeh,
-B. (2024). Online bilateral predictive control for time-delayed teleoperation
-of snake-like robots. \textit{Journal of Intelligent \& Robotic Systems},
-110, 80. \url{https://doi.org/10.1007/s10846-024-02113-3}
-
-Raza, Z., Saqib, S. U., Zafar, H., \& Islam, S. (2024).
-Transforming surgical landscapes: obstacles in the integration of robotic
-surgery in Pakistan - is cost the only limiting factor?
-\textit{Journal of the Pakistan Medical Association}, 74(Suppl. 4), S-151--S-157.
-\url{https://doi.org/10.47391/JPMA.AKU-9S-23}
-
-Doggett, W. R., Dorsey, J. T., Jones, T. C., \& King, B. (2014).
-Development of a tendon-actuated lightweight in-space manipulator (TALISMAN).
-\textit{NASA Center for AeroSpace Information (CASI), Conference Proceedings}.
-\url{https://ntrs.nasa.gov/search.jsp?R=20140006390}
-
-Torielli, D., Bertoni, L., Fusaro, F., Tsagarakis, N., \& Muratore, L. (2023).
-ROS End-Effector: A hardware-agnostic software and control framework for
-robotic end-effectors. \textit{Journal of Intelligent \& Robotic Systems},
-108, 70. \url{https://doi.org/10.1007/s10846-023-01911-5}
-
-Cowan, B., Gomes, C., Morris, P., Fryrear, R., Petraiuolo, W., Walton, M.,
-Alseidi, A., Horgan, S., \& Hagen, M. (2024). Robotic technology in surgery;
-a classification system of soft tissue surgical robotic devices.
-\textit{Surgical Endoscopy}, 38, 3645--3653.
-\url{https://doi.org/10.1007/s00464-024-10861-4}
-
-Scott, L. (2022). \textit{Design and development of a macro-micro robotic
-system for minimally invasive surgery} (Honours thesis, UNSW Sydney).
-
-Ko, D., Kim, Y., Lim, H., \& Kim, S. (2025). Design of automatic tool
-replacement mechanism for laparoscopic surgical robot arm for solo surgery.
-\textit{The International Journal of Medical Robotics and Computer Assisted
-Surgery}, 21(5), e70106. \url{https://doi.org/10.1002/rcs.70106}
-
-Mocellin, L., Pagliarani, N., Gamberini, G., Ciuti, G., Cianchetti, M., \&
-Menciassi, A. (2026). OriGrasp: A multifunctional origami-inspired instrument
-for delicate manipulation in abdominal surgery.
-\textit{Advanced Intelligent Systems}, e202501249.
-\url{https://doi.org/10.1002/aisy.202501249}
-
-Singh, A., \& Khatait, J. P. (2022). Mechanism for tension adjustment in
-tendon driven remote center-of-motion mechanism for minimally invasive surgery.
-\textit{Proceedings of the Institution of Mechanical Engineers, Part C:
-Journal of Mechanical Engineering Science}, 236(16).
-\url{https://doi.org/10.1177/09544062221093899}
-
-Zou, S., Li, G., \& Huang, Y. (2022). Transmission backlash compensation and
-grasping force estimation of surgical instruments for the laparoscopic minimally
-invasive surgery robot. \textit{Applied Sciences}, 12(23), 12126.
-\url{https://doi.org/10.3390/app122312126}
-
-Hong, J., Hong, D., Kim, C., \& Won, S. H. (2025). Modeling backlash-like
-hysteresis and feedforward control of tendon-sheath mechanism pair with
-arbitrary shape: Excluding distal sensory input. \textit{Journal of Mechanisms
-and Robotics}, 17(5), 051009. \url{https://doi.org/10.1115/1.4067020}
-
-Burgner-Kahrs, J., Rucker, D. C., \& Choset, H. (2015). Continuum robots for
-medical applications: A survey. \textit{IEEE Transactions on Robotics},
-31(6), 1261--1280. \url{https://doi.org/10.1109/TRO.2015.2489500}
-
-Dupont, P. E., Simaan, N., Choset, H., \& Rucker, C. (2022). Continuum robots
-for medical interventions. \textit{Proceedings of the IEEE}, 110(7), 847--870.
-\url{https://doi.org/10.1109/JPROC.2022.3141338}
-
-Wang, F., Wang, H., Luo, J., Kang, X., Yu, H., Lu, H., Dong, Y., \& Jia, X.
-(2022). FIORA: A flexible tendon-driven continuum manipulator for laparoscopic
-surgery. \textit{IEEE Robotics and Automation Letters}, 7(2), 1166--1173.
-\url{https://doi.org/10.1109/LRA.2021.3134276}
-
-Janabi-Sharifi, F., Jalali, A., \& Walker, I. D. (2021). Cosserat rod-based
-dynamic modeling of tendon-driven continuum robots: A tutorial.
-\textit{IEEE Access}, 9, 68703--68719.
-\url{https://doi.org/10.1109/ACCESS.2021.3077186}
-
-\textit{(To be populated using BibLaTeX and Biber)}
-\fussy
+\printbibliography
 
 \newpage
 % --- Appendices ---

@@ -1,2 +1,4 @@
 \contentsline {figure}{\numberline {1}{\ignorespaces Progression of surgery and enabling technology from conventional approaches to modern MIS robotics.}}{2}{figure.1}%
-\contentsline {figure}{\numberline {2}{\ignorespaces SnakeRaven macro-micro surgical manipulator concept used as a relevant continuum-tip reference from prior work (Scott, 2022; Razjigaev et al., 2021).}}{4}{figure.2}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Macro--micro teleoperation system combining a UR5e robotic arm with a continuum-tip manipulator \blx@tocontentsinit {0}\cite {scott2023macro}.}}{2}{figure.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces System architecture of a UR5e-based macro--micro surgical manipulator, including teleoperation and continuum-tip integration \blx@tocontentsinit {0}\cite {scott2023macro}.}}{3}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces SnakeRaven macro--micro surgical manipulator concept \blx@tocontentsinit {0}\cite {razjigaev2021snakeraven}.}}{4}{figure.4}%
