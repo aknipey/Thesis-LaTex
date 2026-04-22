@@ -752,8 +752,8 @@
       \strng{authorbibnamehash}{0749d942a2c5ec031503c4839fd91799}
       \strng{authornamehash}{0749d942a2c5ec031503c4839fd91799}
       \strng{authorfullhash}{0749d942a2c5ec031503c4839fd91799}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of Intelligent \& Robotic Systems}
@@ -863,8 +863,8 @@
       \strng{authorbibnamehash}{f002489ebf10acdb9eba2172dc3e66a3}
       \strng{authornamehash}{ab8da8f83eee156ba61fe34e587e886e}
       \strng{authorfullhash}{f002489ebf10acdb9eba2172dc3e66a3}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of Mechanisms and Robotics}
@@ -878,9 +878,213 @@
       \verb 10.1115/1.4067020
       \endverb
     \endentry
+    \entry{cowan2024classification}{article}{}
+      \name{author}{9}{}{%
+        {{hash=1d537cff0209f83a76387eb31b6d12bb}{%
+           family={Cowan},
+           familyi={C\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=fddc3924dbf15f5022b20286b4386767}{%
+           family={Gomes},
+           familyi={G\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=28cd9b8b9fae86e94c78866e1edffe3b}{%
+           family={Morris},
+           familyi={M\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=cb280f5f193f25eedf97bc13811ddcdd}{%
+           family={Fryrear},
+           familyi={F\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=4100194006e77bea8590d5d959669fd4}{%
+           family={Petraiuolo},
+           familyi={P\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod}}}%
+        {{hash=eb8d413c4b392e6156b096a9c31c2110}{%
+           family={Walton},
+           familyi={W\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=b1b4689a7080e70ddf6e2b7da6c2c467}{%
+           family={Alseidi},
+           familyi={A\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=a4370c3dba9a1c05429af71a6c7a6e82}{%
+           family={Horgan},
+           familyi={H\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=7b7054e753575b62eb365d52e84869ab}{%
+           family={Hagen},
+           familyi={H\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{41e9e1df678ec2a1c764270d037383a8}
+      \strng{fullhash}{52ffdd8ab5cb7454723b7e89d05dd80f}
+      \strng{bibnamehash}{41e9e1df678ec2a1c764270d037383a8}
+      \strng{authorbibnamehash}{41e9e1df678ec2a1c764270d037383a8}
+      \strng{authornamehash}{41e9e1df678ec2a1c764270d037383a8}
+      \strng{authorfullhash}{52ffdd8ab5cb7454723b7e89d05dd80f}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Surgical Endoscopy}
+      \field{number}{7}
+      \field{title}{Robotic technology in surgery: A classification system of soft tissue surgical robotic devices}
+      \field{volume}{38}
+      \field{year}{2024}
+      \field{pages}{3645\bibrangedash 3653}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1007/s00464-024-10861-4
+      \endverb
+    \endentry
+    \entry{torielli2023ros}{article}{}
+      \name{author}{5}{}{%
+        {{hash=f517a5dba9c2f85f4f3f2fcab44a9f7a}{%
+           family={Torielli},
+           familyi={T\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=e69aeb4f63b5f944f1f58dbd95dbb738}{%
+           family={Bertoni},
+           familyi={B\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+        {{hash=6d23e9f96f5f35beb047f3ed138bc836}{%
+           family={Fusaro},
+           familyi={F\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+        {{hash=ab281ef69a3a508fbc991ab1eda26256}{%
+           family={Tsagarakis},
+           familyi={T\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+        {{hash=3c00e57e79d34aace3781957d9262422}{%
+           family={Muratore},
+           familyi={M\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{19966bcf23fbe3f7103285f13083d78b}
+      \strng{fullhash}{50cf92ac58df8ef1252071712e8c3df6}
+      \strng{bibnamehash}{50cf92ac58df8ef1252071712e8c3df6}
+      \strng{authorbibnamehash}{50cf92ac58df8ef1252071712e8c3df6}
+      \strng{authornamehash}{19966bcf23fbe3f7103285f13083d78b}
+      \strng{authorfullhash}{50cf92ac58df8ef1252071712e8c3df6}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Intelligent \& Robotic Systems}
+      \field{title}{{ROS End-Effector}: A hardware-agnostic software and control framework for robotic end-effectors}
+      \field{volume}{108}
+      \field{year}{2023}
+      \field{pages}{70}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1007/s10846-023-01911-5
+      \endverb
+    \endentry
+    \entry{mocellin2026origrasp}{article}{}
+      \name{author}{6}{}{%
+        {{hash=bf6ac4cbf933e06a73eba39f20d7ce12}{%
+           family={Mocellin},
+           familyi={M\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+        {{hash=b354ecc4fa2e9f2de6569ee2e4fcd488}{%
+           family={Pagliarani},
+           familyi={P\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+        {{hash=6ffbb8d3ae1af66a46862950bc5d69c7}{%
+           family={Gamberini},
+           familyi={G\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=18889a35686ec2deb2292ebd771ad22b}{%
+           family={Ciuti},
+           familyi={C\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=cf25e22db926e79f0748518b6cec89c3}{%
+           family={Cianchetti},
+           familyi={C\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=fa1ec91cd3007d7245fb878737312bcd}{%
+           family={Menciassi},
+           familyi={M\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{80f65f6815ad7d73dd30e85727ac0bba}
+      \strng{fullhash}{fd5e8a247dabc0b8c22f96a281c9c1b0}
+      \strng{bibnamehash}{fd5e8a247dabc0b8c22f96a281c9c1b0}
+      \strng{authorbibnamehash}{fd5e8a247dabc0b8c22f96a281c9c1b0}
+      \strng{authornamehash}{80f65f6815ad7d73dd30e85727ac0bba}
+      \strng{authorfullhash}{fd5e8a247dabc0b8c22f96a281c9c1b0}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advanced Intelligent Systems}
+      \field{title}{{OriGrasp}: A multifunctional origami-inspired instrument for delicate manipulation in abdominal surgery}
+      \field{year}{2026}
+      \field{pages}{e202501249}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1002/aisy.202501249
+      \endverb
+    \endentry
+    \entry{singh2022tension}{article}{}
+      \name{author}{2}{}{%
+        {{hash=9843b981a347092faf6faad9f1b9bcdd}{%
+           family={Singh},
+           familyi={S\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=8fa30703d45ed8c7d6868715eda099c7}{%
+           family={Khatait},
+           familyi={K\bibinitperiod},
+           given={J.\bibnamedelimi P.},
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{7392d0a535c7921e4954e9af302e5dcf}
+      \strng{fullhash}{7392d0a535c7921e4954e9af302e5dcf}
+      \strng{bibnamehash}{7392d0a535c7921e4954e9af302e5dcf}
+      \strng{authorbibnamehash}{7392d0a535c7921e4954e9af302e5dcf}
+      \strng{authornamehash}{7392d0a535c7921e4954e9af302e5dcf}
+      \strng{authorfullhash}{7392d0a535c7921e4954e9af302e5dcf}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the Institution of Mechanical Engineers, Part C: Journal of Mechanical Engineering Science}
+      \field{number}{16}
+      \field{title}{Mechanism for tension adjustment in tendon driven remote center-of-motion mechanism for minimally invasive surgery}
+      \field{volume}{236}
+      \field{year}{2022}
+      \field{pages}{9293\bibrangedash 9305}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1177/09544062221093899
+      \endverb
+    \endentry
   \enddatalist
   \missing{janabi2021continuum}
   \missing{lashari2025enhancing}
+  \missing{scott2022macro}
 \endrefsection
 \endinput
 

@@ -596,192 +596,274 @@ teleoperation loop is illustrated in Fig.~\ref{fig:teleop_architecture}.
 \end{figure}
 
 \subsection{Modularity and Tendon-Driven Continuum Manipulators}
+\subsubsection{Monolithic vs Modular Distal Architectures}
+
 In this review, a \textit{monolithic} distal architecture is defined as a single
 integrated tool assembly in which changing function requires major teardown or
-full distal module replacement rather than rapid local exchange. This framing is
-consistent with the architecture-level distinction between integrated and
-modular robotic platforms reported by Cowan et al. (2024).
+full distal module replacement, rather than rapid local exchange. This framing
+is consistent with the architecture-level distinction between integrated and
+modular robotic platforms reported by \textcite{cowan2024classification}.
 
-The practical consequences are workflow-critical: longer swap time,
+The practical consequences are workflow-critical, including longer swap times,
 re-tensioning and re-calibration burden after replacement, interruption of the
-operative sequence, and reduced intraoperative adaptability when task needs
-change mid-procedure. These constraints align with broader integration-friction
-evidence in modular end-effector software/hardware pipelines (Torielli et al.,
-2023), where even technically feasible modularity often carries non-trivial
-changeover overhead.
+operative sequence, and reduced intraoperative adaptability when task
+requirements change mid-procedure. These constraints align with broader
+integration-friction evidence in modular end-effector software and hardware
+pipelines \parencite{torielli2023ros}, where even technically feasible modularity
+often carries non-trivial changeover overhead.
 
-Internal platform observations in the prior local UR5e-continuum implementation
+Internal platform observations in prior local UR5e--continuum implementations
 also indicate that end-effector replacement is time-consuming and introduces
-practical workflow friction around repeatable setup after each swap (Scott,
-2022). Together, the literature and local prior-work evidence indicate that
-architectural modularity alone is insufficient unless exchange-time and
-post-swap recalibration costs are explicitly addressed.
+practical workflow friction in achieving repeatable setup after each swap
+\parencite{scott2022macro}. Together, the literature and local prior-work
+evidence indicate that architectural modularity alone is insufficient unless
+exchange time and post-swap recalibration costs are explicitly addressed.
+
 
 \subsubsection{Tool Exchange Mechanisms}
+
 Tool exchange is necessary because laparoscopic workflows require multiple
-functional instruments within one procedure, while only a limited subset can be
-mounted simultaneously on the robotic arm (Ko et al., 2025). This creates a
-recurrent intraoperative transition task that can interrupt surgical flow and,
-when assistant-dependent, introduces operator-assistant coordination variance.
+functional instruments within a single procedure, while only a limited subset
+can be mounted simultaneously on the robotic arm \parencite{ko2025tool}. This
+creates a recurrent intraoperative transition task that can interrupt surgical
+flow and, when assistant-dependent, introduces operator--assistant coordination
+variability.
+
+\subsubsection{Rail-Guided and Cartridge-Based Exchange}
 
 At present, the strongest direct evidence remains with rail-guided,
-cartridge-like exchange approaches. Ko et al. (2025) analyse current sliding
+cartridge-like exchange approaches. \textcite{ko2025tool} analyse current sliding
 exchange practice and report an automated replacement architecture designed to
-preserve trocar/RCM constraints via linear motion. Their prototype-level results
-report full exchange in 15 s, reduction from an initial 27 s cycle, and a total
-device mass of 3.36 kg (below their 4 kg design target), indicating feasible
-automation under laparoscopic geometric constraints.
+preserve trocar and remote centre of motion (RCM) constraints via linear motion.
+Their prototype-level results report full exchange in 15~s, reduced from an
+initial 27~s cycle, and a total device mass of 3.36~kg (below their 4~kg design
+target), indicating feasible automation under laparoscopic geometric constraints.
+
+\subsubsection{Reconfigurable and Multifunctional Instruments}
 
 Alternative strategies aim to reduce exchange frequency rather than improve
-exchange interfaces directly. Mocellin et al. (2026) present OriGrasp as a
-reconfigurable multifunctional end-effector (introducer mode and compliant
+exchange interfaces directly. \textcite{mocellin2026origrasp} present OriGrasp as
+a reconfigurable multifunctional end-effector (introducer mode and compliant
 grasper mode), validated through dVRK integration and tissue-interaction tests.
-Reported performance includes approximately 4 N pinch force and bowel pulling/
-lifting forces in literature-consistent atraumatic ranges. This supports
+Reported performance includes approximately 4~N pinch force and bowel
+pulling/lifting forces in literature-consistent atraumatic ranges. This supports
 multifunctionality as a useful partial mitigation for selected abdominal tasks.
 However, current evidence remains task-specific and does not demonstrate that a
 single reconfigurable device can replace the broader instrument set required
 across heterogeneous procedures.
 
+\subsubsection{Limitations of Alternative Exchange Mechanisms}
+
 Mechanism diversity beyond rail-guided exchange remains under-validated in the
 reviewed evidence base. Direct surgical evidence is limited for bayonet
-quarter-turn, cam-latch, cartridge-head variants beyond linear sliding, and
-kinematic-coupling-assisted docking with active preload. Reported gaps are not
-purely mechanical: tolerance sensitivity, sterilisation robustness,
+quarter-turn, cam-latch, and cartridge-head variants beyond linear sliding, as
+well as kinematic-coupling-assisted docking with active preload. Reported gaps
+are not purely mechanical: tolerance sensitivity, sterilisation robustness,
 wear-dependent repeatability drift, and post-reconnection re-zeroing burden all
 remain insufficiently quantified across repeated swap cycles.
 
+\subsubsection{Post-Swap Control Recovery and Tension Management}
+
 Control evidence indicates that docking success alone is insufficient for
-workflow-ready exchange. Cable-pulley and tendon-sheath studies report
-backlash/hysteresis and force-estimation sensitivity to pretension, friction,
-and routing geometry (Zou et al., 2022; Hong et al., 2025). In particular,
-Hong et al. (2025) show geometry-dependent deadband behavior and report RMSE
-reduction from 1.31 mm to 0.19 mm with feedforward compensation after
-calibration, implying that post-swap recovery may require both tension
-re-establishment and compensation-state updates when routing changes.
+workflow-ready exchange. Cable-pulley and tendon--sheath studies report
+backlash, hysteresis, and force-estimation sensitivity to pretension, friction,
+and routing geometry \parencite{zou2022transmission, hong2025backlash}. In
+particular, \textcite{hong2025backlash} show geometry-dependent deadband
+behaviour and report RMSE reduction from 1.31~mm to 0.19~mm with feedforward
+compensation after calibration, implying that post-swap recovery may require
+both tension re-establishment and compensation-state updates when routing
+conditions change.
 
-For post-swap tension management specifically, Singh and Khatait (2022) provide
-relevant but indirect evidence via an RCM tension-adjustment mechanism enabling
-independent cable pretension tuning with invariant routed tendon length. The key
-limitation is translational scope: this is not a direct quick-change end-effector
-interface study and does not quantify repeated dock-undock surgical workflow
-performance.
+For post-swap tension management specifically, \textcite{singh2022tension}
+provide relevant but indirect evidence via an RCM tension-adjustment mechanism
+enabling independent cable pretension tuning with invariant routed tendon
+length. The key limitation is translational scope: this is not a direct
+quick-change end-effector interface study and does not quantify repeated
+dock--undock surgical workflow performance.
 
-\textbf{Critical judgement and knowledge gap.} The literature supports a clear
-hierarchy of maturity: (i) strongest evidence for linear, rail-guided exchange,
-(ii) promising but task-limited multifunctional substitution, and (iii) weak
-comparative evidence for alternative docking/locking families. The unresolved
-research gap is therefore the integrated validation of \emph{mechanism + control
-recovery} after repeated swaps: exchange time, docking repeatability,
-post-swap backlash/deadband, retensioning effort, and force-safety consistency
-must be quantified together under clinically realistic routing and sterilisation
-conditions.
+A comparative summary of the main tool-exchange strategy families discussed in
+the literature is provided in Table~\ref{tab:tool_exchange_comparison}.
+
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|p{3.0cm}|p{4.0cm}|p{4.0cm}|p{4.0cm}|}
+\hline
+\textbf{Criterion} & \textbf{Rail-guided sliding} & \textbf{Quick-lock / bayonet} & \textbf{Reconfigurable tool} \\
+\hline
+\textbf{Mechanism concept} &
+Linear cartridge-style or rail-guided insertion and removal &
+Rotational locking, latch-based docking, or compact quick-coupling interface &
+Single distal tool changes functional mode instead of being physically exchanged \\
+\hline
+\textbf{Workflow benefit} &
+Structured and repeatable alignment during exchange; compatible with trocar / RCM constraints &
+Potentially compact and rapid attachment with fewer gross insertion steps &
+Reduces exchange frequency by combining multiple functions into one tool \\
+\hline
+\textbf{Main limitation} &
+Still requires reliable docking, reconnection, and post-swap recovery &
+Direct evidence for repeatability, sterilisation robustness, and re-zeroing remains limited &
+Typically validated only for narrow task classes; unlikely to replace the full instrument set \\
+\hline
+\textbf{Evidence base} &
+Strongest direct exchange evidence in the reviewed literature &
+Sparse direct surgical validation and weak comparative evidence &
+Promising prototype/task-specific evidence, but limited generality across procedures \\
+\hline
+\textbf{Validation maturity} &
+High &
+Low &
+Moderate \\
+\hline
+\end{tabular}
+\caption{Comparison of tool-exchange strategy families relevant to modular tendon-driven surgical manipulators}
+\label{tab:tool_exchange_comparison}
+\end{table}
+
+\subsubsection{Critical Assessment and Identified Knowledge Gap}
+
+The literature supports a clear hierarchy of maturity: (i) strongest evidence for
+linear, rail-guided exchange, (ii) promising but task-limited multifunctional
+substitution, and (iii) weak comparative evidence for alternative
+docking and locking mechanisms.
+
+The unresolved research gap is therefore the integrated validation of
+\emph{mechanism and control recovery} following repeated tool exchanges. In
+particular, exchange time, docking repeatability, post-swap
+backlash and deadband behaviour, retensioning effort, and distal force-safety
+consistency must be quantified together under clinically realistic routing and
+sterilisation conditions.
 
 \subsection{System Safety and Reliability Considerations}
-This section is organised from hazard definition to detection, consequence,
-mitigation, and lifecycle reliability so that one integrated safety gap is
-stated at the end.
 
 \subsubsection{Safety Constraint Model and Hazard Taxonomy}
-Safety in macro-micro MIS is treated here as constrained execution under
-mechanical, control, and workflow limits. At the kinematic level, trocar
-constraint enforcement is represented by
+
+Safety in macro--micro MIS is treated here as constrained execution under
+mechanical, control, and workflow limits. In minimally invasive surgery, tools
+are introduced through a \emph{trocar}, a fixed entry port that enforces a
+pivoting constraint on the instrument shaft. This is commonly modelled as a
+remote centre of motion (RCM) constraint, requiring zero velocity at the entry
+point \parencite{burgnerkahrs2015continuum, dupont2022continuum}.
+
+At the kinematic level, trocar (RCM) constraint enforcement can be represented by
 \begin{equation}
-\mathbf{v}_{RCM} = J_{RCM}\dot{\mathbf{q}} = \mathbf{0},
+\mathbf{v}*{RCM} = J*{RCM}\dot{\mathbf{q}} = \mathbf{0},
 \end{equation}
 and in constrained form
 \begin{equation}
-\dot{\mathbf{x}}_e = J_c\dot{\mathbf{q}}_I,
+\dot{\mathbf{x}}_e = J_c\dot{\mathbf{q}}*I,
 \quad
 J_c = J_eT
 \begin{bmatrix}
-I_n \\
--J_{II}^{-1}J_I
-\end{bmatrix}.
+I_n \
+-J*{II}^{-1}J_I
+\end{bmatrix},
 \end{equation}
-For moving trocar conditions,
+which enforces motion consistency under kinematic constraints
+\parencite{dupont2022continuum}.
+
+For moving trocar conditions, such as soft-tissue interaction or external
+disturbance, the constraint can be extended to
 \begin{equation}
-\dot{\mathbf{q}}_{II} = J_{II}^{-1}\left(\mathbf{v}_{trc}-J_I\dot{\mathbf{q}}_I\right),
+\dot{\mathbf{q}}*{II} = J*{II}^{-1}\left(\mathbf{v}_{trc}-J_I\dot{\mathbf{q}}_I\right),
 \end{equation}
-which preserves explicit constraint compensation under disturbance.
+preserving explicit constraint compensation under disturbance.
 
 These equations define one hazard layer (constraint violation), but safety risk
-in this thesis is broader and includes: distal force overshoot, device
+in this thesis is broader and includes distal force overshoot, device
 malfunction, post-swap state mismatch, delayed recovery from recoverable faults,
 and degradation from repeated reprocessing.
 
 \subsubsection{Error Detection and Reporting Architecture}
-Rajih et al. (2017) provide useful evidence on practical malfunction detection,
-because errors were captured through da Vinci Si event logs, time-stamped, and
-classified as recoverable versus unrecoverable across 1228 procedures. This is
-important for this review because safety analysis depends on what is actually
-detected and recorded, not only what fails physically.
 
-Their workflow separates events by timing (pre-anesthesia setup, intraoperative,
-and post-undocking) and by subsystem category, creating a useful template for
-future macro-micro logging: event source, recoverability, corrective action,
-and impact on operative flow.
+\textcite{rajih2017malfunctions} provide useful evidence on practical
+malfunction detection, as errors were captured through da Vinci Si event logs,
+time-stamped, and classified as recoverable versus unrecoverable across 1228
+procedures. This is important for this review because safety analysis depends on
+what is actually detected and recorded, not only what fails physically.
+
+Their workflow separates events by timing (pre-anesthesia setup,
+intraoperative, and post-undocking) and by subsystem category, creating a useful
+template for future macro--micro logging: event source, recoverability,
+corrective action, and impact on operative flow \parencite{rajih2017malfunctions}.
 
 \subsubsection{Malfunction Frequency and Immediate Clinical Consequence}
-Across the same cohort, Rajih et al. (2017) report overall malfunctions in
-4.97\% (61/1228) of cases, with recoverable errors dominant (46/61). The most
-common event type was arm pressure/output limit faults (2.04\%, 25/1228),
-followed by communication-related errors (1.06\%, 13/1228), failed encoder
-errors (0.57\%, 7/1228), illuminator faults (0.33\%, 4/1228), and smaller
-electronic categories.
+\subsubsection{Malfunction Frequency and Clinical Consequence}
+
+Across the same cohort, \textcite{rajih2017malfunctions} report overall
+malfunctions in 4.97\% (61/1228) of cases, with recoverable errors dominant
+(46/61). The most common event type was arm pressure/output limit faults
+(2.04\%, 25/1228), followed by communication-related errors (1.06\%, 13/1228),
+failed encoder errors (0.57\%, 7/1228), illuminator faults (0.33\%, 4/1228), and
+smaller electronic categories.
 
 In immediate outcome terms, they report no malfunction-driven case abortion,
 no malfunction-driven conversion, no injury, and no death, with one delayed case
-from battery-related error. This aligns with their conclusion that malfunctions
-are not rare but are usually low-consequence when recovery pathways are present.
-However, this does not eliminate system-level risk, because consequence severity
-depends on context, detection latency, and available technical support.
+due to a battery-related error. This supports their conclusion that malfunctions
+are not rare but are typically low-consequence when recovery pathways are
+present. However, this does not eliminate system-level risk, as consequence
+severity depends on context, detection latency, and available technical support
+\parencite{rajih2017malfunctions}.
 
-To keep risk metrics explicit, this review uses
+To maintain explicit risk representation, this review uses
 \begin{equation}
-\hat{p}_i=\frac{N_i}{N_{tot}}, \qquad RPN_i=S_iO_iD_i,
+\hat{p}*i=\frac{N_i}{N*{tot}}, \qquad RPN_i=S_iO_iD_i,
 \end{equation}
-for category occurrence and risk-priority tracking, with confidence caveats for
-single-centre and voluntary-reporting datasets.
+where $\hat{p}_i$ denotes category occurrence probability and $RPN_i$ is a
+risk-priority metric based on severity ($S_i$), occurrence ($O_i$), and
+detectability ($D_i$), with confidence caveats for single-centre and
+voluntary-reporting datasets.
+
 
 \subsubsection{Preventable Versus Non-Preventable Faults}
-The Canadian dataset helps separate preventable execution faults from
-non-preventable electronic anomalies. Rajih et al. (2017) identify collision/
-jerky-motion-related events as a major recoverable class and explicitly link
-their frequency to team learning curve and technique. In contrast,
-communication-board anomalies are treated as less predictable and often
-manufacturer-service mediated.
 
-This distinction is relevant for thesis design because mitigation strategies are
-different: port/arm planning and operator training reduce preventable faults,
-whereas non-preventable faults require fast diagnosis, recoverability logic,
-maintenance policy, and fallback workflow.
+The Canadian dataset helps separate preventable execution faults from
+non-preventable electronic anomalies. \textcite{rajih2017malfunctions}
+identify collision and jerky-motion-related events as a major recoverable class
+and explicitly link their frequency to team learning curve and technique. In
+contrast, communication-board anomalies are treated as less predictable and
+often require manufacturer-mediated service.
+
+This distinction is directly relevant for thesis design because mitigation
+strategies differ: port and arm planning, as well as operator training, can
+reduce preventable faults, whereas non-preventable faults require rapid
+diagnosis, robust recoverability logic, maintenance policy, and fallback
+workflow design \parencite{rajih2017malfunctions}.
 
 \subsubsection{Lifecycle Reliability: Reconfiguration, Wear, and Reprocessing}
-Short-horizon controller performance remains necessary but insufficient for
-safety claims. Sadeghian et al. (2019) show feasible constrained tracking
-performance (including experimental task-space error on the order of
-$\pm 0.4\,\mathrm{mm}$), but this does not address prolonged workflow stress.
 
-For contamination risk, Saito et al. (2017) show that residual protein remains
-substantially higher in robotic instruments than ordinary instruments after
-in-house cleaning (robotic: 650, 550, 530 $\mu$g/instrument vs ordinary: 16,
-17, 17 $\mu$g/instrument; $P<.0001$), with estimated total residual burden of
-approximately $2.8\times10^3\,\mu$g versus 98 $\mu$g. The practical implication
-is that sterilisation/reprocessing must be treated as a tracked reliability
-variable when repeated tool exchange and reuse are core to platform operation.
+Short-horizon controller performance remains necessary but insufficient for
+comprehensive safety claims. \textcite{sadeghian2019constrained} demonstrate
+feasible constrained tracking performance (including experimental task-space
+error on the order of $\pm 0.4,\mathrm{mm}$), but this does not address
+prolonged workflow stress or repeated reconfiguration effects.
+
+For contamination risk, \textcite{saito2017cleaning} show that residual protein
+levels remain substantially higher in robotic instruments than in conventional
+instruments after in-house cleaning (robotic: 650, 550, 530 $\mu$g/instrument
+vs.\ ordinary: 16, 17, 17 $\mu$g/instrument; $P<.0001$), with an estimated total
+residual burden of approximately $2.8\times10^3,\mu$g versus 98 $\mu$g. The
+practical implication is that sterilisation and reprocessing must be treated as
+tracked reliability variables when repeated tool exchange and reuse are core to
+platform operation.
 
 \subsubsection{Integrated Safety Gap and Evaluation Endpoints}
-The supported safety gap is not the absence of individual solutions; it is the
-absence of integrated validation across \emph{constraint control + malfunction
-detection/recovery + lifecycle reprocessing reliability} in one coherent
-macro-micro workflow.
 
-Accordingly, later chapters should report unified endpoints rather than isolated
-metrics: trocar-point (RCM) error bounds, malfunction detection-to-recovery time,
-post-swap recovery time, residual deadband/backlash after reconfiguration,
-distal-force limit adherence, repeatability across cycles, and
-post-reprocessing contamination bounds.
+The supported safety gap is not the absence of individual solutions; rather, it
+is the lack of integrated validation across \emph{constraint control,
+malfunction detection and recovery, and lifecycle reprocessing reliability}
+within a single coherent macro--micro workflow.
+
+Accordingly, later chapters should report unified evaluation endpoints rather
+than isolated metrics. These include trocar-point (RCM) error bounds,
+malfunction detection-to-recovery time, post-swap recovery time, residual
+deadband and backlash after reconfiguration, distal-force limit adherence,
+repeatability across repeated cycles, and post-reprocessing contamination
+bounds.
+
 
 \subsection{Synthesis of Literature and Knowledge Gaps}
 The reviewed literature establishes a coherent but incomplete technical chain for

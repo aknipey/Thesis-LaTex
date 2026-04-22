@@ -1,18 +1,19 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'Lit Review.blg'
-[33] biber:340> INFO - === Thu Apr 23, 2026, 01:35:05
-[39] Biber.pm:419> INFO - Reading 'Lit Review.bcf'
-[88] Biber.pm:979> INFO - Found 23 citekeys in bib section 0
-[95] Biber.pm:4419> INFO - Processing section 0
-[101] Biber.pm:4610> INFO - Looking for bibtex file 'references.bib' for section 0
-[102] bibtex.pm:1713> INFO - LaTeX decoding ...
-[113] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
-[206] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[206] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[206] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
-[206] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
-[214] bbl.pm:660> INFO - Writing 'Lit Review.bbl' with encoding 'UTF-8'
-[217] bbl.pm:763> INFO - Output to Lit Review.bbl
-[217] Biber.pm:131> WARN - I didn't find a database entry for 'janabi2021continuum' (section 0)
-[217] Biber.pm:131> WARN - I didn't find a database entry for 'lashari2025enhancing' (section 0)
-[217] Biber.pm:133> INFO - WARNINGS: 2
+[29] biber:340> INFO - === Thu Apr 23, 2026, 02:57:46
+[41] Biber.pm:419> INFO - Reading 'Lit Review.bcf'
+[76] Biber.pm:979> INFO - Found 28 citekeys in bib section 0
+[82] Biber.pm:4419> INFO - Processing section 0
+[87] Biber.pm:4610> INFO - Looking for bibtex file 'references.bib' for section 0
+[88] bibtex.pm:1713> INFO - LaTeX decoding ...
+[99] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
+[192] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[192] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[192] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[192] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[200] bbl.pm:660> INFO - Writing 'Lit Review.bbl' with encoding 'UTF-8'
+[205] bbl.pm:763> INFO - Output to Lit Review.bbl
+[205] Biber.pm:131> WARN - I didn't find a database entry for 'janabi2021continuum' (section 0)
+[205] Biber.pm:131> WARN - I didn't find a database entry for 'lashari2025enhancing' (section 0)
+[205] Biber.pm:131> WARN - I didn't find a database entry for 'scott2022macro' (section 0)
+[205] Biber.pm:133> INFO - WARNINGS: 3
