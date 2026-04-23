@@ -27,14 +27,15 @@
 \contentsline {subsection}{\numberline {2.4}System Safety and Reliability Considerations}{14}{subsection.2.4}%
 \contentsline {subsubsection}{\numberline {2.4.1}Safety Constraint Model and Hazard Taxonomy}{14}{subsubsection.2.4.1}%
 \contentsline {subsubsection}{\numberline {2.4.2}Error Detection and Reporting Architecture}{14}{subsubsection.2.4.2}%
-\contentsline {subsubsection}{\numberline {2.4.3}Malfunction Frequency and Immediate Clinical Consequence}{14}{subsubsection.2.4.3}%
-\contentsline {subsubsection}{\numberline {2.4.4}Preventable Versus Non-Preventable Faults}{15}{subsubsection.2.4.4}%
-\contentsline {subsubsection}{\numberline {2.4.5}Lifecycle Reliability: Reconfiguration, Wear, and Reprocessing}{15}{subsubsection.2.4.5}%
-\contentsline {subsubsection}{\numberline {2.4.6}Integrated Safety Gap and Evaluation Endpoints}{16}{subsubsection.2.4.6}%
+\contentsline {subsubsection}{\numberline {2.4.3}Malfunction Frequency and Immediate Clinical Consequence}{15}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}Malfunction Frequency and Clinical Consequence}{15}{subsubsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.5}Preventable Versus Non-Preventable Faults}{15}{subsubsection.2.4.5}%
+\contentsline {subsubsection}{\numberline {2.4.6}Lifecycle Reliability: Reconfiguration, Wear, and Reprocessing}{15}{subsubsection.2.4.6}%
+\contentsline {subsubsection}{\numberline {2.4.7}Integrated Safety Gap and Evaluation Endpoints}{16}{subsubsection.2.4.7}%
 \contentsline {subsection}{\numberline {2.5}Synthesis of Literature and Knowledge Gaps}{16}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}Priority Evidence Gaps for Additional Review}{17}{subsection.2.6}%
-\contentsline {section}{\numberline {3}Research Question and Project Plan}{17}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Research Question and Plan Status}{17}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {2.5.1}Remaining Evidence Gaps and Future Directions}{17}{subsubsection.2.5.1}%
+\contentsline {section}{\numberline {3}Research Question and Project Plan}{18}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Research Question and Plan Status}{18}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Plan Quality Criteria (Assessment-Aligned)}{18}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Current Planning Position}{18}{subsection.3.3}%
 \contentsline {section}{\numberline {4}Project Dependent Preparations}{18}{section.4}%

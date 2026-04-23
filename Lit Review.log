@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.3)  23 APR 2026 02:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.3)  23 APR 2026 12:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1057,25 +1057,11 @@ Package biblatex Warning: The following entry could not be found
 (biblatex)                Please verify the spelling and rerun
 (biblatex)                LaTeX afterwards.
 
-
-Package biblatex Warning: The following entry could not be found
-(biblatex)                in the database:
-(biblatex)                lashari2025enhancing
-(biblatex)                Please verify the spelling and rerun
-(biblatex)                LaTeX afterwards.
-
-
-Package biblatex Warning: The following entry could not be found
-(biblatex)                in the database:
-(biblatex)                scott2022macro
-(biblatex)                Please verify the spelling and rerun
-(biblatex)                LaTeX afterwards.
-
 )
 Package biblatex Info: Reference section=0 on input line 34.
 Package biblatex Info: Reference segment=0 on input line 34.
 Package hyperref Info: Option `pageanchor' set `false' on input line 35.
-<Images/unsw_logo.png, id=187, 331.2375pt x 140.525pt>
+<Images/unsw_logo.png, id=191, 331.2375pt x 140.525pt>
 File: Images/unsw_logo.png Graphic file (type png)
 <use Images/unsw_logo.png>
 Package pdftex.def Info: Images/unsw_logo.png  used on input line 44.
@@ -1103,14 +1089,14 @@ m con-ven-tional
 
  [5] [6]
 Package hyperref Info: Option `pageanchor' set `true' on input line 126.
-<Images/progression_of_surgery.png, id=306, 741.77126pt x 258.9675pt>
+<Images/progression_of_surgery.png, id=311, 741.77126pt x 258.9675pt>
 File: Images/progression_of_surgery.png Graphic file (type png)
 <use Images/progression_of_surgery.png>
 Package pdftex.def Info: Images/progression_of_surgery.png  used on input line 
 158.
 (pdftex.def)             Requested size: 364.19667pt x 127.14807pt.
  [1]
-<Images/LaxhlanCombinedTeleop.jpeg, id=319, 2788.4175pt x 1288.815pt>
+<Images/LaxhlanCombinedTeleop.jpeg, id=324, 2788.4175pt x 1288.815pt>
 File: Images/LaxhlanCombinedTeleop.jpeg Graphic file (type jpg)
 <use Images/LaxhlanCombinedTeleop.jpeg>
 Package pdftex.def Info: Images/LaxhlanCombinedTeleop.jpeg  used on input line 
@@ -1118,13 +1104,13 @@ Package pdftex.def Info: Images/LaxhlanCombinedTeleop.jpeg  used on input line
 (pdftex.def)             Requested size: 273.14923pt x 126.23418pt.
  [2 <./Images/progression_of_surgery.png> <./Images/LaxhlanCombinedTeleop.jpeg>
 ]
-<Images/LachlanFinalSystemArchitecture.png, id=331, 506.6127pt x 559.3698pt>
+<Images/LachlanFinalSystemArchitecture.png, id=336, 506.6127pt x 559.3698pt>
 File: Images/LachlanFinalSystemArchitecture.png Graphic file (type png)
 <use Images/LachlanFinalSystemArchitecture.png>
 Package pdftex.def Info: Images/LachlanFinalSystemArchitecture.png  used on inp
 ut line 194.
 (pdftex.def)             Requested size: 273.14923pt x 301.60281pt.
-<Images/snake_raven_reference.png, id=337, 964.60374pt x 234.8775pt>
+<Images/snake_raven_reference.png, id=342, 964.60374pt x 234.8775pt>
 File: Images/snake_raven_reference.png Graphic file (type png)
 <use Images/snake_raven_reference.png>
 Package pdftex.def Info: Images/snake_raven_reference.png  used on input line 2
@@ -1136,23 +1122,10 @@ erence.png>]
 LaTeX Warning: Citation 'janabi2021continuum' on page 5 undefined on input line
  323.
 
-[5] [6]
-
-LaTeX Warning: Citation 'lashari2025enhancing' on page 7 undefined on input lin
-e 417.
-
-
-LaTeX Warning: Citation 'lashari2025enhancing' on page 7 undefined on input lin
-e 430.
-
-[7] [8] [9]
+[5] [6] [7] [8] [9]
 Overfull \hbox (33.00436pt too wide) in paragraph at lines 593--594
  [][] 
  []
-
-
-LaTeX Warning: Citation 'scott2022macro' on page 10 undefined on input line 618
-.
 
 [10] [11]
 Underfull \hbox (badness 10000) in paragraph at lines 696--696
@@ -1260,7 +1233,7 @@ Overfull \hbox (21.54718pt too wide) in paragraph at lines 692--722
  []
 
 [12] [13] [14] [15] [16] [17] [18] [19] [1] [2] [3] [4]
-Overfull \hbox (77.43376pt too wide) in paragraph at lines 962--962
+Overfull \hbox (77.43376pt too wide) in paragraph at lines 994--994
 []\OT1/cmr/bx/n/17.28 Rubric-Aligned Cov-er-age Notes (MMAN4951/MMAN9451
  []
 
@@ -1271,45 +1244,49 @@ L3 programming layer <2024-01-22>
  ***********
 
 
-LaTeX Warning: There were undefined references.
+Package rerunfilecheck Warning: File `"Lit Review".out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
 
-Package rerunfilecheck Info: File `"Lit Review".out' has not changed.
-(rerunfilecheck)             Checksum: F253F81863867455DDC93937E8BDF189;11719.
-
-Package biblatex Warning: Please rerun LaTeX.
-
+Package rerunfilecheck Info: Checksums for `"Lit Review".out':
+(rerunfilecheck)             Before: 77D4D09C7FC3593EB2512A64A1387038;12029
+(rerunfilecheck)             After:  E1B08F0CE5C6EFC8A47EA2E12D3A6AC3;12044.
 Package logreq Info: Writing requests to '"Lit Review".run.xml'.
 \openout1 = `"Lit Review.run.xml"'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29391 strings out of 476182
- 565216 string characters out of 5795596
+ 29410 strings out of 476182
+ 566015 string characters out of 5795596
  1940975 words of memory out of 5000000
- 50840 multiletter control sequences out of 15000+600000
+ 50853 multiletter control sequences out of 15000+600000
  569886 words of font info for 76 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 84i,12n,87p,1157b,1467s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </home/aidan-knipe/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm12
-00.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on "Lit Review.pdf" (31 pages, 1711615 bytes).
+ 84i,12n,87p,1157b,1469s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{subsection.2.6} has been referenced but does not ex
+ist, replaced by a fixed one
+
+ </home/aidan-knipe/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200
+.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on "Lit Review.pdf" (31 pages, 1714880 bytes).
 PDF statistics:
- 634 PDF objects out of 1000 (max. 8388607)
- 550 compressed objects within 6 object streams
- 111 named destinations out of 1000 (max. 500000)
- 398 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 663 PDF objects out of 1000 (max. 8388607)
+ 579 compressed objects within 6 object streams
+ 117 named destinations out of 1000 (max. 500000)
+ 406 words of extra memory for PDF output out of 10000 (max. 10000000)
 

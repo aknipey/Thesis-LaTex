@@ -680,6 +680,41 @@
       \verb 10.3390/s22249770
       \endverb
     \endentry
+    \entry{lashari2024enhancing}{article}{}
+      \name{author}{3}{}{%
+        {{hash=fd157a81901e932d44cba6e5c46c4e9e}{%
+           family={Lashari},
+           familyi={L\bibinitperiod},
+           given={M.\bibnamedelimi H.},
+           giveni={M\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=49e50351a147f90743918f05c187635d}{%
+           family={Batayneh},
+           familyi={B\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod}}}%
+        {{hash=7e9b709d1a2ea52a33fa4d30a607ce83}{%
+           family={Khokhar},
+           familyi={K\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{896a09c85f50e4b9d77f761b9a4a6b12}
+      \strng{fullhash}{896a09c85f50e4b9d77f761b9a4a6b12}
+      \strng{bibnamehash}{896a09c85f50e4b9d77f761b9a4a6b12}
+      \strng{authorbibnamehash}{896a09c85f50e4b9d77f761b9a4a6b12}
+      \strng{authornamehash}{896a09c85f50e4b9d77f761b9a4a6b12}
+      \strng{authorfullhash}{896a09c85f50e4b9d77f761b9a4a6b12}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv}
+      \field{title}{Enhancing precision in tactile internet-enabled remote robotic surgery: Kalman filter approach}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.48550/ARXIV.2406.04503
+      \endverb
+    \endentry
     \entry{ebrahimian2024online}{article}{}
       \name{author}{5}{}{%
         {{hash=73bac2ffcf9ee9d8c6065989b2821b26}{%
@@ -714,8 +749,8 @@
       \strng{authorbibnamehash}{7b434154b194fcea5ec954ebb748ccba}
       \strng{authornamehash}{ba2678844fdbf0317a53b4da388ae926}
       \strng{authorfullhash}{7b434154b194fcea5ec954ebb748ccba}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of Intelligent \& Robotic Systems}
@@ -819,8 +854,8 @@
       \strng{authorbibnamehash}{3d791534ae317dee3a240757217fa06c}
       \strng{authornamehash}{3d791534ae317dee3a240757217fa06c}
       \strng{authorfullhash}{3d791534ae317dee3a240757217fa06c}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Applied Sciences}
@@ -1081,10 +1116,200 @@
       \verb 10.1177/09544062221093899
       \endverb
     \endentry
+    \entry{rajih2017error}{article}{}
+      \name{author}{15}{}{%
+        {{hash=df81b4604ce603575420a93f6344720a}{%
+           family={Rajih},
+           familyi={R\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+        {{hash=919bcc40f7a74d3d60ed155eeb6db552}{%
+           family={Tholomier},
+           familyi={T\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=e5e249bea0c5ed796a7af87448bb4ac6}{%
+           family={Cormier},
+           familyi={C\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=70508006cba3d46fad7014723ef40ca2}{%
+           family={Samouelian},
+           familyi={S\bibinitperiod},
+           given={V.},
+           giveni={V\bibinitperiod}}}%
+        {{hash=e85483b9c0ba501e89f8a745c0efec40}{%
+           family={Warkus},
+           familyi={W\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=2df81086b0d4abfa64cb1bd7de5a6786}{%
+           family={Liberman},
+           familyi={L\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=7fea84c91010a762c8d25df37fee4e47}{%
+           family={Widmer},
+           familyi={W\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+        {{hash=bbf0dd047dfa481a8258ffcee09ba659}{%
+           family={Lattouf},
+           familyi={L\bibinitperiod},
+           given={J.-B.},
+           giveni={J\bibinithyphendelim B\bibinitperiod}}}%
+        {{hash=be09e8cde41d1b139f233c2c0d19981e}{%
+           family={Alenizi},
+           familyi={A\bibinitperiod},
+           given={A.\bibnamedelimi M.},
+           giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=e6a893b1db8c30e6088b2c3e67add82a}{%
+           family={Meskawi},
+           familyi={M\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=915849d52f38edaa19163efb044393a2}{%
+           family={Valdivieso},
+           familyi={V\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=3332a5839bb218b73e0b1c14c03e67fd}{%
+           family={Hueber},
+           familyi={H\bibinitperiod},
+           given={P.-A.},
+           giveni={P\bibinithyphendelim A\bibinitperiod}}}%
+        {{hash=a27e1ffab9ffb99138f52121a8322454}{%
+           family={Karakiewicz},
+           familyi={K\bibinitperiod},
+           given={P.\bibnamedelimi I.},
+           giveni={P\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+        {{hash=a24e92b334b70a25e18cf4bc57a9caf6}{%
+           family={El-Hakim},
+           familyi={E\bibinithyphendelim H\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=7e7d9c70f8cb62f5499b9c4a9e6e7bb6}{%
+           family={Zorn},
+           familyi={Z\bibinitperiod},
+           given={K.\bibnamedelimi C.},
+           giveni={K\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{b59f80fe8af8bd13d2c1fc7abdfd9e4d}
+      \strng{fullhash}{92a29bf44eed0cee694502a73a3b7769}
+      \strng{bibnamehash}{b59f80fe8af8bd13d2c1fc7abdfd9e4d}
+      \strng{authorbibnamehash}{b59f80fe8af8bd13d2c1fc7abdfd9e4d}
+      \strng{authornamehash}{b59f80fe8af8bd13d2c1fc7abdfd9e4d}
+      \strng{authorfullhash}{92a29bf44eed0cee694502a73a3b7769}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Canadian Urological Association Journal}
+      \field{number}{5}
+      \field{title}{Error reporting from the da Vinci surgical system in robotic surgery: A Canadian multispecialty experience at a single academic centre}
+      \field{volume}{11}
+      \field{year}{2017}
+      \field{pages}{E197\bibrangedash E202}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.5489/cuaj.4116
+      \endverb
+    \endentry
+    \entry{sadeghian2019constrained}{article}{}
+      \name{author}{3}{}{%
+        {{hash=f0c7e184e2b22f98bf779cead3e1a977}{%
+           family={Sadeghian},
+           familyi={S\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+        {{hash=476d5e052e29fc7e7c6a6ddd644d10b8}{%
+           family={Zokaei},
+           familyi={Z\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+        {{hash=e6e976ca546601ad3b67f2d322cdea5d}{%
+           family={Hadian\bibnamedelima Jazi},
+           familyi={H\bibinitperiod\bibinitdelim J\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{817c5d53bf5fb55241a5a2113400a78d}
+      \strng{fullhash}{817c5d53bf5fb55241a5a2113400a78d}
+      \strng{bibnamehash}{817c5d53bf5fb55241a5a2113400a78d}
+      \strng{authorbibnamehash}{817c5d53bf5fb55241a5a2113400a78d}
+      \strng{authornamehash}{817c5d53bf5fb55241a5a2113400a78d}
+      \strng{authorfullhash}{817c5d53bf5fb55241a5a2113400a78d}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Intelligent \& Robotic Systems}
+      \field{number}{3--4}
+      \field{title}{Constrained kinematic control in minimally invasive robotic surgery subject to remote center of motion constraint}
+      \field{volume}{95}
+      \field{year}{2019}
+      \field{pages}{901\bibrangedash 913}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1007/s10846-018-0927-0
+      \endverb
+    \endentry
+    \entry{saito2017contamination}{article}{}
+      \name{author}{6}{}{%
+        {{hash=bda5efe8ccbc769396e11d91cb2821d2}{%
+           family={Saito},
+           familyi={S\bibinitperiod},
+           given={Yuhei},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=71be154794022143b32e7b047cd63b36}{%
+           family={Yasuhara},
+           familyi={Y\bibinitperiod},
+           given={Hiroshi},
+           giveni={H\bibinitperiod}}}%
+        {{hash=0b6ee94fdea209c81b31e3590248b6d9}{%
+           family={Murakoshi},
+           familyi={M\bibinitperiod},
+           given={Satoshi},
+           giveni={S\bibinitperiod}}}%
+        {{hash=bf7e5c429a362e88fe08e8d1864ac188}{%
+           family={Komatsu},
+           familyi={K\bibinitperiod},
+           given={Takami},
+           giveni={T\bibinitperiod}}}%
+        {{hash=df73cac11abcfb355901eb211bdcd6b2}{%
+           family={Fukatsu},
+           familyi={F\bibinitperiod},
+           given={Kazuhiko},
+           giveni={K\bibinitperiod}}}%
+        {{hash=00da87bf86a2e5d00f890d0ee737db3b}{%
+           family={Uetera},
+           familyi={U\bibinitperiod},
+           given={Yushi},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{9eebf5ffaede050221fbd567815863de}
+      \strng{fullhash}{fb3f6b14dcbe02ef8b9dbdcc8e54b4f7}
+      \strng{bibnamehash}{fb3f6b14dcbe02ef8b9dbdcc8e54b4f7}
+      \strng{authorbibnamehash}{fb3f6b14dcbe02ef8b9dbdcc8e54b4f7}
+      \strng{authornamehash}{9eebf5ffaede050221fbd567815863de}
+      \strng{authorfullhash}{fb3f6b14dcbe02ef8b9dbdcc8e54b4f7}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Infection Control \& Hospital Epidemiology}
+      \field{number}{2}
+      \field{title}{Challenging residual contamination of instruments for robotic surgery in Japan}
+      \field{volume}{38}
+      \field{year}{2017}
+      \field{pages}{143\bibrangedash 146}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1017/ice.2016.249
+      \endverb
+    \endentry
   \enddatalist
   \missing{janabi2021continuum}
-  \missing{lashari2025enhancing}
-  \missing{scott2022macro}
 \endrefsection
 \endinput
 

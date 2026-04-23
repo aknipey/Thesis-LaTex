@@ -414,7 +414,7 @@ prediction, and system dynamics to maintain both stability and responsiveness.
 
 Filtering is therefore not optional in surgical teleoperation; it is a
 foundational requirement for maintaining stable and trustworthy state estimates
-when measurements are noisy and network transport is imperfect. \textcite{lashari2025enhancing}
+when measurements are noisy and network transport is imperfect. \textcite{lashari2024enhancing}
 show that a Kalman filter paired with MOESP-identified state-space
 models can estimate patient-side manipulator position with high robustness under
 delay, jitter, and packet loss, while remaining computationally lightweight for
@@ -427,7 +427,7 @@ delayed information, and preserve control continuity so that downstream motion
 control and haptic/visual feedback remain clinically usable. A key limitation,
 however, is that the reported performance is primarily based on dataset-driven
 modelling and simulated network impairments, so in vivo generalisability and
-cross-platform transfer still require further validation \parencite{lashari2025enhancing}.
+cross-platform transfer still require further validation \parencite{lashari2024enhancing}.
 
 Predictive bilateral control is also emerging as a practical strategy for
 continuum and snake-like teleoperation under delay. \textcite{ebrahimian2024online}
@@ -615,7 +615,7 @@ often carries non-trivial changeover overhead.
 Internal platform observations in prior local UR5e--continuum implementations
 also indicate that end-effector replacement is time-consuming and introduces
 practical workflow friction in achieving repeatable setup after each swap
-\parencite{scott2022macro}. Together, the literature and local prior-work
+\parencite{scott2023macro}. Together, the literature and local prior-work
 evidence indicate that architectural modularity alone is insufficient unless
 exchange time and post-swap recalibration costs are explicitly addressed.
 
@@ -779,7 +779,7 @@ and degradation from repeated reprocessing.
 
 \subsubsection{Error Detection and Reporting Architecture}
 
-\textcite{rajih2017malfunctions} provide useful evidence on practical
+\textcite{rajih2017error} provide useful evidence on practical
 malfunction detection, as errors were captured through da Vinci Si event logs,
 time-stamped, and classified as recoverable versus unrecoverable across 1228
 procedures. This is important for this review because safety analysis depends on
@@ -788,12 +788,12 @@ what is actually detected and recorded, not only what fails physically.
 Their workflow separates events by timing (pre-anesthesia setup,
 intraoperative, and post-undocking) and by subsystem category, creating a useful
 template for future macro--micro logging: event source, recoverability,
-corrective action, and impact on operative flow \parencite{rajih2017malfunctions}.
+corrective action, and impact on operative flow \parencite{rajih2017error}.
 
 \subsubsection{Malfunction Frequency and Immediate Clinical Consequence}
 \subsubsection{Malfunction Frequency and Clinical Consequence}
 
-Across the same cohort, \textcite{rajih2017malfunctions} report overall
+Across the same cohort, \textcite{rajih2017error} report overall
 malfunctions in 4.97\% (61/1228) of cases, with recoverable errors dominant
 (46/61). The most common event type was arm pressure/output limit faults
 (2.04\%, 25/1228), followed by communication-related errors (1.06\%, 13/1228),
@@ -806,7 +806,7 @@ due to a battery-related error. This supports their conclusion that malfunctions
 are not rare but are typically low-consequence when recovery pathways are
 present. However, this does not eliminate system-level risk, as consequence
 severity depends on context, detection latency, and available technical support
-\parencite{rajih2017malfunctions}.
+\parencite{rajih2017error}.
 
 To maintain explicit risk representation, this review uses
 \begin{equation}
@@ -821,7 +821,7 @@ voluntary-reporting datasets.
 \subsubsection{Preventable Versus Non-Preventable Faults}
 
 The Canadian dataset helps separate preventable execution faults from
-non-preventable electronic anomalies. \textcite{rajih2017malfunctions}
+non-preventable electronic anomalies. \textcite{rajih2017error}
 identify collision and jerky-motion-related events as a major recoverable class
 and explicitly link their frequency to team learning curve and technique. In
 contrast, communication-board anomalies are treated as less predictable and
@@ -831,7 +831,7 @@ This distinction is directly relevant for thesis design because mitigation
 strategies differ: port and arm planning, as well as operator training, can
 reduce preventable faults, whereas non-preventable faults require rapid
 diagnosis, robust recoverability logic, maintenance policy, and fallback
-workflow design \parencite{rajih2017malfunctions}.
+workflow design \parencite{rajih2017error}.
 
 \subsubsection{Lifecycle Reliability: Reconfiguration, Wear, and Reprocessing}
 
@@ -841,7 +841,7 @@ feasible constrained tracking performance (including experimental task-space
 error on the order of $\pm 0.4,\mathrm{mm}$), but this does not address
 prolonged workflow stress or repeated reconfiguration effects.
 
-For contamination risk, \textcite{saito2017cleaning} show that residual protein
+For contamination risk, \textcite{saito2017contamination} show that residual protein
 levels remain substantially higher in robotic instruments than in conventional
 instruments after in-house cleaning (robotic: 650, 550, 530 $\mu$g/instrument
 vs.\ ordinary: 16, 17, 17 $\mu$g/instrument; $P<.0001$), with an estimated total
@@ -866,55 +866,62 @@ bounds.
 
 
 \subsection{Synthesis of Literature and Knowledge Gaps}
-The reviewed literature establishes a coherent but incomplete technical chain for
-macro-micro MIS systems. Continuum/tendon-driven hardware studies support distal
-dexterity in constrained anatomy, teleoperation/control studies show that tremor,
-delay, estimation uncertainty, and intent mapping are jointly performance-critical,
-and safety studies demonstrate that malfunction events are generally manageable but
-not negligible. Accessibility studies then add an implementation constraint: for
-translation, performance must be achieved under realistic cost, maintenance, and
-workforce limits, not only in high-resource laboratories.
 
-Critically, these bodies of work are usually validated in isolation. Kinematic and
-compensation papers often assume controlled routing/loads; teleoperation papers often
-assume simplified communication conditions or bounded tasks; malfunction studies are
-strong in event reporting but weaker in mechanism-level causal closure; and lifecycle
-cleaning/reprocessing studies quantify residual burden but are rarely connected to
-control-state recovery after repeated instrument exchange. This fragmentation limits
-the explanatory strength of any single paper when the research question is end-to-end
-workflow reliability.
+The reviewed literature establishes a coherent but incomplete technical chain for
+macro--micro MIS systems. Continuum and tendon-driven hardware studies support
+distal dexterity in constrained anatomy, teleoperation and control studies show
+that tremor, delay, estimation uncertainty, and intent mapping are jointly
+performance-critical, and safety studies demonstrate that malfunction events are
+generally manageable but not negligible. Accessibility studies then add an
+implementation constraint: for translation, performance must be achieved under
+realistic cost, maintenance, and workforce limits, not only in high-resource
+laboratory settings.
+
+Critically, these bodies of work are usually validated in isolation. Kinematic
+and compensation studies often assume controlled routing and loading conditions;
+teleoperation studies typically assume simplified communication conditions or
+bounded tasks; malfunction studies are strong in event reporting but weaker in
+mechanism-level causal interpretation; and lifecycle reprocessing studies
+quantify residual burden but are rarely connected to control-state recovery
+following repeated instrument exchange. This fragmentation limits the
+explanatory strength of any single study when the research question concerns
+end-to-end workflow reliability.
 
 In relation to this project specifically, the conceptual relationship is direct.
-The UR5e macro stage provides accessible gross positioning, while the continuum distal
-stage provides local dexterity, but the interface between them introduces coupled
-failure modes: vibration transmission, backlash/hysteresis, post-swap recalibration
-burden, and safety assurance under disturbance. Therefore, the research problem is
-not merely improving one controller or one mechanism; it is establishing whether a
-low-cost macro-micro architecture can preserve safety and repeatability when control,
+The UR5e macro stage provides accessible gross positioning, while the continuum
+distal stage provides local dexterity; however, the interface between them
+introduces coupled failure modes, including vibration transmission,
+backlash and hysteresis, post-swap recalibration burden, and safety assurance
+under disturbance. The research problem is therefore not limited to improving a
+single controller or mechanism, but to determining whether a low-cost
+macro--micro architecture can preserve safety and repeatability when control,
 mechanics, and reconfiguration are exercised together.
 
-Based on this critical comparison, the principal knowledge gaps are:
+Based on this synthesis, the principal knowledge gaps are:
 \begin{itemize}
-    \item \textbf{Integrated validation gap:} limited evidence that combines constrained motion control, teleoperation robustness, and modular reconfiguration recovery in one experimental framework.
-    \item \textbf{Safety evidence gap:} limited prospective linkage between detected robotic malfunctions, recovery actions, and task-level outcome degradation under realistic operating conditions.
-    \item \textbf{Lifecycle reliability gap:} insufficient long-horizon data on wear, sterilisation/reprocessing residue, and calibration drift across repeated swap cycles for tendon-driven instruments.
-    \item \textbf{Benchmarking gap:} insufficient standardised, reproducible metrics and protocols that allow fair comparison of low-cost macro-micro platforms with clinically meaningful endpoints.
+\item \textbf{Integrated validation gap:} limited evidence combining constrained motion control, teleoperation robustness, and modular reconfiguration recovery within a single experimental framework.
+\item \textbf{Safety evidence gap:} limited prospective linkage between detected robotic malfunctions, recovery actions, and task-level outcome degradation under realistic operating conditions.
+\item \textbf{Lifecycle reliability gap:} insufficient long-horizon data on wear, sterilisation and reprocessing residue, and calibration drift across repeated swap cycles for tendon-driven instruments.
+\item \textbf{Benchmarking gap:} insufficient standardised and reproducible metrics and protocols enabling fair comparison of low-cost macro--micro platforms using clinically meaningful endpoints.
 \end{itemize}
 
-In this context, the thesis contribution is positioned as a systems-level evaluation:
-to design and assess a UR5e-based macro-micro platform using unified endpoints for
-constraint adherence, teleoperation robustness, post-swap recovery, and lifecycle
-reliability, rather than reporting isolated improvements on individual subsystems.
+In this context, the thesis contribution is positioned as a systems-level
+evaluation: to design and assess a UR5e-based macro--micro platform using unified
+endpoints for constraint adherence, teleoperation robustness, post-swap
+recovery, and lifecycle reliability, rather than reporting isolated improvements
+in individual subsystems.
 
-\subsection{Priority Evidence Gaps for Additional Review}
-The review can be strengthened further by adding recent studies on:
+\subsubsection{Remaining Evidence Gaps and Future Directions}
+
+The literature can be further strengthened by recent work in several areas:
 \begin{itemize}
-    \item benchmark datasets and standardised test protocols for continuum surgical teleoperation,
-    \item variable-delay and packet-loss robust bilateral/shared control in human-in-the-loop settings,
-    \item safety assurance frameworks (fault handling, bounded motion, force-limited behaviour) for MIS robots,
-    \item quantitative studies of modular tool-exchange repeatability and calibration drift,
-    \item lifecycle reliability of tendon-driven instruments under repeated use and sterilisation.
+\item benchmark datasets and standardised test protocols for continuum surgical teleoperation,
+\item variable-delay and packet-loss-robust bilateral and shared control in human-in-the-loop settings,
+\item safety assurance frameworks (fault handling, bounded motion, and force-limited behaviour) for MIS robots,
+\item quantitative studies of modular tool-exchange repeatability and calibration drift,
+\item lifecycle reliability of tendon-driven instruments under repeated use and sterilisation.
 \end{itemize}
+
 
 \section{Research Question and Project Plan}
 
