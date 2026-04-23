@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.3)  24 APR 2026 02:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.3)  24 APR 2026 09:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1119,128 +1119,128 @@ Package pdftex.def Info: Images/snake_raven_reference.png  used on input line 2
  [3 <./Images/LachlanFinalSystemArchitecture.png> <./Images/snake_raven_referen
 ce.png>] [4] [5] [6]
 [7] [8]
-Overfull \hbox (33.00436pt too wide) in paragraph at lines 550--551
+Overfull \hbox (33.00436pt too wide) in paragraph at lines 518--519
  [][] 
  []
 
-[9] [10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 653--653
+[9] [10]
+Underfull \hbox (badness 10000) in paragraph at lines 621--621
 []|\OT1/cmr/bx/n/10.95 Mechanism
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 654--654
+Underfull \hbox (badness 10000) in paragraph at lines 622--622
 []|\OT1/cmr/m/n/10.95 Linear cartridge-style
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 655--655
+Underfull \hbox (badness 10000) in paragraph at lines 623--623
 []|\OT1/cmr/m/n/10.95 Rotational lock-ing,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 656--657
+Underfull \hbox (badness 10000) in paragraph at lines 624--625
 []|\OT1/cmr/m/n/10.95 Single dis-tal tool
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 656--657
+Underfull \hbox (badness 10000) in paragraph at lines 624--625
 \OT1/cmr/m/n/10.95 changes func-tional
  []
 
 
-Underfull \hbox (badness 1418) in paragraph at lines 659--659
+Underfull \hbox (badness 1418) in paragraph at lines 627--627
 \OT1/cmr/m/n/10.95 able align-ment dur-ing
  []
 
 
-Underfull \hbox (badness 7613) in paragraph at lines 659--659
+Underfull \hbox (badness 7613) in paragraph at lines 627--627
 \OT1/cmr/m/n/10.95 ex-change; com-pat-i-ble
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 660--660
+Underfull \hbox (badness 10000) in paragraph at lines 628--628
 []|\OT1/cmr/m/n/10.95 Potentially com-pact
  []
 
 
-Underfull \hbox (badness 1902) in paragraph at lines 660--660
+Underfull \hbox (badness 1902) in paragraph at lines 628--628
 \OT1/cmr/m/n/10.95 and rapid at-tach-ment
  []
 
 
-Underfull \hbox (badness 1057) in paragraph at lines 661--662
+Underfull \hbox (badness 1057) in paragraph at lines 629--630
 []|\OT1/cmr/m/n/10.95 Reduces ex-change fre-
  []
 
 
-Underfull \hbox (badness 4036) in paragraph at lines 661--662
+Underfull \hbox (badness 4036) in paragraph at lines 629--630
 \OT1/cmr/m/n/10.95 quency by com-bin-ing
  []
 
 
-Underfull \hbox (badness 6658) in paragraph at lines 664--664
+Underfull \hbox (badness 6658) in paragraph at lines 632--632
 []|\OT1/cmr/m/n/10.95 Still re-quires re-li-able
  []
 
 
-Underfull \hbox (badness 2903) in paragraph at lines 664--664
+Underfull \hbox (badness 2903) in paragraph at lines 632--632
 \OT1/cmr/m/n/10.95 dock-ing, re-con-nec-tion,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 665--665
+Underfull \hbox (badness 10000) in paragraph at lines 633--633
 \OT1/cmr/m/n/10.95 ro-bust-ness, and re-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 669--669
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 []|\OT1/cmr/m/n/10.95 Strongest di-rect ex-
  []
 
 
-Underfull \hbox (badness 3039) in paragraph at lines 670--670
+Underfull \hbox (badness 3039) in paragraph at lines 638--638
 []|\OT1/cmr/m/n/10.95 Sparse di-rect sur-gi-cal
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 670--670
+Underfull \hbox (badness 10000) in paragraph at lines 638--638
 \OT1/cmr/m/n/10.95 val-i-da-tion and weak
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 671--672
+Underfull \hbox (badness 10000) in paragraph at lines 639--640
 []|\OT1/cmr/m/n/10.95 Promising
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 671--672
+Underfull \hbox (badness 10000) in paragraph at lines 639--640
 \OT1/cmr/m/n/10.95 prototype/task-specific
  []
 
 
-Underfull \hbox (badness 3260) in paragraph at lines 671--672
+Underfull \hbox (badness 3260) in paragraph at lines 639--640
 \OT1/cmr/m/n/10.95 ev-i-dence, but lim-ited
  []
 
 
-Overfull \hbox (21.54718pt too wide) in paragraph at lines 649--679
+Overfull \hbox (21.54718pt too wide) in paragraph at lines 617--647
  [][] 
  []
 
-[12] [13] [14] [15] [16] [17] [18] [19]
-<Images/GanttChart.png, id=490, 1230.09563pt x 579.66562pt>
+[11] [12] [13] [14] [15] [16] [17] [18]
+<Images/GanttChart.png, id=483, 1230.09563pt x 579.66562pt>
 File: Images/GanttChart.png Graphic file (type png)
 <use Images/GanttChart.png>
-Package pdftex.def Info: Images/GanttChart.png  used on input line 964.
+Package pdftex.def Info: Images/GanttChart.png  used on input line 932.
 (pdftex.def)             Requested size: 409.71692pt x 193.07692pt.
-<Images/MindMapPlan.png, id=492, 946.28531pt x 666.23906pt>
+<Images/MindMapPlan.png, id=485, 946.28531pt x 666.23906pt>
 File: Images/MindMapPlan.png Graphic file (type png)
 <use Images/MindMapPlan.png>
-Package pdftex.def Info: Images/MindMapPlan.png  used on input line 981.
+Package pdftex.def Info: Images/MindMapPlan.png  used on input line 949.
 (pdftex.def)             Requested size: 409.71692pt x 288.45956pt.
- [20 <./Images/GanttChart.png>] [21 <./Images/MindMapPlan.png>] [22] [23] [24] 
-[25] [26] (./Lit Review.aux)
+ [19 <./Images/GanttChart.png>] [20 <./Images/MindMapPlan.png>] [21] [22] [23] 
+[24] [25] (./Lit Review.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1261,8 +1261,8 @@ Package logreq Info: Writing requests to '"Lit Review".run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29702 strings out of 476182
- 570016 string characters out of 5795596
+ 29701 strings out of 476182
+ 570009 string characters out of 5795596
  1939975 words of memory out of 5000000
  51147 multiletter control sequences out of 15000+600000
  569886 words of font info for 76 fonts, out of 8000000 for 9000
@@ -1284,10 +1284,10 @@ fonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on "Lit Review.pdf" (32 pages, 3285597 bytes).
+Output written on "Lit Review.pdf" (31 pages, 3281702 bytes).
 PDF statistics:
- 657 PDF objects out of 1000 (max. 8388607)
- 571 compressed objects within 6 object streams
- 111 named destinations out of 1000 (max. 500000)
+ 651 PDF objects out of 1000 (max. 8388607)
+ 566 compressed objects within 6 object streams
+ 110 named destinations out of 1000 (max. 500000)
  403 words of extra memory for PDF output out of 10000 (max. 10000000)
 

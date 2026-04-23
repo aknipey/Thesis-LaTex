@@ -523,35 +523,29 @@ teleoperation architecture is visualised in Fig.~\ref{fig:teleop_architecture}.
 \subsection{Modularity and Tendon-Driven Continuum Manipulators}
 \subsubsection{Monolithic vs Modular Distal Architectures}
 
-In this review, a \textit{monolithic} distal architecture is defined as a single
-integrated tool assembly in which changing function requires major teardown or
-full distal module replacement, rather than rapid local exchange. This framing
-is consistent with the architecture-level distinction between integrated and
-modular robotic platforms reported by \textcite{cowan2024classification}.
-
-The practical consequences are workflow-critical, including longer swap times,
-re-tensioning and re-calibration burden after replacement, interruption of the
+A monolithic distal architecture is characterised by a single
+integrated tool assembly where changing function require a slow teardown or disassembly, rather than a rapid tool exchange.
+The practical consequences of this architecture distiction regarding workflow include longer swap times \parencite{cowan2024classification},
+re-tensioning and re-calibration after replacement, interruption of the
 operative sequence, and reduced intraoperative adaptability when task
-requirements change mid-procedure. These constraints align with broader
-integration-friction evidence in modular end-effector software and hardware
-pipelines \parencite{torielli2023ros}, where even technically feasible modularity
-often carries non-trivial changeover overhead.
+requirements change during the procedure. 
+These constraints align with broader
+integration issues seen in modular end effector software and hardware
+pipelines \parencite{torielli2023ros}, as many modularity solutions introduce non-trivial changeover overhead.
 
-Internal platform observations in prior local UR5e--continuum implementations
-also indicate that end-effector replacement is time-consuming and introduces
+Internal platform observations in prior local UR5e continuum tip implementations
+also indicate that tool replacement is slow and introduces
 practical workflow friction in achieving repeatable setup after each swap
-\parencite{scott2023macro}. Together, the literature and local prior-work
-evidence indicate that architectural modularity alone is insufficient unless
-exchange time and post-swap recalibration costs are explicitly addressed.
-
+\parencite{scott2023macro}. Thus, evidence indicates that architectural modularity alone is insufficient unless
+exchange time and post swap recalibration costs are explicitly addressed.
 
 \subsubsection{Tool Exchange Mechanisms}
 
 Tool exchange is necessary because laparoscopic workflows require multiple
-functional instruments within a single procedure, while only a limited subset
-can be mounted simultaneously on the robotic arm \parencite{ko2025tool}. This
-creates a recurrent intraoperative transition task that can interrupt surgical
-flow and, when assistant-dependent, introduces operator--assistant coordination
+functional instruments during single procedure, yet only a limited subset
+can be mounted simultaneously on the robotic arm \parencite{ko2025tool}. The resulting reoccuring
+ intraoperative transition that can interrupt surgical
+flow and, depending on the swap method, introduces further coordination
 variability.
 
 \subsubsection{Rail-Guided and Cartridge-Based Exchange}
@@ -842,7 +836,7 @@ endpoints for constraint adherence, teleoperation smoothness and robustness,
 post-swap recovery, and safety-relevant performance, rather than reporting
 isolated improvements in individual subsystems.
 
-\subsubsection{Remaining Evidence Gaps and Future Directions}
+\subsubsection{Remaining Evidence Gaps and Next Directions}
 
 The literature can be further strengthened by recent work in several areas:
 
