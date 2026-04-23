@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.3)  24 APR 2026 00:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.3)  24 APR 2026 02:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1095,153 +1095,149 @@ Package pdftex.def Info: Images/unsw_logo.png  used on input line 50.
 
 
 [4] [5]
-Package hyperref Info: Option `pageanchor' set `true' on input line 129.
+Package hyperref Info: Option `pageanchor' set `true' on input line 130.
  [1]
-<Images/LaxhlanCombinedTeleop.jpeg, id=305, 2788.4175pt x 1288.815pt>
+<Images/LaxhlanCombinedTeleop.jpeg, id=302, 2788.4175pt x 1288.815pt>
 File: Images/LaxhlanCombinedTeleop.jpeg Graphic file (type jpg)
 <use Images/LaxhlanCombinedTeleop.jpeg>
 Package pdftex.def Info: Images/LaxhlanCombinedTeleop.jpeg  used on input line 
-177.
+178.
 (pdftex.def)             Requested size: 273.14923pt x 126.23418pt.
-<Images/LachlanFinalSystemArchitecture.png, id=311, 506.6127pt x 559.3698pt>
+<Images/LachlanFinalSystemArchitecture.png, id=308, 506.6127pt x 559.3698pt>
 File: Images/LachlanFinalSystemArchitecture.png Graphic file (type png)
 <use Images/LachlanFinalSystemArchitecture.png>
 Package pdftex.def Info: Images/LachlanFinalSystemArchitecture.png  used on inp
-ut line 190.
+ut line 191.
 (pdftex.def)             Requested size: 273.14923pt x 301.60281pt.
  [2 <./Images/LaxhlanCombinedTeleop.jpeg>]
-<Images/snake_raven_reference.png, id=321, 964.60374pt x 234.8775pt>
+<Images/snake_raven_reference.png, id=318, 964.60374pt x 234.8775pt>
 File: Images/snake_raven_reference.png Graphic file (type png)
 <use Images/snake_raven_reference.png>
 Package pdftex.def Info: Images/snake_raven_reference.png  used on input line 2
-07.
+08.
 (pdftex.def)             Requested size: 273.14923pt x 66.5107pt.
  [3 <./Images/LachlanFinalSystemArchitecture.png> <./Images/snake_raven_referen
-ce.png>] [4]
-
-LaTeX Warning: Citation 'janabi2021continuum' on page 5 undefined on input line
- 305.
-
-[5] [6] [7] [8] [9]
-Overfull \hbox (33.00436pt too wide) in paragraph at lines 575--576
+ce.png>] [4] [5] [6]
+[7] [8]
+Overfull \hbox (33.00436pt too wide) in paragraph at lines 550--551
  [][] 
  []
 
-[10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 678--678
+[9] [10] [11]
+Underfull \hbox (badness 10000) in paragraph at lines 653--653
 []|\OT1/cmr/bx/n/10.95 Mechanism
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 679--679
+Underfull \hbox (badness 10000) in paragraph at lines 654--654
 []|\OT1/cmr/m/n/10.95 Linear cartridge-style
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 680--680
+Underfull \hbox (badness 10000) in paragraph at lines 655--655
 []|\OT1/cmr/m/n/10.95 Rotational lock-ing,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 681--682
+Underfull \hbox (badness 10000) in paragraph at lines 656--657
 []|\OT1/cmr/m/n/10.95 Single dis-tal tool
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 681--682
+Underfull \hbox (badness 10000) in paragraph at lines 656--657
 \OT1/cmr/m/n/10.95 changes func-tional
  []
 
 
-Underfull \hbox (badness 1418) in paragraph at lines 684--684
+Underfull \hbox (badness 1418) in paragraph at lines 659--659
 \OT1/cmr/m/n/10.95 able align-ment dur-ing
  []
 
 
-Underfull \hbox (badness 7613) in paragraph at lines 684--684
+Underfull \hbox (badness 7613) in paragraph at lines 659--659
 \OT1/cmr/m/n/10.95 ex-change; com-pat-i-ble
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 685--685
+Underfull \hbox (badness 10000) in paragraph at lines 660--660
 []|\OT1/cmr/m/n/10.95 Potentially com-pact
  []
 
 
-Underfull \hbox (badness 1902) in paragraph at lines 685--685
+Underfull \hbox (badness 1902) in paragraph at lines 660--660
 \OT1/cmr/m/n/10.95 and rapid at-tach-ment
  []
 
 
-Underfull \hbox (badness 1057) in paragraph at lines 686--687
+Underfull \hbox (badness 1057) in paragraph at lines 661--662
 []|\OT1/cmr/m/n/10.95 Reduces ex-change fre-
  []
 
 
-Underfull \hbox (badness 4036) in paragraph at lines 686--687
+Underfull \hbox (badness 4036) in paragraph at lines 661--662
 \OT1/cmr/m/n/10.95 quency by com-bin-ing
  []
 
 
-Underfull \hbox (badness 6658) in paragraph at lines 689--689
+Underfull \hbox (badness 6658) in paragraph at lines 664--664
 []|\OT1/cmr/m/n/10.95 Still re-quires re-li-able
  []
 
 
-Underfull \hbox (badness 2903) in paragraph at lines 689--689
+Underfull \hbox (badness 2903) in paragraph at lines 664--664
 \OT1/cmr/m/n/10.95 dock-ing, re-con-nec-tion,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 690--690
+Underfull \hbox (badness 10000) in paragraph at lines 665--665
 \OT1/cmr/m/n/10.95 ro-bust-ness, and re-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 694--694
+Underfull \hbox (badness 10000) in paragraph at lines 669--669
 []|\OT1/cmr/m/n/10.95 Strongest di-rect ex-
  []
 
 
-Underfull \hbox (badness 3039) in paragraph at lines 695--695
+Underfull \hbox (badness 3039) in paragraph at lines 670--670
 []|\OT1/cmr/m/n/10.95 Sparse di-rect sur-gi-cal
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 695--695
+Underfull \hbox (badness 10000) in paragraph at lines 670--670
 \OT1/cmr/m/n/10.95 val-i-da-tion and weak
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 696--697
+Underfull \hbox (badness 10000) in paragraph at lines 671--672
 []|\OT1/cmr/m/n/10.95 Promising
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 696--697
+Underfull \hbox (badness 10000) in paragraph at lines 671--672
 \OT1/cmr/m/n/10.95 prototype/task-specific
  []
 
 
-Underfull \hbox (badness 3260) in paragraph at lines 696--697
+Underfull \hbox (badness 3260) in paragraph at lines 671--672
 \OT1/cmr/m/n/10.95 ev-i-dence, but lim-ited
  []
 
 
-Overfull \hbox (21.54718pt too wide) in paragraph at lines 674--704
+Overfull \hbox (21.54718pt too wide) in paragraph at lines 649--679
  [][] 
  []
 
 [12] [13] [14] [15] [16] [17] [18] [19]
-<Images/GanttChart.png, id=493, 1230.09563pt x 579.66562pt>
+<Images/GanttChart.png, id=490, 1230.09563pt x 579.66562pt>
 File: Images/GanttChart.png Graphic file (type png)
 <use Images/GanttChart.png>
-Package pdftex.def Info: Images/GanttChart.png  used on input line 989.
+Package pdftex.def Info: Images/GanttChart.png  used on input line 964.
 (pdftex.def)             Requested size: 409.71692pt x 193.07692pt.
-<Images/MindMapPlan.png, id=495, 946.28531pt x 666.23906pt>
+<Images/MindMapPlan.png, id=492, 946.28531pt x 666.23906pt>
 File: Images/MindMapPlan.png Graphic file (type png)
 <use Images/MindMapPlan.png>
-Package pdftex.def Info: Images/MindMapPlan.png  used on input line 1006.
+Package pdftex.def Info: Images/MindMapPlan.png  used on input line 981.
 (pdftex.def)             Requested size: 409.71692pt x 288.45956pt.
  [20 <./Images/GanttChart.png>] [21 <./Images/MindMapPlan.png>] [22] [23] [24] 
 [25] [26] (./Lit Review.aux)
@@ -1288,10 +1284,10 @@ fonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on "Lit Review.pdf" (32 pages, 3287657 bytes).
+Output written on "Lit Review.pdf" (32 pages, 3285597 bytes).
 PDF statistics:
- 660 PDF objects out of 1000 (max. 8388607)
- 574 compressed objects within 6 object streams
+ 657 PDF objects out of 1000 (max. 8388607)
+ 571 compressed objects within 6 object streams
  111 named destinations out of 1000 (max. 500000)
  403 words of extra memory for PDF output out of 10000 (max. 10000000)
 
