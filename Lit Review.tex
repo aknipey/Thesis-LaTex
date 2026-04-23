@@ -17,11 +17,18 @@
 \usepackage{xurl}
 \usepackage[backend=biber,style=ieee]{biblatex}
 \usepackage{tikz}
+\usepackage{titlesec}
 \usetikzlibrary{arrows.meta, positioning, shapes.geometric, fit}
 \addbibresource{references.bib}
 
 % Reduce common layout warnings from long URLs and dense prose.
 \setlength{\emergencystretch}{3em}
+\setlength{\parskip}{0.7em}
+\setlength{\parindent}{0pt}
+
+\titlespacing*{\section}{0pt}{1ex}{0.1ex}
+\titlespacing*{\subsection}{0pt}{0.6ex}{0.2ex}
+\titlespacing*{\subsubsection}{0pt}{0.4ex}{0.3ex}
 
 % Header and Footer setup
 \pagestyle{fancy}
@@ -34,8 +41,7 @@
 \begin{document}
 \hypersetup{pageanchor=false}
 \pagenumbering{roman} % Start roman numerals
-\onehalfspacing
-
+\setstretch{1.3}
 % --- Title Page ---
 \begin{titlepage}
     \begin{center}
@@ -86,7 +92,6 @@ specifically around smoothing for teleoperative control, integrated tool exchang
 \newpage
 \listoffigures
 \addcontentsline{toc}{section}{List of Figures}
-\newpage
 \listoftables
 \addcontentsline{toc}{section}{List of Tables}
 
@@ -94,7 +99,6 @@ specifically around smoothing for teleoperative control, integrated tool exchang
 % --- Nomenclature ---
 \section*{Nomenclature}
 \addcontentsline{toc}{section}{Nomenclature}
-\textit{(The nomenclature must respect the following order: latin symbols, Greek symbols, acronyms. Within each category of symbols, follow alphabetic order. An example is provided below)}
 
 \vspace{0.5cm}
 \begin{tabular}{>{\raggedright}p{2cm} c p{10cm}}
@@ -118,7 +122,6 @@ $\boldsymbol{R}$ & = & rod orientation in Cosserat formulation \\
 $\boldsymbol{n}$ & = & internal force in Cosserat formulation \\
 $\boldsymbol{m}$ & = & internal moment in Cosserat formulation \\
 MIS & = & minimally invasive surgery \\
-TLA & = & \dots \\
 \end{tabular}
 
 \newpage
@@ -128,163 +131,138 @@ TLA & = & \dots \\
 
 \section{Introduction}
 \subsection{Project Context and Problem Significance}
-This thesis aims to extend on previous macro-micro robotic surgery work by 2023 UNSW thesis student Lachlan Scott \cite{scott2023macro}.
-Scott partially identified areas of improvement that he saw for his own system, which this thesis aims to address. Furthermore, new improvement and research possibilities 
-have been identified that also build on Scott's work. The main areas of possible improvement are in the teleoperation control and motion of the system,
+This report aims to extend on previous a teleoperated macro--micro surgical robot prototype developed by 2023 UNSW thesis student Lachlan Scott \cite{scott2023macro}.
+Scott's project established the viability of such a system, however he outlined potential areas of improvement, which this report addresses. Furthermore, new improvement and research possibilities 
+have been identified, such as smoothing the motion of the robotic UR5e arm,
 the modularity of the system and thus ease of tool exchange, and the safety and reliability of the system for clinical use.
-Scott's earlier project has established the viability of the system that will be discussed at a proof-of-concept level.
-Hence, this review of the literature and the thesis question that follow need to recognise this context with regards to Scott's work.
+Hence, this review of the literature and the thesis question that follows need to recognise this context with regards to Scott's work.
+This report accordingly defines a focused research question and supporting project plan, and describes work undertaken to ensure feasibility 
+and alignment with the identified knowledge gaps.
 
 \section{Literature Review}
-
 \subsection{Minimally Invasive Surgery (MIS) and Robotic Systems}
 
 \subsubsection{Historical Progression of Surgery and MIS Robotics}
 
-Technology and surgery have been inseparable for centuries as every surgical advancement or care improvement has been enabled by the parallel development of instruments and tools.
-From anaesthesia to antiseptics, innovation has enabled surgeons to reduce risk and expand the scope of treatable conditions \cite{vitiello2013emerging}.
-In the 19th century, innovations such as the transition from candlelight to electric lighting allowed for practical internal visualisation, marking the beginning of a major paradigm shift in the surgical field (Hargest five thousand years).
-Electricity also enable the development of various specialised surgical procedures, such as electrocautery for haemostatasis and the use of electric drills for orthopaedic surgery \cite{hargest2021five}.
-These innovations allowed for a stronger focus on precision and dexterity, and techniques such as laparoscopy and endoscopy were developed at the beginning of the 20th century, resulting in some of the first minimally invasive surgeries (MIS) \cite{hatzinger2014ott}.
-This trend towards less invasive procedures has continued, with the development of revolutionary robotic surgical systems such as the da Vinci Surgical System in the late 1990s, which has become widely adopted for various surgical procedures \cite{davinci_intuitive}.
+Technology and surgery are inseparable; every surgical advancement or care improvement has been enabled by the parallel development of instruments and tools.
+From anaesthesia to antiseptics, innovation has allowed surgeons to reduce risk and expand the scope of treatable conditions \cite{vitiello2013emerging}.
+In the 19th century, the transition from candlelight to electric lighting allowed for practical internal visualisation, 
+marking the beginning of a major paradigm shift in the surgical field \parencite{hargest2021five}.
+Electricity also enabled development of various specialised surgical procedures, such as electrocautery for haemostatasis and the use of electric drills for orthopaedic surgery \cite{hargest2021five}.
+Over time, the focus has shifted towards precision and dexterity, and techniques such as laparoscopy and endoscopy were developed at the beginning of the 20th century, resulting in some of the first minimally invasive surgeries (MIS) \cite{hatzinger2014ott}.
 Laparoscopic surgery is a core MIS approach in which instruments are inserted
 through small abdominal incisions using trocar access ports, rather than a
-large open incision \cite{ko2025tool}. In this report, MIS denotes procedures
+large open incision \cite{ko2025tool}. Holistically, MIS denotes procedures
 that use these reduced-access pathways to lower tissue trauma and recovery
 burden relative to open surgery.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Images/progression_of_surgery.png}
-    \caption{Progression of surgery and enabling technology from conventional approaches to modern MIS robotics.}
-    \label{fig:progression_of_surgery}
-\end{figure}
+This trend towards less invasive procedures has continued, and revolutionary robotics like the da Vinci Surgical System became widely adopted in the 1990's and 2000's \cite{davinci_intuitive},
+however there are still challenges to overcome.
 
 \subsubsection{Macro--Micro Architecture for Surgical Robotics}
 
 The current aspiration of modern surgical robotics is achieving human-level dexterity,
-accuracy, and force control in increasingly small and complex anatomical spaces that may have limited access or visualisation.
-One key technological direction enabling this transition is minimally invasive
-surgical tooling with a macro--micro architecture. This terminology refers to a two-stage robotic system in which a larger, more rigid macro manipulator provides gross positioning and stability,
-while a smaller, more flexible micro manipulator is attached to the distal end of the macro arm to provide fine manipulation capabilities in confined spaces \cite{scott2023macro}.
+accuracy, and force control in increasingly small and complex anatomical spaces with limited access and vision.
+One key technological direction enabling this transition is MIS tooling with a macro--micro architecture. This terminology refers to a robotic system where a larger, more rigid macro manipulator provides positioning and stability,
+while a smaller, more flexible micro manipulator is attached to the distal end of the macro arm, providing finer control in confined spaces \cite{scott2023macro}.
 
 The macro unit provides large-workspace positioning and efficiency; however,
 its larger structure can be prone to deformation and vibration. In contrast, the micro manipulation unit provides the distal dexterity required for manipulation in confined anatomy, where surgical
 targets often require end-effectors in the 3--4 mm class for practical access
 through narrow channels and natural orifices.
 
-An example of this macro--micro architecture is shown in Fig.~\ref{fig:lachlan_combined_teleop}, where a UR5e macro robotic arm is integrated with a tendon-driven continuum micro-manipulator \cite{scott2023macro}.
+An example of this macro--micro setup is shown in Fig.~\ref{fig:lachlan_combined_teleop}, where a UR5e macro robotic arm is integrated with a tendon-driven continuum micro-manipulator \cite{scott2023macro}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{Images/LaxhlanCombinedTeleop.jpeg}
-    \caption{Macro--micro teleoperation system combining a UR5e robotic arm with a continuum-tip manipulator \cite{scott2023macro}.}
+    \caption[Macro--micro UR5e teleoperation system]{Macro--micro teleoperation system combining a UR5e robotic arm with a continuum-tip manipulator \cite{scott2023macro}.}
     \label{fig:lachlan_combined_teleop}
 \end{figure}
 
-In current snake-robot literature, this micro stage is typically tendon or cable-actuated to achieve high local curvature and fine orientation control, 
-but its performance depends strongly on motion transmission quality, sensing, and control architecture \cite{seetohul2022snake}.
-Within a macro--micro arrangement, this local dexterity complements the macro arm's gross positioning capability and 
-can help isolate the endpoint from macro-stage vibration through coordinated control \cite{scott2023macro}.
-
-A system-level representation of this architecture is shown in Fig.~\ref{fig:lachlan_final_system_architecture}, illuminating the component integration.
+In current snake-like manipulator literature, this micro stage is typically tendon or cable driven to achieve controlled high curvature and orientation control, 
+but the performance relies on the quality of motion transmission, sensing, and control architecture involved \cite{seetohul2022snake}.
+Regarding macro--micro robotics, this local dexterity complements the macro arm's gross positioning capability and 
+could isolate the endpoint from macro-stage vibration through coordinated control \cite{scott2023macro}.
+A system-level representation of the implementation of this concept is shown in Fig.~\ref{fig:lachlan_final_system_architecture}, illuminating the component integration.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{Images/LachlanFinalSystemArchitecture.png}
-    \caption{System architecture of a UR5e-based macro--micro surgical manipulator, including teleoperation and continuum-tip integration \cite{scott2023macro}.}
+    \caption[Macro--micro system architecture]{System architecture of a UR5e-based macro--micro surgical manipulator \cite{scott2023macro}.}
     \label{fig:lachlan_final_system_architecture}
 \end{figure}
 
 \subsubsection{Continuum Manipulators for MIS}
 
-This review is primarily focused on continuum tips, which are a type of hyper-redundant end-effectors for MIS.
-They combine high dexterity with slender geometries so that they can inserted through tightly constrained pathways 
-(e.g., lumens, natural orifices, and smallincisions), where traditional rigid tools may not fit.
-
-In the tendon-driven subclass, curvature is generated through differential tendon
-tension about a central backbone or articulated serial structure, enabling
-multi-DOF distal steering with compact proximal actuation and making these devices
-well suited to macro-micro architectures \cite{seetohul2022snake}. 
-An example of this is shown in Fig.~\ref{fig:snake_raven_reference}, 
-where a tendon-driven continuum tip is integrated with a Raven II surgical robot for teleoperation \cite{razjigaev2021snakeraven}.
+Continuum tips are a type of hyper-redundant end-effector that can bend continuously along their length.
+Their high dexterity and slender geometry allow them to navigate tight, curved pathways 
+such as natural orifices and small incisions, where traditional rigid tools may not fit.
+Tool curvature is generated through differential 
+tension about a central backbone, resulting in multi-DOF distal steering, making these tips
+suited to macro--micro architectures \cite{seetohul2022snake}. 
+For example, the tendon driven continuum tip in Fig.~\ref{fig:snake_raven_reference} is integrated with a Raven II surgical robot for teleoperation \cite{razjigaev2021snakeraven}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{Images/snake_raven_reference.png}
-    \caption{SnakeRaven macro--micro surgical manipulator concept \cite{razjigaev2021snakeraven}.}
+    \caption[SnakeRaven macro--micro continuum tip]{SnakeRaven macro--micro surgical manipulator concept \cite{razjigaev2021snakeraven}.}
     \label{fig:snake_raven_reference}
 \end{figure}
 
 \subsubsection{Cost and Accessibility Considerations}
-
-With growing demand and a rapidly expanding surgical robotics market, there is
+Growing demand and an expanding surgical robotics market has provoked
 ongoing debate over whether the high cost of integrated platforms such as the
 da Vinci system limits accessibility. Acquisition costs have been reported up to
-
 \$4 million AUD, with additional per-procedure costs of approximately
 \$1000--\$5000 \cite{eckhoff2023costs}.
-
 Despite clear clinical benefits, providers must still evaluate cost-effectiveness,
-particularly in resource-limited settings \cite{eckhoff2023costs}. Evidence from
-low and middle-income environments shows that there are more uptake barriers than the initial cost. 
+expecially in low and middle-income environments where there are more adoption barriers than the initial cost. 
 Recurring maintenance, disposable instrument costs, and
-sustained training requirements can prevent programme continuity even after
+sustained training requirements can prevent usage even after
 installation \cite{raza2024transforming}.
 
-At a system level, further constraints arise from limited infrastructure,
+Systemic constraints can also arise from limited infrastructure,
 workforce training gaps, and the need to prioritise basic surgical capacity over
 advanced robotic systems \cite{raza2024transforming}. These factors collectively
 highlight a significant translational gap between technological capability and
-real-world clinical deployment.
-
-Taken together, the literature indicates that scalable, cost-effective robotic
-solutions remain underdeveloped. In particular, there is a need for affordable
-macro--micro systems that combine low-cost hardware with clinically credible and
-robust teleoperation performance.
-
-This aligns with broader research directions advocating the use of off-the-shelf
-hardware and open-source software frameworks to reduce system cost while
-maintaining the precision and safety requirements of minimally invasive surgery
+real-world clinical deployment. This literature indicates that scalable, cost-effective robotic
+solutions remain underdeveloped, and thus there is a need for affordable
+macro--micro systems that combine cheaper hardware with clinically useful teleoperation performance.
+This aligns with broader advocation of off-the-shelf
+hardware and open source software frameworks to reduce cost yet
+maintain the precision and safety requirements of minimally invasive surgery
 \cite{scott2023macro}.
 
-
 \subsubsection{UR5e-Based Systems and Identified Limitations}
-
-The UR5e is a widely used, cost-effective robotic manipulator that can serve as
+The UR5e is a common, economical robotic manipulator that can serve as
 the macro stage in macro--micro surgical architectures, with reported pricing
-around \$50{,}000 to \$60{,}000 AUD \cite{standardbots_priceguide}. Its relatively
-low cost and flexibility make it a suitable platform for integration with
-custom micro-manipulation systems.
+around \$50{,}000 to \$60{,}000 AUD \cite{standardbots_priceguide}. Its lower 
+cost and flexibility makes it suitable for integration with
+custom micro manipulation components.
+The feasibility of this architecture has been demonstrated
+in prior thesis work by \textcite{scott2023macro}, which implemented a prototype
+teleoperation pipeline using open-source ROS. There, a
+tendon driven continuum tip was integrated with the macro arm and
+operated via a haptic interface, following a common snake-like design.
 
-The feasibility of a UR5e-based macro--micro architecture has been demonstrated
-in prior thesis work by Scott (2022), which implemented a proof-of-concept
-teleoperation pipeline using open-source ROS2. Within this framework, a
-tendon-driven continuum micro-manipulator was integrated with the macro arm and
-operated via a haptic interface, following the snake-like design approaches
-commonly reported in the literature.
-
-Preliminary validation using electromagnetic tracking demonstrated close pose
+Measurements using electromagnetic tracking demonstrated close pose
 mirroring under teleoperation, with reported average absolute position errors
 of 0.0272 mm and 0.0161 mm across trial groups. These results indicate that
-high-precision control is achievable within such macro--micro configurations.
-
-However, several practical engineering limitations remain. In particular,
-translational commands at the macro stage were observed to induce vibration in
-the integrated system, negatively affecting motion stability and repeatability.
-Additionally, the current modular workflow requires manual exchange of
+precise control of macro--micro configurations is achievable.
+However, a few practical engineering limitations remain like
+translational commands inducing vibration in
+the integrated system, which negatively affects motion stability and repeatability.
+Furthermore, the current modular workflow requires manual exchange of
 tendon-driven end-effectors, resulting in increased setup time and reduced
 operational efficiency.
 
-These limitations highlight a key gap in existing UR5e-based macro--micro
+These limitations reveal a key gap in existing UR5e-based macro--micro
 systems: while feasibility and precision have been demonstrated, improvements in
 vibration suppression, system robustness, and workflow integration are required
-to meet clinical expectations for safety and usability in real-world operating
-environments \cite{scott2023macro, razjigaev2021snakeraven, seetohul2022snake}.
+to be clinically viable regarding safety and usability \cite{scott2023macro, razjigaev2021snakeraven, seetohul2022snake}.
 
 \subsection{Teleoperation and Control in Surgical Robotics}
 \subsubsection{Modelling Frameworks for Continuum Surgical Robotics}
-
 To situate control and modularity claims on a consistent mathematical basis,
 three modelling layers from continuum-robotics literature are directly relevant
 to this project: kinematic representations, reduced-order curvature models, and
@@ -934,38 +912,37 @@ The literature can be further strengthened by recent work in several areas:
 
 \subsection{Research Question}
 
-Based on the synthesis of the reviewed literature (Section~2.5), this thesis
+Based on the reviewed literature, this thesis
 addresses the following research question:
 
 \begin{quote}
-\textit{Can a UR5e-based macro--micro robotic system with a tendon-driven
-continuum tip be improved to provide smoother teleoperation, repeatable
-end-effector exchange, and safe operation under realistic laboratory workflow
-conditions?}
+\textit{Can a UR5e-based macro--micro robotic system achieve measurable improvements in teleoperation smoothness, 
+repeatable end-effector exchange, and perform with safety constraints under controlled laboratory conditions?}
 \end{quote}
 
-This question is directly motivated by the limitations identified in prior work.
+\noindent It is hypothesised that applying smoothing control, tool exchange capability, 
+and integrated system evaluation will reduce vibration, improve swap consistency and speed, 
+and maintain safe operation within defined bounds.
 While macro--micro architectures have demonstrated high positional accuracy and
 feasibility \cite{scott2023macro}, they remain affected by macro-stage vibration,
 manual and time-consuming end-effector exchange, and fragmented approaches to
 safety evaluation. The literature further shows that teleoperation performance,
 modularity, and safety are typically studied in isolation, limiting the ability
-to assess overall workflow reliability.
-
-Accordingly, this thesis focuses on improving and evaluating the system at a
+to assess overall workflow reliability. Accordingly, this thesis focuses on improving and testing the system at a
 \emph{systems level}, rather than proposing isolated algorithmic or mechanical
 improvements.
 
 \subsection{Project Plan}
 
-The project is structured around three tightly coupled areas derived from the
-literature review: teleoperation smoothness, modular end-effector exchange, and
-safety in operation. These are not treated as independent tasks, but as
-interacting components of a single experimental workflow.
+The project is organised as a progressive experimental workflow, in which teleoperation control,
+modular exchange, and safety are evaluated sequentially and then together. 
+These are not independent tasks, rather they comprise a single experiment. Performance will be evaluated 
+using quantitative metrics including motion smoothness, 
+effector swap time and accuracy, and adherence to constraint and safety bounds.
 
-The first component addresses teleoperation performance at the macro stage. Prior
+With regards to teleoprative control, prior
 studies show that tremor, delay, and vibration transmission significantly affect
-distal precision and usability \cite{sang2016tremor, batty2022predictive}. In
+ precision and usability \cite{sang2016zero, batty2022transparent}. In
 this project, effort is therefore directed towards establishing a stable baseline
 system and implementing a practical smoothing strategy that improves motion
 quality without introducing excessive latency. This work also serves as the
@@ -994,7 +971,8 @@ hours across Terms 2 and 3) and the use of an existing UR5e-based platform. As
 such, the focus is on implementing and validating representative solutions in
 each area, rather than developing complete new hardware or control frameworks.
 This ensures that the project remains feasible while still addressing the key
-gaps identified in the literature.
+gaps identified in the literature. The project relies on access to the UR5e platform, 
+ROS2-based control infrastructure, and completion of required laboratory training and coursework.
 
 A detailed timeline is provided in Fig.~\ref{fig:gantt_chart}. The plan is
 organised across two terms, with Term~2 focused on system setup and teleoperation
@@ -1004,7 +982,7 @@ dependencies, and time allocation.
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.9\linewidth]{Images/GanttChart.png}
+\includegraphics[width=0.9\linewidth]{Images/GanttChart.png}
 \caption{Project timeline and task allocation across Terms 2 and 3.}
 \label{fig:gantt_chart}
 \end{figure}
@@ -1014,11 +992,14 @@ developed (Fig.~\ref{fig:mindmap}). This includes task dependencies, alternative
 approaches, and anticipated failure points. In particular, it highlights areas
 where scope may need to be reduced, such as simplifying the exchange mechanism or
 limiting the complexity of control strategies, ensuring that meaningful results
-can still be obtained within the available timeframe.
+can still be obtained within the available timeframe. Key contingencies include simplifying the 
+control strategy if integration proves difficult, and validating a manual but repeatable exchange workflow 
+if hardware modifications are not feasible. 
+These ensure that core evaluation metrics can still be obtained within the project timeframe.
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.9\linewidth]{Images/MindMap.png}
+\includegraphics[width=0.9\linewidth]{Images/MindMapPlan.png}
 \caption{Mind map used to guide project planning, including risks and
 alternative approaches.}
 \label{fig:mindmap}
@@ -1032,37 +1013,79 @@ realistic conditions, rather than treating each component in isolation.
 
 
 \section{Project Dependent Preparations}
-All required project-dependent preparations should be tracked here and reviewed
-for readiness before execution. This section should confirm whether preparations
-are complete and whether significant revision is still required. It should also
-record exceptional early progress where available, so that planning assumptions
-can be confirmed or adjusted and preliminary answers to research questions can
-be documented.
+
+Preparatory work has been undertaken to ensure that the project can proceed
+without major revision, focusing on software upskilling, system access, and
+early risk identification. These preparations align with the key challenges
+identified in the literature, particularly the reliance on robust software
+integration, reliable teleoperation infrastructure, and repeatable experimental
+workflows.
+
+\subsection{Technical Preparation and Upskilling}
+
+A working Ubuntu development environment has been established and ROS2 has been
+successfully installed and tested. Basic publisher--subscriber communication has
+been verified using demonstration nodes, confirming correct system setup and
+message passing within the ROS2 framework.
+
+This preparation directly addresses a key project dependency, as prior work was
+implemented in ROS and will require adaptation to ROS2. Early inspection of
+Scott’s (2022) codebase and system architecture has provided familiarity with
+the macro--micro teleoperation pipeline, reducing integration uncertainty and
+establishing a baseline understanding of system structure.
+
+Formal upskilling is also in progress through enrolment in MTRN4230, which
+provides training in robot control and ROS-based systems and is required for
+UR5e access. In addition, MMAN4200 (Additive Manufacturing) supports potential
+iteration of modular end-effector components.
+
+\subsection{System and Resource Readiness}
+
+Mechatronics laboratory induction has been completed, and the UR5e system and
+existing continuum end-effector have been physically inspected. This provides
+practical understanding of the platform and confirms system availability.
+
+Access procedures for the robot have been established, with experimental work to
+commence following completion of required training. The project also benefits
+from building on an existing macro--micro system, reducing development risk and
+allowing focus on performance improvement rather than full system construction.
+
+\subsection{Preliminary Observations and Risk Mitigation}
+
+Early preparation has identified several key risks consistent with the
+literature:
+
+\begin{itemize}
+\item \textbf{Software integration:} Migration from ROS to ROS2 presents a
+non-trivial challenge. This has been partially mitigated through early
+environment setup and code familiarisation.
+\item \textbf{Hardware access:} Dependence on training and lab availability is
+addressed through course enrolment and confirmed booking procedures.
+\item \textbf{System complexity:} The coupled nature of macro--micro systems is
+mitigated by leveraging an existing validated platform rather than developing
+new hardware.
+\end{itemize}
+
+These preparations demonstrate that the project is ready to proceed, with key
+technical dependencies established and major risks identified at an early stage.
 
 \section{Conclusion}
-The reviewed literature shows a clear convergence on three points. First,
-macro-micro architectures and tendon-driven continuum tools are well motivated
-for MIS dexterity, but remain sensitive to vibration transmission, modelling
-error, and teleoperation instability. Second, modern control strategies
-(filtering, latency compensation, predictive bilateral control, and intent-aware
-shared autonomy) improve performance, yet are often validated under constrained
-assumptions that limit direct transfer to clinically variable settings. Third,
-cost and adoption studies indicate that accessibility is governed by full-system
-burden (maintenance, disposables, training continuity, and infrastructure), not
+
+The reviewed literature converges on three key points. Macro--micro and
+tendon-driven continuum systems are well suited to MIS dexterity, but remain
+sensitive to vibration, modelling error, and teleoperation instability. Control
+strategies improve performance, yet are typically validated under constrained
+conditions. Accessibility is further limited by full-system burden rather than
 capital cost alone.
 
-Taken together, the strongest unresolved knowledge gaps are integrated,
-reproducible frameworks that jointly address delay-robust control, modular
-reconfiguration repeatability, safety-critical reliability, and realistic
-cost-constrained deployment conditions.
+The primary gap is therefore not isolated improvements, but integrated
+validation of system-level performance. In particular, there is limited evidence
+linking teleoperation smoothness, modular end-effector exchange, and
+safety-critical reliability within a single, repeatable workflow.
 
-\newpage
-% --- Acknowledgements ---
-\pagenumbering{Alph} % Switch numbering to Alphabetic
-
-\section*{Acknowledgements}
-\addcontentsline{toc}{section}{Acknowledgements}
-\textit{I would like to thank...}
+This motivates a systems-level investigation of a UR5e-based macro--micro
+platform, where control, modularity, and safety are evaluated together under
+realistic conditions.
 
 \newpage
 % --- References ---
@@ -1075,22 +1098,6 @@ cost-constrained deployment conditions.
 % --- Appendices ---
 \appendix
 \addcontentsline{toc}{section}{Appendices}
-\section{Rubric-Aligned Coverage Notes (MMAN4951/MMAN9451 Interim Report)}
-\subsection*{Criterion 1: Literature Review (High Weighting)}
-To target Distinction/High Distinction bands, this review must do more than summarize papers. It should:
-\begin{itemize}
-    \item Show conceptual links between manipulator design, control, safety, and modularity.
-    \item Explicitly identify and justify knowledge gaps your thesis addresses.
-    \item Include recent work (not only foundational papers).
-    \item Critically compare methods instead of listing them.
-\end{itemize}
 
-\subsection*{Criterion 4: Document Presentation}
-For marks protection, maintain:
-\begin{itemize}
-    \item consistent citation formatting,
-    \item clear figure/table captions,
-    \item polished grammar and structured argument flow.
-\end{itemize}
 
 \end{document}

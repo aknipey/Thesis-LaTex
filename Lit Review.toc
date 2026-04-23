@@ -1,6 +1,6 @@
-\contentsline {section}{List of Figures}{iv}{section*.2}%
-\contentsline {section}{List of Tables}{v}{section*.3}%
-\contentsline {section}{Nomenclature}{vi}{section*.4}%
+\contentsline {section}{List of Figures}{iv}{Doc-Start}%
+\contentsline {section}{List of Tables}{iv}{Doc-Start}%
+\contentsline {section}{Nomenclature}{v}{Doc-Start}%
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Project Context and Problem Significance}{1}{subsection.1.1}%
 \contentsline {section}{\numberline {2}Literature Review}{1}{section.2}%
@@ -21,7 +21,7 @@
 \contentsline {subsubsection}{\numberline {2.3.2}Tool Exchange Mechanisms}{11}{subsubsection.2.3.2}%
 \contentsline {subsubsection}{\numberline {2.3.3}Rail-Guided and Cartridge-Based Exchange}{11}{subsubsection.2.3.3}%
 \contentsline {subsubsection}{\numberline {2.3.4}Reconfigurable and Multifunctional Instruments}{11}{subsubsection.2.3.4}%
-\contentsline {subsubsection}{\numberline {2.3.5}Limitations of Alternative Exchange Mechanisms}{11}{subsubsection.2.3.5}%
+\contentsline {subsubsection}{\numberline {2.3.5}Limitations of Alternative Exchange Mechanisms}{12}{subsubsection.2.3.5}%
 \contentsline {subsubsection}{\numberline {2.3.6}Post-Swap Control Recovery and Tension Management}{12}{subsubsection.2.3.6}%
 \contentsline {subsubsection}{\numberline {2.3.7}Critical Assessment and Identified Knowledge Gap}{13}{subsubsection.2.3.7}%
 \contentsline {subsection}{\numberline {2.4}System Safety and Reliability Considerations}{14}{subsection.2.4}%
@@ -30,16 +30,16 @@
 \contentsline {subsubsection}{\numberline {2.4.3}Malfunction Frequency and Immediate Clinical Consequence}{15}{subsubsection.2.4.3}%
 \contentsline {subsubsection}{\numberline {2.4.4}Malfunction Frequency and Clinical Consequence}{15}{subsubsection.2.4.4}%
 \contentsline {subsubsection}{\numberline {2.4.5}Preventable Versus Non-Preventable Faults}{15}{subsubsection.2.4.5}%
-\contentsline {subsubsection}{\numberline {2.4.6}Lifecycle Reliability: Reconfiguration, Wear, and Reprocessing}{15}{subsubsection.2.4.6}%
+\contentsline {subsubsection}{\numberline {2.4.6}Lifecycle Reliability: Reconfiguration, Wear, and Reprocessing}{16}{subsubsection.2.4.6}%
 \contentsline {subsubsection}{\numberline {2.4.7}Integrated Safety Gap and Evaluation Endpoints}{16}{subsubsection.2.4.7}%
 \contentsline {subsection}{\numberline {2.5}Synthesis of Literature and Knowledge Gaps}{16}{subsection.2.5}%
-\contentsline {subsubsection}{\numberline {2.5.1}Remaining Evidence Gaps and Future Directions}{17}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.1}Remaining Evidence Gaps and Future Directions}{18}{subsubsection.2.5.1}%
 \contentsline {section}{\numberline {3}Research Question and Project Plan}{18}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Research Question}{18}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Project Plan}{18}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Project Dependent Preparations}{20}{section.4}%
-\contentsline {section}{\numberline {5}Conclusion}{20}{section.5}%
-\contentsline {section}{Acknowledgements}{A}{section*.5}%
-\contentsline {section}{References}{B}{section*.6}%
-\contentsline {section}{Appendices}{E}{section*.7}%
-\contentsline {section}{\numberline {A}Rubric-Aligned Coverage Notes (MMAN4951/MMAN9451 Interim Report)}{E}{appendix.A}%
+\contentsline {subsection}{\numberline {3.2}Project Plan}{19}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Project Dependent Preparations}{21}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Technical Preparation and Upskilling}{21}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}System and Resource Readiness}{22}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Preliminary Observations and Risk Mitigation}{22}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Conclusion}{23}{section.5}%
+\contentsline {section}{References}{24}{section.5}%

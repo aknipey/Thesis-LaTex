@@ -1,8 +1,7 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces Progression of surgery and enabling technology from conventional approaches to modern MIS robotics.}}{2}{figure.1}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Macro--micro teleoperation system combining a UR5e robotic arm with a continuum-tip manipulator \blx@tocontentsinit {0}\cite {scott2023macro}.}}{2}{figure.2}%
-\contentsline {figure}{\numberline {3}{\ignorespaces System architecture of a UR5e-based macro--micro surgical manipulator, including teleoperation and continuum-tip integration \blx@tocontentsinit {0}\cite {scott2023macro}.}}{3}{figure.3}%
-\contentsline {figure}{\numberline {4}{\ignorespaces SnakeRaven macro--micro surgical manipulator concept \blx@tocontentsinit {0}\cite {razjigaev2021snakeraven}.}}{4}{figure.4}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Linked control layers relevant to teleoperation in macro--micro surgical robotics. The literature reviewed in this subsection can be interpreted across these interacting layers, from low-level transmission effects to high-level shared control.}}{6}{figure.5}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Simplified teleoperation architecture for macro--micro surgical robotics. The reviewed literature addresses different parts of this loop, including state estimation, shared control, predictive control, and transmission compensation.}}{10}{figure.6}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Project timeline and task allocation across Terms 2 and 3.}}{19}{figure.7}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Mind map used to guide project planning, including risks and alternative approaches.}}{19}{figure.8}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Macro--micro UR5e teleoperation system}}{2}{figure.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Macro--micro system architecture}}{3}{figure.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces SnakeRaven macro--micro continuum tip}}{3}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Linked control layers relevant to teleoperation in macro--micro surgical robotics. The literature reviewed in this subsection can be interpreted across these interacting layers, from low-level transmission effects to high-level shared control.}}{6}{figure.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Simplified teleoperation architecture for macro--micro surgical robotics. The reviewed literature addresses different parts of this loop, including state estimation, shared control, predictive control, and transmission compensation.}}{10}{figure.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Project timeline and task allocation across Terms 2 and 3.}}{20}{figure.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Mind map used to guide project planning, including risks and alternative approaches.}}{21}{figure.7}%
