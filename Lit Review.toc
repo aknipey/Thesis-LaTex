@@ -35,11 +35,10 @@
 \contentsline {subsection}{\numberline {2.5}Synthesis of Literature and Knowledge Gaps}{16}{subsection.2.5}%
 \contentsline {subsubsection}{\numberline {2.5.1}Remaining Evidence Gaps and Future Directions}{17}{subsubsection.2.5.1}%
 \contentsline {section}{\numberline {3}Research Question and Project Plan}{18}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Research Question and Plan Status}{18}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Plan Quality Criteria (Assessment-Aligned)}{18}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Current Planning Position}{18}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Project Dependent Preparations}{18}{section.4}%
-\contentsline {section}{\numberline {5}Conclusion}{18}{section.5}%
+\contentsline {subsection}{\numberline {3.1}Research Question}{18}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Project Plan}{18}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Project Dependent Preparations}{20}{section.4}%
+\contentsline {section}{\numberline {5}Conclusion}{20}{section.5}%
 \contentsline {section}{Acknowledgements}{A}{section*.5}%
 \contentsline {section}{References}{B}{section*.6}%
 \contentsline {section}{Appendices}{E}{section*.7}%

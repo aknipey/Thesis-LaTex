@@ -869,13 +869,12 @@ bounds.
 
 The reviewed literature establishes a coherent but incomplete technical chain for
 macro--micro MIS systems. Continuum and tendon-driven hardware studies support
-distal dexterity in constrained anatomy, teleoperation and control studies show
-that tremor, delay, estimation uncertainty, and intent mapping are jointly
-performance-critical, and safety studies demonstrate that malfunction events are
-generally manageable but not negligible. Accessibility studies then add an
-implementation constraint: for translation, performance must be achieved under
-realistic cost, maintenance, and workforce limits, not only in high-resource
-laboratory settings.
+distal dexterity in constrained anatomy, while teleoperation and control studies
+show that tremor, delay, estimation uncertainty, and intent mapping are jointly
+performance-critical. Safety studies demonstrate that malfunction events are
+generally manageable but not negligible, and accessibility studies introduce a
+practical constraint: performance must be achieved under realistic cost,
+maintenance, and workforce limits, not only in high-resource laboratory settings.
 
 Critically, these bodies of work are usually validated in isolation. Kinematic
 and compensation studies often assume controlled routing and loading conditions;
@@ -887,65 +886,150 @@ following repeated instrument exchange. This fragmentation limits the
 explanatory strength of any single study when the research question concerns
 end-to-end workflow reliability.
 
-In relation to this project specifically, the conceptual relationship is direct.
-The UR5e macro stage provides accessible gross positioning, while the continuum
-distal stage provides local dexterity; however, the interface between them
-introduces coupled failure modes, including vibration transmission,
-backlash and hysteresis, post-swap recalibration burden, and safety assurance
-under disturbance. The research problem is therefore not limited to improving a
-single controller or mechanism, but to determining whether a low-cost
-macro--micro architecture can preserve safety and repeatability when control,
-mechanics, and reconfiguration are exercised together.
+In relation to this project, the conceptual relationship is direct. The UR5e
+macro stage provides accessible gross positioning, while the continuum distal
+stage provides local dexterity; however, the interface between them introduces
+coupled failure modes. These include vibration transmission from the macro arm,
+backlash and hysteresis in tendon-driven actuation, post-swap recalibration
+burden following tool exchange, and safety assurance under disturbance. The
+research problem is therefore not limited to improving a single controller or
+mechanism, but to determining whether a low-cost macro--micro architecture can
+maintain stable, smooth, and safe operation when control, mechanics, and
+reconfiguration are exercised together.
 
 Based on this synthesis, the principal knowledge gaps are:
+
 \begin{itemize}
-\item \textbf{Integrated validation gap:} limited evidence combining constrained motion control, teleoperation robustness, and modular reconfiguration recovery within a single experimental framework.
-\item \textbf{Safety evidence gap:} limited prospective linkage between detected robotic malfunctions, recovery actions, and task-level outcome degradation under realistic operating conditions.
-\item \textbf{Lifecycle reliability gap:} insufficient long-horizon data on wear, sterilisation and reprocessing residue, and calibration drift across repeated swap cycles for tendon-driven instruments.
-\item \textbf{Benchmarking gap:} insufficient standardised and reproducible metrics and protocols enabling fair comparison of low-cost macro--micro platforms using clinically meaningful endpoints.
+\item \textbf{Macro-stage vibration and smoothing gap:} limited evidence on how macro-arm dynamics (e.g.\ UR5e vibration and compliance) propagate to distal motion, and how filtering, prediction, and control strategies can achieve smooth, delay-robust teleoperation without degrading responsiveness.
+
+\item \textbf{Modular exchange and recovery gap:} insufficient validation of rapid, repeatable end-effector exchange mechanisms that minimise downtime while maintaining consistent calibration, tensioning, and transmission behaviour across repeated swaps.
+
+\item \textbf{Integrated safety-in-operation gap:} limited evidence linking constraint enforcement, fault detection and recovery, and force regulation to task-level safety outcomes under realistic operating conditions, including disturbance and operator variability.
+
+\item \textbf{System-level validation gap:} a lack of unified experimental frameworks that evaluate control performance, mechanical reliability, and reconfiguration effects together, rather than in isolation, using clinically meaningful and repeatable metrics.
+
+
 \end{itemize}
 
 In this context, the thesis contribution is positioned as a systems-level
 evaluation: to design and assess a UR5e-based macro--micro platform using unified
-endpoints for constraint adherence, teleoperation robustness, post-swap
-recovery, and lifecycle reliability, rather than reporting isolated improvements
-in individual subsystems.
+endpoints for constraint adherence, teleoperation smoothness and robustness,
+post-swap recovery, and safety-relevant performance, rather than reporting
+isolated improvements in individual subsystems.
 
 \subsubsection{Remaining Evidence Gaps and Future Directions}
 
 The literature can be further strengthened by recent work in several areas:
+
 \begin{itemize}
-\item benchmark datasets and standardised test protocols for continuum surgical teleoperation,
+\item experimental studies on vibration propagation and smoothing strategies in macro--micro teleoperation systems,
 \item variable-delay and packet-loss-robust bilateral and shared control in human-in-the-loop settings,
-\item safety assurance frameworks (fault handling, bounded motion, and force-limited behaviour) for MIS robots,
-\item quantitative studies of modular tool-exchange repeatability and calibration drift,
+\item safety assurance frameworks linking fault detection, bounded motion, and force-limited behaviour to clinical outcomes,
+\item quantitative evaluation of modular tool-exchange repeatability and calibration drift under repeated use,
 \item lifecycle reliability of tendon-driven instruments under repeated use and sterilisation.
 \end{itemize}
 
 
 \section{Research Question and Project Plan}
 
-\subsection{Research Question and Plan Status}
-This section is maintained as a separate planning section that draws on the
-literature review but is not part of the literature-review narrative itself.
-At this stage, the research question and plan are presented with sufficient
-detail to indicate feasibility, expected resource requirements, and realistic
-time demands.
+\subsection{Research Question}
 
-\subsection{Plan Quality Criteria (Assessment-Aligned)}
-The planning section is intended to demonstrate the following progression:
-\begin{itemize}
-    \item The research question and plan are clearly presented with enough detail to support feasibility and basic thesis structure.
-    \item The plan is explicitly informed by the reviewed literature, with a clear explanation of why each major work package follows from identified evidence gaps.
-    \item The plan includes realistic milestones, a logical thesis outline, and direct links between chapter flow, reviewed evidence, and planned validation.
-    \item The plan includes contingencies for project variation (e.g., hardware delays, integration issues, data-quality limitations) and alternative execution pathways.
-\end{itemize}
+Based on the synthesis of the reviewed literature (Section~2.5), this thesis
+addresses the following research question:
 
-\subsection{Current Planning Position}
-The current project plan is retained as a standalone section for subsequent
-development. The immediate objective is to preserve alignment with the
-literature-derived gaps while deferring detailed milestone refinement to the
-next planning pass.
+\begin{quote}
+\textit{Can a UR5e-based macro--micro robotic system with a tendon-driven
+continuum tip be improved to provide smoother teleoperation, repeatable
+end-effector exchange, and safe operation under realistic laboratory workflow
+conditions?}
+\end{quote}
+
+This question is directly motivated by the limitations identified in prior work.
+While macro--micro architectures have demonstrated high positional accuracy and
+feasibility \cite{scott2023macro}, they remain affected by macro-stage vibration,
+manual and time-consuming end-effector exchange, and fragmented approaches to
+safety evaluation. The literature further shows that teleoperation performance,
+modularity, and safety are typically studied in isolation, limiting the ability
+to assess overall workflow reliability.
+
+Accordingly, this thesis focuses on improving and evaluating the system at a
+\emph{systems level}, rather than proposing isolated algorithmic or mechanical
+improvements.
+
+\subsection{Project Plan}
+
+The project is structured around three tightly coupled areas derived from the
+literature review: teleoperation smoothness, modular end-effector exchange, and
+safety in operation. These are not treated as independent tasks, but as
+interacting components of a single experimental workflow.
+
+The first component addresses teleoperation performance at the macro stage. Prior
+studies show that tremor, delay, and vibration transmission significantly affect
+distal precision and usability \cite{sang2016tremor, batty2022predictive}. In
+this project, effort is therefore directed towards establishing a stable baseline
+system and implementing a practical smoothing strategy that improves motion
+quality without introducing excessive latency. This work also serves as the
+foundation for all subsequent evaluation, as reliable teleoperation is required
+before modularity and safety can be meaningfully assessed.
+
+The second component focuses on modular end-effector exchange. While tool
+exchange is necessary in laparoscopic workflows, the literature highlights a lack
+of validation of post-swap behaviour, particularly with respect to calibration,
+tensioning, and transmission effects \cite{ko2025tool, hong2025backlash}. Rather
+than developing a complex new mechanism, this project prioritises a repeatable
+exchange and recovery workflow, allowing the impact of swapping on system
+performance to be measured directly. This aligns with the identified gap that
+mechanism design alone is insufficient without evaluating post-swap recovery.
+
+The third component addresses safety in an operational context. Existing studies
+demonstrate that robotic malfunctions are not uncommon but are typically
+recoverable when appropriate detection and response mechanisms are present
+\cite{rajih2017error}. However, these are rarely linked to control behaviour or
+modular reconfiguration. This project therefore evaluates safety using integrated
+metrics, including constraint adherence, recovery time, and repeatability across
+operation cycles, rather than relying on isolated fault statistics.
+
+The scope of the project is constrained by the available time (approximately 200
+hours across Terms 2 and 3) and the use of an existing UR5e-based platform. As
+such, the focus is on implementing and validating representative solutions in
+each area, rather than developing complete new hardware or control frameworks.
+This ensures that the project remains feasible while still addressing the key
+gaps identified in the literature.
+
+A detailed timeline is provided in Fig.~\ref{fig:gantt_chart}. The plan is
+organised across two terms, with Term~2 focused on system setup and teleoperation
+control, and Term~3 focused on modular exchange evaluation, safety testing, and
+integrated experiments. The Gantt chart captures the specific task breakdown,
+dependencies, and time allocation.
+
+\begin{figure}[H]
+\centering
+%\includegraphics[width=0.9\linewidth]{Images/GanttChart.png}
+\caption{Project timeline and task allocation across Terms 2 and 3.}
+\label{fig:gantt_chart}
+\end{figure}
+
+To support planning and identify potential risks, a structured mind map has been
+developed (Fig.~\ref{fig:mindmap}). This includes task dependencies, alternative
+approaches, and anticipated failure points. In particular, it highlights areas
+where scope may need to be reduced, such as simplifying the exchange mechanism or
+limiting the complexity of control strategies, ensuring that meaningful results
+can still be obtained within the available timeframe.
+
+\begin{figure}[H]
+\centering
+%\includegraphics[width=0.9\linewidth]{Images/MindMap.png}
+\caption{Mind map used to guide project planning, including risks and
+alternative approaches.}
+\label{fig:mindmap}
+\end{figure}
+
+Overall, the project plan is intentionally structured to reflect the narrative
+developed in the literature review. By focusing on teleoperation smoothing,
+modular exchange recovery, and safety evaluation within a single system, the work
+aims to provide a coherent assessment of macro--micro robotic performance under
+realistic conditions, rather than treating each component in isolation.
+
 
 \section{Project Dependent Preparations}
 All required project-dependent preparations should be tracked here and reviewed
