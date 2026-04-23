@@ -218,8 +218,8 @@ da Vinci system limits accessibility. Acquisition costs have been reported up to
 \$1000--\$5000 \cite{eckhoff2023costs}.
 Despite clear clinical benefits, providers must still evaluate cost-effectiveness,
 expecially in low and middle-income environments where there are more adoption barriers than the initial cost. 
-Recurring maintenance, disposable instrument costs, and
-sustained training requirements can prevent usage even after
+Repeated maintenance needs, disposable instrument costs, and
+ongoing training requirements can prevent usage even after
 installation \cite{raza2024transforming}.
 
 Systemic constraints can also arise from limited infrastructure,
@@ -402,95 +402,66 @@ Combined, it is apparent that robust teleoperation under delay requires
 both reliable state estimation and predictive control, reinforcing the need for integrated architectures rather than isolated solutions.
 
 \subsubsection{Shared Control, Immersion, and Haptic Force Awareness}
-
-Beyond tremor and delay, user intent mapping is a central teleoperation design
-problem in shared control. \textcite{bowman2024intent} argue that direct motion
-mapping alone is insufficient for robust telemanipulation when the human and
-robot hands are physically dissimilar, because low-level geometric tracking does
-not necessarily preserve high-level task success. Their intent-based task-oriented
-shared control framework instead blends operator-following behaviour with
+Shared control is when user input is combined with autonomous assistance, and thus both introduces the challenge of truly mapping
+teleoperated motion to user intent. \textcite{bowman2024intent} argue that just direct motion
+mapping is insufficient for robust telemanipulation when the human and
+robot hands are physically dissimilar, as geometric tracking does
+not always correlate with overall task success. Their intent based
+shared control framework instead blends operator following behaviour with
 autonomous task assistance using inferred intent probabilities and adaptive
-arbitration weights. Critically, this contribution is not just another blending
-policy: it formalises how authority should shift based on hand-structure
-discrepancy and task constraints, which is directly relevant to macro--micro MIS
-systems where distal tools cannot perfectly mimic surgeon hand kinematics.
-This supports the broader literature position that intuitive teleoperation
-should be evaluated by both task completion and perceived control, rather than
-endpoint tracking error alone \parencite{bowman2024intent}.
+arbitration weights. Critically, this contribution formalises how authority should shift based on hand structure
+discrepancy and task constraints, which is directly relevant to macro--micro MIS.
+This furthers the view that task completion and perceived control are the success criteria, rather than
+tracking endpoint error alone \parencite{bowman2024intent}.
+Unfortunately, validation is
+limited to controlled tasks, and transferability to complex surgical scenarios
+remains uncertain.
 
-However, an important limitation is that the reported validation is constrained
-to controlled grasping tasks and specific intent models, so transferability to
-highly dynamic, deformable, and safety-critical in vivo surgical contexts remains
-an open question.
+Recently, immersive visualisation (VR) and haptic
+feedback are becoming more relevant in surgical teleoperation
+\parencite{bogue2024developments}.
+ Improved viewpoint control and force feedback
+enhance situational awareness and reduce applied force during manipulation,
+with reported reductions in tissue interaction forces in emerging surgical
+systems. This suggests that perception and force regulation are coupled design
+variables, rather than independent interface features.
 
-Recent review-level synthesis also indicates that immersive visualisation and
-haptic augmentation are transitioning from laboratory prototypes toward
-clinically relevant teleoperation workflows \parencite{bogue2024developments}.
-Across the studies summarised, VR-based viewpoint control and stereoscopic scene
-rendering improve situational awareness in tasks where fixed-camera teleoperation
-typically underperforms. Representative evidence includes an increase in
-pick-and-place success from 62.5\% to 90.0\% in a viewpoint-independent VR
-interface trial, and reduced operator workload and task time in mixed-reality
-assisted manipulation experiments \parencite{bogue2024developments}.
-
-For MIS relevance, the strongest transferable point is not immersion alone but
-the interaction between perception quality and force regulation. \textcite{bogue2024developments}
-report that force-feedback-enabled surgical platforms are now appearing in
-commercial systems, including preclinical da Vinci 5 results where surgeons
-applied 43\% less tissue force with haptic-enabled instruments, and Saroa trial
-results showing mean grasp-force reduction from 2.14 N to 0.63 N in a delicate
-transfer task. These results support including haptic and force-awareness as a
-safety-linked teleoperation design variable in this thesis, rather than treating
-it as an optional interface enhancement.
-
-The key limitation is evidentiary heterogeneity: the article aggregates diverse
-platforms, task types, and evaluation protocols, so direct cross-study
-performance comparison is limited. For thesis use, this source is therefore most
-valuable as trend evidence motivating evaluation criteria such as situational
-awareness, workload, and applied-force moderation, while primary validation
-claims should still rely on the underlying experimental studies.
-
+A key limitation of this evidence is heterogeneity across platforms, systems and
+evaluation methods, limiting the usefulness of direct comparison. Therefore, this should only be interpreted
+ as trend evidence for evaluation criteria such as situational
+awareness, workload, and force moderation, rather than definitive performance
+benchmarks.
 
 \subsubsection{Transmission Nonlinearity and Distal Force Safety}
-
-Transmission backlash in cable-pulley drives is another directly relevant
-control bottleneck for laparoscopic end-effectors because direction reversals
+Transmission backlash in cable and pulley drives is directly relevant to continuum tips because direction reversals
 create delay and transition phases in which distal motion and torque do not
-track proximal commands linearly. \textcite{zou2022transmission} model this
-explicitly and use a feedforward compensation term linked to output-side
-backlash, $\theta_{comp}=\Delta\theta_{out},R_5/R_0$, together with grasping
-torque estimation and saturation limiting, $M_{grasp}=M_{out}-M_{fric}$, to
-reduce tracking error and limit unsafe distal force. Their results indicate
-meaningful improvements in position and force control for cable-pulley
-laparoscopic instruments: reported distal-grasper position error is reduced to
+track commands directly. \textcite{zou2022transmission} model this
+explicitly feeding forward output
+backlash, $\theta_{comp}=\Delta\theta_{out}\,R_5/R_0$, together with grasping
+torque estimation and saturation limiting, $M_{grasp}=M_{out}-M_{fric}$. This aims to
+reduce tracking error and limit unsafe force, and their results show
+meaningful improvements in position and force control of a grasper. Position error is reduced to
 approximately 1.03$^\circ$ mean (3.49$^\circ$ max), and grasping torque tracking
-error is reported below 0.025 N$\cdot$m in compensated instrument tests.
-Nonetheless, residual error around direction reversal remains, highlighting that
-compensation quality still depends on parameter identification and friction-model
-fidelity \parencite{zou2022transmission}.
+error is reported below 0.025 N$\cdot$m.
+Nonetheless, residual error around direction reversal remains, proving accuracy is extremely 
+sensitive to parameter identification and true system friction \parencite{zou2022transmission}.
 
-Related tendon--sheath evidence further strengthens this point in
-shape-variable conditions. \textcite{hong2025backlash} model backlash-like
-hysteresis in tendon--sheath pairs using an equivalent-circle representation,
-where deadband is linked to master/slave deformation mismatch
-($D=\delta_{TSM(master)}-\delta_{TSM(slave)}$) and then compensated by
-feedforward updated from proximal calibration without distal sensing. Their
-results show RMSE reduction from 1.31 mm to 0.19 mm on average (85.5%
-reduction). This is highly relevant to laparoscopic routing uncertainty;
-however, the approach still depends on reliable calibration and assumptions
-about unchanged geometric conditions during each compensation interval
-\parencite{hong2025backlash}.
+Tendon--sheath studies show similar hysteresis effects under
+variable shape conditions. \textcite{hong2025backlash} model and compensate
+route dependent deadband using feedforward calibration, achieving substantial
+tracking improvement (RMSE reduced from 1.31 mm to 0.19 mm). However,
+performance remains dependent on reliable calibration and stable geometric
+conditions \parencite{hong2025backlash}.
 
-Collectively, these studies highlight that transmission nonlinearity remains a
-critical limitation in tendon-driven surgical manipulators, particularly under
-variable routing and loading conditions. While feedforward compensation can
-significantly reduce tracking and force errors, performance remains dependent on
+Together, it seems transmission nonlinearity remains a
+critical limitation in tendon driven surgical manipulators, particularly under
+variable routing and loading conditions. While feedforward compensation is a common approach to
+significantly reduce tracking and force errors, performance is still dependent on
 accurate parameter identification and stable system geometry.
-
-These findings establish clear performance requirements for low-cost macro--micro
-platforms and provide a direct conceptual bridge to modular continuum hardware
+These findings establish clear performance requirements for low cost macro--micro
+platforms and provide a direct relation to modular continuum hardware
 discussions. The relationship between these control problems within the overall
-teleoperation loop is illustrated in Fig.~\ref{fig:teleop_architecture}.
+teleoperation architecture is visualised in Fig.~\ref{fig:teleop_architecture}.
 
 
 \begin{figure}[H]
