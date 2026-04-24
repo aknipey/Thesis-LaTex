@@ -1,15 +1,15 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'Lit Review.blg'
-[28] biber:340> INFO - === Fri Apr 24, 2026, 12:35:00
-[35] Biber.pm:419> INFO - Reading 'Lit Review.bcf'
-[61] Biber.pm:979> INFO - Found 32 citekeys in bib section 0
-[66] Biber.pm:4419> INFO - Processing section 0
-[71] Biber.pm:4610> INFO - Looking for bibtex file 'references.bib' for section 0
-[72] bibtex.pm:1713> INFO - LaTeX decoding ...
-[83] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
-[212] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[212] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[212] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
-[212] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
-[221] bbl.pm:660> INFO - Writing 'Lit Review.bbl' with encoding 'UTF-8'
-[226] bbl.pm:763> INFO - Output to Lit Review.bbl
+[32] biber:340> INFO - === Fri Apr 24, 2026, 13:45:19
+[41] Biber.pm:419> INFO - Reading 'Lit Review.bcf'
+[70] Biber.pm:979> INFO - Found 32 citekeys in bib section 0
+[75] Biber.pm:4419> INFO - Processing section 0
+[80] Biber.pm:4610> INFO - Looking for bibtex file 'references.bib' for section 0
+[81] bibtex.pm:1713> INFO - LaTeX decoding ...
+[92] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
+[202] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[202] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[202] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[202] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[212] bbl.pm:660> INFO - Writing 'Lit Review.bbl' with encoding 'UTF-8'
+[218] bbl.pm:763> INFO - Output to Lit Review.bbl

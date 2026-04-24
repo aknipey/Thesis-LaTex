@@ -216,7 +216,7 @@
       \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Da Vinci Robotic Surgical Systems}
+      \field{title}{{Da Vinci} Robotic Surgical Systems}
       \field{urlday}{19}
       \field{urlmonth}{4}
       \field{urlyear}{2026}
@@ -393,7 +393,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of the Pakistan Medical Association}
       \field{number}{Suppl. 4}
-      \field{title}{Transforming surgical landscapes: obstacles in the integration of robotic surgery in Pakistan -- is cost the only limiting factor?}
+      \field{title}{Transforming surgical landscapes: obstacles in the integration of robotic surgery in {Pakistan} -- is cost the only limiting factor?}
       \field{volume}{74}
       \field{year}{2024}
       \field{pages}{S151\bibrangedash S157}
@@ -709,7 +709,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{arXiv}
-      \field{title}{Enhancing precision in tactile internet-enabled remote robotic surgery: Kalman filter approach}
+      \field{title}{Enhancing precision in tactile internet-enabled remote robotic surgery: {Kalman} filter approach}
       \field{year}{2024}
       \verb{doi}
       \verb 10.48550/ARXIV.2406.04503
@@ -1206,7 +1206,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Canadian Urological Association Journal}
       \field{number}{5}
-      \field{title}{Error reporting from the da Vinci surgical system in robotic surgery: A Canadian multispecialty experience at a single academic centre}
+      \field{title}{Error reporting from the {Da Vinci} surgical system in robotic surgery: A Canadian multispecialty experience at a single academic centre}
       \field{volume}{11}
       \field{year}{2017}
       \field{pages}{E197\bibrangedash E202}
