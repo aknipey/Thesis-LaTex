@@ -135,8 +135,8 @@ UR5e & = & Universal Robots UR5e robotic arm \\
 
 \section{Introduction}
 \subsection{Project Context and Problem Significance}
-This report aims to extend on previous a teleoperated macro--micro surgical robot prototype developed by 2023 UNSW thesis student Lachlan Scott \cite{scott2023macro}.
-Scott's project established the viability of such a system, however he outlined potential areas of improvement, which this report addresses. Furthermore, new improvement and research possibilities 
+This report aims to extend a previous teleoperated macro--micro surgical robot prototype developed by 2023 UNSW thesis student Lachlan Scott \cite{scott2023macro}.
+Scott's project established the viability of such a system and also outlined potential areas of improvement, which this report addresses. Furthermore, new improvement and research possibilities 
 have been identified, such as smoothing the motion of the robotic UR5e arm,
 the modularity of the system and thus ease of tool exchange, and the safety and reliability of the system for clinical use.
 Hence, this review of the literature and the thesis question that follows need to recognise this context with regards to Scott's work.
@@ -251,8 +251,10 @@ operated via a haptic interface, following a common snake-like design.
 
 Measurements using electromagnetic tracking demonstrated close pose
 mirroring under teleoperation, with reported average absolute position errors
-of 0.0272 mm and 0.0161 mm across trial groups. These results indicate that
-precise control of macro--micro configurations is achievable.
+of 0.0272 mm and 0.0161 mm across trial groups. It is important to note that 
+these values were measured in static pose-mirroring tests
+without external loading, so dynamic tracking and loaded performance remains
+insufficiently quantified.
 However, a few practical engineering limitations remain like
 translational commands inducing vibration in
 the integrated system, which negatively affects motion stability and repeatability.
@@ -364,7 +366,7 @@ are all relevant \parencite{sang2016zero}.
 
 When haptic feedback is included, system latency can bottleneck teleoperation.
  \textcite{batty2022transparent} show a fundamental
-transparency veruus stability tradeoff, where increasing force fidelity can reduce
+transparency versus stability tradeoff, where increasing force fidelity can reduce
 stability under delay, while aggressive stabilisation degrades operator
 feedback. Consequently, estimate the environment online and master feedback
 is generated through this prediction rather than delayed direct
@@ -381,7 +383,7 @@ Filtering is not optional in surgical teleoperation, rather a
  requirement to maintain stable and trustworthy state estimates
 despite noisy measurements and imperfect network transport. \textcite{lashari2024enhancing}
 show that a Kalman filter paired with state-space
-models can remain computationally effienct and still estimate manipulator position with high tolerance for
+models can remain computationally efficient and still estimate manipulator position with high tolerance for
 delay, jitter, and packet loss. By
 developing models directly from surgical data, this approach prevents reliance on
 idealised system assumptions while still smoothing disturbances and preserving continuity. 
@@ -556,7 +558,7 @@ variability.
 The most common swap mechanisms are rail-guided,
 cartridge based exchange approaches. \textcite{ko2025tool} analyse current sliding
 exchange practices and report an automated replacement architecture that preserves
- trocar and remote centre of motion (RCM) constraints via linear motion. Their prototype completed a full exchange in 15~s for a 33.36~kg device, down from an
+ trocar and remote centre of motion (RCM) constraints via linear motion. Their prototype completed a full exchange in 15~s for a 3.36~kg device, down from an
 initial 27~s cycle, indicating feasible automation under laparoscopic geometric constraints.
 
 \subsubsection{Reconfigurable and Multifunctional Instruments}
@@ -618,7 +620,7 @@ Reduces exchange frequency by combining multiple functions into one tool \\
 \hline
 \textbf{Main limitation} &
 Still requires reliable docking, reconnection, and post-swap recovery &
-Direct evidence for repeatability, sterilisation robustness, and re-zeroing remains limited &
+Direct evidence for repeatability, sterilisation robustness, and recalibration remain limited &
 Typically validated only for narrow task classes; unlikely to replace the full instrument set \\
 \hline
 \textbf{Evidence base} &
@@ -700,7 +702,7 @@ injury, or death reported. This suggests that malfunctions are not uncommon but
 are typically low-consequence when recovery mechanisms are effective
 \parencite{rajih2017error}.
 
-However, systemic risk remains dependent on detection latency, context, and
+However, residual risk remains dependent on detection latency, context, and
 available intervention. To maintain explicit risk representation, this review
 considers occurrence probability and risk-priority metrics:
 \begin{equation}
@@ -708,6 +710,33 @@ considers occurrence probability and risk-priority metrics:
 \end{equation}
 where $\hat{p}_i$ denotes event frequency and $RPN_i$ combines severity,
 occurrence, and detectability.
+
+To make this framework operational, Table~\ref{tab:rpn_hazards} applies
+the $S$, $O$, and $D$ ratings to representative hazards identified in the
+reviewed literature.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|p{5.5cm}|c|c|c|c|}
+\hline
+\textbf{Hazard event} & \textbf{$S_i$} & \textbf{$O_i$} & \textbf{$D_i$} & \textbf{$RPN_i$} \\
+\hline
+Distal force overshoot during teleoperation & 4 & 2 & 3 & 24 \\
+\hline
+RCM constraint violation near trocar interface & 5 & 2 & 3 & 30 \\
+\hline
+Post-swap mis-calibration causing tip offset & 3 & 3 & 3 & 27 \\
+\hline
+Communication dropout during critical manoeuvre & 4 & 2 & 2 & 16 \\
+\hline
+Delayed fault detection and alarm response & 4 & 3 & 4 & 48 \\
+\hline
+\end{tabular}
+\caption[Indicative RPN Hazard Prioritisation]{Illustrative hazard prioritisation using $RPN_i=S_iO_iD_i$ for representative macro--micro surgical workflow events.}
+\label{tab:rpn_hazards}
+\end{table}
 
 \subsubsection{Preventable Versus Non-Preventable Faults}
 
@@ -742,6 +771,12 @@ within a single workflow.
 Accordingly, evaluation should use unified metrics, including RCM
 error bounds, recovery time, post-swap repeatability, residual backlash, distal
 force limits, and contamination levels across repeated cycles.
+These metrics are conceptually aligned with formal medical
+device frameworks, including ISO 14971 risk management, IEC 60601 electrical
+safety and essential performance requirements, and IEC 62304 software
+lifecycle expectations \parencite{iso14971_2019, iec60601_2005a1_2012, iec62304_2006a1_2015}.
+This review does not have full-text access to these standards and they are referenced only to
+structure measurable and auditable safety endpoint goals.
 
 \subsection{Synthesis of Literature and Knowledge Gaps}
 
@@ -785,11 +820,19 @@ that evaluate control performance, mechanical reliability, and reconfiguration
 effects together using clinically meaningful and repeatable metrics.
 
 \subsubsection{Remaining Evidence Gaps and Next Directions}
-Further work is required in experimental validation of macro--micro vibration
-prevention and smoothing strategies, real time teleoperation in
-laboratory settings, safety frameworks linking fault detection to
-clinical outcomes, and quantitative evaluation of tool-exchange repeatability
-and lifecycle reliability.
+Beyond the scope of this thesis, several research directions would
+strengthen translation from laboratory validation to clinically useful systems.
+First, richer sensing modalities, such as shape sensing and distal force
+instrumentation, could tighten observability of continuum behaviour and improve
+ control under variable loading. Second, learning-assisted
+controllers could be investigated to adapt filter and control parameters online
+across different tools and routing geometries while preserving safety bounds.
+
+A further priority is broader validation across lifecycle and governance
+constraints. Multi-session studies should quantify drift, recalibration burden,
+and reprocessing effects over repeated exchange cycles, while future work should
+map laboratory evidence into pre-clinical verification plans that are explicitly
+traceable to risk-management and software assurance frameworks.
 
 \section{Research Question and Project Plan}
 
@@ -799,13 +842,15 @@ Based on the reviewed literature, this thesis
 addresses the following research question:
 
 \begin{quote}
-\textit{Can a UR5e-based macro--micro robotic system achieve measurable improvements in teleoperation smoothness, 
-repeatable end-effector exchange, and perform with safety constraints under controlled laboratory conditions?}
+\textit{Can a UR5e-based macro--micro robotic system satisfy predefined performance thresholds under controlled laboratory 
+conditions by simultaneously achieving: (i) at least 30\% reduction in distal-tip vibration amplitude in the peak frequency band relative to an unfiltered baseline, (ii) median end-effector exchange cycle time of $\leq 20$~s with post-swap positional repeatability error of $\leq 1.0$~mm, 
+and (iii) RCM tracking error of $\leq 1.0$~mm without increasing command to motion latency beyond 50~ms?}
 \end{quote}
 
-\noindent It is hypothesised that applying smoothing control, tool exchange capability, 
-and integrated system evaluation will reduce vibration, improve swap consistency and speed, 
-and maintain safe operation within defined bounds.
+\noindent It is hypothesised that integrating zero-phase smoothing control,
+repeatable end-effector exchange, and constraint-aware monitoring will satisfy
+all three thresholds above and failure to meet any one threshold constitutes
+rejection of the hypothesis.
 While macro--micro architectures have demonstrated high positional accuracy and
 feasibility \cite{scott2023macro}, they remain affected by macro-stage vibration,
 manual and time-consuming end-effector exchange, and fragmented approaches to
@@ -823,7 +868,7 @@ These are not independent tasks, rather they comprise a single experiment. Perfo
 using quantitative metrics including motion smoothness, 
 effector swap time and accuracy, and adherence to constraint and safety bounds.
 
-With regards to teleoprative control, prior
+Regarding teleoperative control, prior
 studies show that tremor, delay, and vibration transmission significantly affect
  precision and usability \cite{sang2016zero, batty2022transparent}. In
 this project, effort is therefore directed towards establishing a stable baseline
@@ -912,8 +957,8 @@ been verified using demonstration nodes, confirming correct system setup and
 message passing within the ROS2 framework.
 
 This preparation directly addresses a key project dependency, as prior work was
-implemented in ROS and will require adaptation to ROS2. Early inspection of
-Scott’s (2022) codebase and system architecture has provided familiarity with
+implemented in ROS and will require adaptation to ROS2. Early inspection of the codebase and system architecture from 
+\textcite{scott2023macro} has provided familiarity with
 the macro--micro teleoperation pipeline, reducing integration uncertainty and
 establishing a baseline understanding of system structure.
 
