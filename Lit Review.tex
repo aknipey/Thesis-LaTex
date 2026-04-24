@@ -81,7 +81,7 @@
 \begin{abstract}
 This interim report and project plan is a Thesis A submission that lays the groundwork for improvements to a UR5e-based macro-micro robotic system with a flexible continuum tip for minimally invasive surgery (MIS).
 It consolidates relevant findings from prior work and available literature in relevant fields, and critically analyses how these prior works are related to this thesis. 
-The review explores three technical threads relating to improvements of the UR5e-based system. Control improvemments for teleoperation, tool exchange mechanisms for modularity, 
+The review explores three technical threads relating to improvements of the UR5e-based system. Control improvements for teleoperation, tool exchange mechanisms for modularity, 
 and safety and reliability considerations are reviewed, with a focus on identifying specific gaps that this thesis can address. The report finds clear research opportunities in these areas,
 specifically around smoothing for teleoperative control, integrated tool exchange validation, and comprehensive safety analysis.
 \end{abstract}
@@ -152,14 +152,14 @@ Technology and surgery are inseparable; every surgical advancement or care impro
 From anaesthesia to antiseptics, innovation has allowed surgeons to reduce risk and expand the scope of treatable conditions \cite{vitiello2013emerging}.
 In the 19th century, the transition from candlelight to electric lighting allowed for practical internal visualisation, 
 marking the beginning of a major paradigm shift in the surgical field \parencite{hargest2021five}.
-Electricity also enabled development of various specialised surgical procedures, such as electrocautery for haemostatasis and the use of electric drills for orthopaedic surgery \cite{hargest2021five}.
+Electricity also enabled development of various specialised surgical procedures, such as electrocautery for haemostasis and the use of electric drills for orthopaedic surgery \cite{hargest2021five}.
 Over time, the focus has shifted towards precision and dexterity, and techniques such as laparoscopy and endoscopy were developed at the beginning of the 20th century, resulting in some of the first minimally invasive surgeries (MIS) \cite{hatzinger2014ott}.
 Laparoscopic surgery is a core MIS approach in which instruments are inserted
 through small abdominal incisions using trocar access ports, rather than a
 large open incision \cite{ko2025tool}. Holistically, MIS denotes procedures
 that use these reduced-access pathways to lower tissue trauma and recovery
 burden relative to open surgery.
-This trend towards less invasive procedures has continued, and revolutionary robotics like the da Vinci Surgical System became widely adopted in the 1990's and 2000's \cite{davinci_intuitive},
+This trend towards less invasive procedures has continued, and revolutionary robotics like the da Vinci Surgical System became widely adopted in the 1990s and 2000s \cite{davinci_intuitive},
 however there are still challenges to overcome.
 
 \subsubsection{Macro--Micro Architecture for Surgical Robotics}
@@ -220,7 +220,7 @@ da Vinci system limits accessibility. Acquisition costs have been reported up to
 \$4 million AUD, with additional per-procedure costs of approximately
 \$1000--\$5000 \cite{eckhoff2023costs}.
 Despite clear clinical benefits, providers must still evaluate cost-effectiveness,
-expecially in low and middle-income environments where there are more adoption barriers than the initial cost. 
+especially in low and middle-income environments where there are more adoption barriers than the initial cost. 
 Repeated maintenance needs, disposable instrument costs, and
 ongoing training requirements can prevent usage even after
 installation \cite{raza2024transforming}.
@@ -232,7 +232,7 @@ highlight a significant translational gap between technological capability and
 real-world clinical deployment. This literature indicates that scalable, cost-effective robotic
 solutions remain underdeveloped, and thus there is a need for affordable
 macro--micro systems that combine cheaper hardware with clinically useful teleoperation performance.
-This aligns with broader advocation of off-the-shelf
+This aligns with broader advocacy of off-the-shelf
 hardware and open source software frameworks to reduce cost yet
 maintain the precision and safety requirements of minimally invasive surgery
 \cite{scott2023macro}.
@@ -303,7 +303,7 @@ manipulator.
 
 No single modelling layer is sufficient for surgical workflows: kinematic models
 are efficient but approximate, while mechanics-based models are more expressive
-but computationally demanding. This tradeoff ecourages mixed modelling and
+but computationally demanding. This tradeoff encourages mixed modelling and
 compensation strategies in teleoperated systems.
 Within this context, the control literature can be interpreted across linked
 layers, from elementary transmission effects to high level shared control, as
@@ -368,7 +368,7 @@ When haptic feedback is included, system latency can bottleneck teleoperation.
  \textcite{batty2022transparent} show a fundamental
 transparency versus stability tradeoff, where increasing force fidelity can reduce
 stability under delay, while aggressive stabilisation degrades operator
-feedback. Consequently, estimate the environment online and master feedback
+feedback. Consequently, they estimate the environment online, and master feedback
 is generated through this prediction rather than delayed direct
 force reflection. Their human in the loop palpation experiments demonstrate that
 this predictive approach substantially reduces force prediction error, and
@@ -407,7 +407,7 @@ Combined, it is apparent that robust teleoperation under delay requires
 both reliable state estimation and predictive control, reinforcing the need for integrated architectures rather than isolated solutions.
 
 \subsubsection{Shared Control, Immersion, and Haptic Force Awareness}
-Shared control is when user input is combined with autonomous assistance, and thus both introduces the challenge of truly mapping
+Shared control combines user input with autonomous assistance, and thus introduces the challenge of truly mapping
 teleoperated motion to user intent. \textcite{bowman2024intent} argue that just direct motion
 mapping is insufficient for robust telemanipulation when the human and
 robot hands are physically dissimilar, as geometric tracking does
@@ -531,7 +531,7 @@ The reviewed literature addresses different parts of this loop, including state 
 
 A monolithic distal architecture is characterised by a single
 integrated tool assembly where changing function require a slow teardown or disassembly, rather than a rapid tool exchange.
-The practical consequences of this architecture distiction regarding workflow include longer swap times \parencite{cowan2024classification},
+The practical consequences of this architecture distinction regarding workflow include longer swap times \parencite{cowan2024classification},
 re-tensioning and re-calibration after replacement, interruption of the
 operative sequence, and reduced intraoperative adaptability when task
 requirements change during the procedure. 
@@ -548,10 +548,10 @@ exchange time and post swap recalibration costs are explicitly addressed.
 \subsubsection{Tool Exchange Mechanisms}
 
 Tool exchange is necessary because laparoscopic workflows require multiple
-functional instruments during single procedure, yet only a limited subset
-can be mounted simultaneously on the robotic arm \parencite{ko2025tool}. The resulting reoccuring
- intraoperative transition that can interrupt surgical
-flow and, depending on the swap method, introduces further coordination
+functional instruments during a single procedure, yet only a limited subset
+can be mounted simultaneously on the robotic arm \parencite{ko2025tool}. The resulting recurring
+intraoperative transition can interrupt surgical
+flow and, depending on the swap method, introduce further coordination
 variability.
 
 \subsubsection{Rail-Guided and Cartridge Based Exchange}
@@ -589,7 +589,7 @@ and routing geometry \parencite{zou2022transmission, hong2025backlash}. In
 particular, \textcite{hong2025backlash} show geometry-dependent deadband
 behaviour and report RMSE reduction from 1.31~mm to 0.19~mm with feedforward
 compensation after calibration, implying that post-swap recovery may require
-both re-tensioning and state updates upon routing
+both re-tensioning and state updates when routing
 conditions change.
 
 For post-swap tension management, \textcite{singh2022tension}
@@ -628,7 +628,7 @@ Strongest direct exchange evidence in the reviewed literature &
 Sparse direct surgical validation and weak comparative evidence &
 Promising prototype/task-specific evidence, but limited generality across procedures \\
 \hline
-\textbf{Validation maturity} &
+\textbf{\shortstack{Validation\\maturity}} &
 High &
 Low &
 Moderate \\
@@ -822,9 +822,7 @@ effects together using clinically meaningful and repeatable metrics.
 \subsubsection{Remaining Evidence Gaps and Next Directions}
 Beyond this report, several research directions would
 strengthen translation from laboratory validation to clinically useful systems.
-First, richer sensing modalities, like shape sensing and distal force
-instrumentation, could tighten observability of continuum behaviour and improve
- control under variable loading. Second, learning-assisted
+While shape sensing has been demonstrated in continuum robots, integration with low-cost macro--micro platforms remains sparse; distal force instrumentation could likewise tighten observability where packaging and cost permit. Second, learning-assisted
 controllers could be investigated to adapt filter and control parameters online
 across different tools and routing geometries while preserving safety bounds.
 
@@ -859,6 +857,8 @@ modularity, and safety are typically studied in isolation, limiting the ability
 to assess overall workflow reliability. Accordingly, this thesis focuses on improving and testing the system at a
 \emph{systems level}, rather than proposing isolated algorithmic or mechanical
 improvements.
+
+The 30\% vibration target is intended as a meaningful but achievable improvement threshold for a low-cost platform rather than an optimum. The 20~s exchange target is deliberately more lenient than the 15~s automated exchange reported by Ko et al. \cite{ko2025tool}, because this project prioritises a repeatable workflow over full automation. The 1.0~mm RCM target keeps the constraint metric in the sub-millimetre range while remaining less stringent than the constrained tracking performance reported in prior work \cite{sadeghian2019constrained}.
 
 \subsection{Project Plan}
 
@@ -994,7 +994,7 @@ technical dependencies established and major risks identified at an early stage.
 
 \section{Conclusion}
 
-The reviewed literature exposedn three key development areas. Macro--micro and
+The reviewed literature revealed three key development areas. Macro--micro and
 tendon-driven continuum systems are well suited to MIS dexterity, but remain
 sensitive to vibration, modelling error, and teleoperation instability. Control
 strategies improve performance, yet are typically validated under constrained
