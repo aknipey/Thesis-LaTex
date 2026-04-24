@@ -872,7 +872,7 @@ Regarding teleoperative control, prior
 studies show that tremor, delay, and vibration transmission significantly affect
  precision and usability \cite{sang2016zero, batty2022transparent}. In
 this project, effort is therefore directed towards establishing a stable baseline
-system and implementing a practical smoothing strategy that improves motion
+system and implementing a practical smoothing strategy to improve motion
 quality without introducing excessive latency. This work also serves as the
 foundation for all subsequent evaluation, as reliable teleoperation is required
 before modularity and safety can be meaningfully assessed.
@@ -882,22 +882,22 @@ exchange is necessary in laparoscopic workflows, the literature highlights a lac
 of validation of post-swap behaviour, particularly with respect to calibration,
 tensioning, and transmission effects \cite{ko2025tool, hong2025backlash}. Rather
 than developing a complex new mechanism, this project prioritises a repeatable
-exchange and recovery workflow, allowing the impact of swapping on system
-performance to be measured directly. This aligns with the identified gap that
+exchange and recovery workflow, with the goal of measuring the impact of swapping on system
+performance. This aligns with the identified gap that
 mechanism design alone is insufficient without evaluating post-swap recovery.
 
 The third component addresses safety in an operational context. Existing studies
-demonstrate that robotic malfunctions are not uncommon but are typically
+demonstrate that malfunctions are not uncommon but are typically
 recoverable when appropriate detection and response mechanisms are present
-\cite{rajih2017error}. However, these are rarely linked to control behaviour or
-modular reconfiguration. This project therefore evaluates safety using integrated
+\cite{rajih2017error}. However, these are rarely linked to a macro--micro system, 
+so this project therefore evaluates safety using integrated
 metrics, including constraint adherence, recovery time, and repeatability across
 operation cycles, rather than relying on isolated fault statistics.
 
 The scope of the project is constrained by the available time (approximately 200
-hours across Terms 2 and 3) and the use of an existing UR5e-based platform. As
-such, the focus is on implementing and validating representative solutions in
-each area, rather than developing complete new hardware or control frameworks.
+hours across Terms 2 and 3) and the use of an existing UR5e-based platform. This means
+ a focus on implementing and validating representative solutions has been adopted,
+  rather than developing completely new hardware or control frameworks.
 This ensures that the project remains feasible while still addressing the key
 gaps identified in the literature. The project relies on access to the UR5e platform, 
 ROS2-based control infrastructure, and completion of required laboratory training and coursework.
@@ -911,13 +911,13 @@ dependencies, and time allocation.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\linewidth]{Images/GanttChart.png}
-\caption{Project timeline and task allocation across Terms 2 and 3.}
+\caption[Project Gantt Chart]{Project timeline and task allocation across Terms 2 and 3.}
 \label{fig:gantt_chart}
 \end{figure}
 
-To support planning and identify potential risks, a structured mind map has been
-developed (Fig.~\ref{fig:mindmap}). This includes task dependencies, alternative
-approaches, and anticipated failure points. In particular, it highlights areas
+To support planning and identify potential risks, a mind map has been
+developed that includes task dependencies, alternative
+approaches, and anticipated failure points (Fig.~\ref{fig:mindmap}). In particular, it identifies areas
 where scope may need to be reduced, such as simplifying the exchange mechanism or
 limiting the complexity of control strategies, ensuring that meaningful results
 can still be obtained within the available timeframe. Key contingencies include simplifying the 
@@ -928,7 +928,7 @@ These ensure that core evaluation metrics can still be obtained within the proje
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\linewidth]{Images/MindMapPlan.png}
-\caption{Mind map used to guide project planning, including risks and
+\caption[Mind Map for Planning Ideas]{Mind map used to guide project planning, including risks and
 alternative approaches.}
 \label{fig:mindmap}
 \end{figure}
@@ -951,7 +951,7 @@ workflows.
 
 \subsection{Technical Preparation and Upskilling}
 
-A working Ubuntu development environment has been established and ROS2 has been
+A working Ubuntu 24.04 development environment has been established and ROS2 has been
 successfully installed and tested. Basic publisher--subscriber communication has
 been verified using demonstration nodes, confirming correct system setup and
 message passing within the ROS2 framework.
@@ -964,7 +964,7 @@ establishing a baseline understanding of system structure.
 
 Formal upskilling is also in progress through enrolment in MTRN4230, which
 provides training in robot control and ROS-based systems and is required for
-UR5e access. In addition, MMAN4200 (Additive Manufacturing) supports potential
+UR5e access. In addition, taking MMAN4200 (Additive Manufacturing) supports skills for rapid
 iteration of modular end-effector components.
 
 \subsection{System and Resource Readiness}
@@ -975,31 +975,26 @@ practical understanding of the platform and confirms system availability.
 
 Access procedures for the robot have been established, with experimental work to
 commence following completion of required training. The project also benefits
-from building on an existing macro--micro system, reducing development risk and
-allowing focus on performance improvement rather than full system construction.
+from inheriting an existing macro--micro system, reducing development risk and
+allowing focus on performance improvement over construction.
 
 \subsection{Preliminary Observations and Risk Mitigation}
 
 Early preparation has identified several key risks consistent with the
-literature:
+literature. Software integration, particularly migration from ROS to ROS2,
+remains non-trivial but has been partially mitigated through early environment
+setup and code familiarisation. Hardware access is dependent on training and lab
+availability, which is being addressed through course enrolment and established
+booking procedures. System complexity in macro--micro integration is mitigated
+by leveraging an existing validated platform rather than developing new
+hardware.
 
-\begin{itemize}
-\item \textbf{Software integration:} Migration from ROS to ROS2 presents a
-non-trivial problem. This has been partially mitigated through early
-environment setup and code familiarisation.
-\item \textbf{Hardware access:} Dependence on training and lab availability is
-addressed through course enrolment and confirmed booking procedures.
-\item \textbf{System complexity:} The coupled nature of macro--micro systems is
-mitigated by leveraging an existing validated platform rather than developing
-new hardware.
-\end{itemize}
-
-These preparations demonstrate that the project is ready to proceed, with key
+These preparations indicate that the project is ready to proceed, with key
 technical dependencies established and major risks identified at an early stage.
 
 \section{Conclusion}
 
-The reviewed literature converges on three key points. Macro--micro and
+The reviewed literature exposedn three key development areas. Macro--micro and
 tendon-driven continuum systems are well suited to MIS dexterity, but remain
 sensitive to vibration, modelling error, and teleoperation instability. Control
 strategies improve performance, yet are typically validated under constrained
@@ -1016,8 +1011,8 @@ platform, where control, modularity, and safety are evaluated together under
 realistic conditions.
 
 \newpage
+\pagenumbering{alph} 
 % --- References ---
-% To compile references, you will need to run pdflatex -> biber -> pdflatex -> pdflatex
 \section*{References}
 \addcontentsline{toc}{section}{References}
 \printbibliography
