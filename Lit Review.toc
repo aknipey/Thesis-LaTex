@@ -9,24 +9,24 @@
 \contentsline {subsubsection}{\numberline {2.1.2}Macro--Micro Architecture for Surgical Robotics}{2}{subsubsection.2.1.2}%
 \contentsline {subsubsection}{\numberline {2.1.3}Continuum Manipulators for MIS}{3}{subsubsection.2.1.3}%
 \contentsline {subsubsection}{\numberline {2.1.4}Cost and Accessibility Considerations}{4}{subsubsection.2.1.4}%
-\contentsline {subsubsection}{\numberline {2.1.5}UR5e-Based Systems and Identified Limitations}{4}{subsubsection.2.1.5}%
+\contentsline {subsubsection}{\numberline {2.1.5}UR5e Based Systems and Identified Limitations}{4}{subsubsection.2.1.5}%
 \contentsline {subsection}{\numberline {2.2}Teleoperation and Control in Surgical Robotics}{5}{subsection.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.1}Modelling Frameworks for Continuum Surgical Robotics}{5}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}Tremor Suppression and Delay-Robust Interaction}{6}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.2}Tremor Suppression and Delay Robust Interaction}{6}{subsubsection.2.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.3}State Estimation and Predictive Bilateral Architectures}{7}{subsubsection.2.2.3}%
 \contentsline {subsubsection}{\numberline {2.2.4}Shared Control, Immersion, and Haptic Force Awareness}{7}{subsubsection.2.2.4}%
 \contentsline {subsubsection}{\numberline {2.2.5}Transmission Nonlinearity and Distal Force Safety}{8}{subsubsection.2.2.5}%
 \contentsline {subsection}{\numberline {2.3}Modularity and Tendon-Driven Continuum Manipulators}{9}{subsection.2.3}%
 \contentsline {subsubsection}{\numberline {2.3.1}Monolithic vs Modular Distal Architectures}{9}{subsubsection.2.3.1}%
 \contentsline {subsubsection}{\numberline {2.3.2}Tool Exchange Mechanisms}{10}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Rail-Guided and Cartridge Based Exchange}{10}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.3}Rail Guided and Cartridge Based Exchange}{10}{subsubsection.2.3.3}%
 \contentsline {subsubsection}{\numberline {2.3.4}Reconfigurable and Multifunctional Instruments}{10}{subsubsection.2.3.4}%
 \contentsline {subsubsection}{\numberline {2.3.5}Limitations of Alternative Exchange Mechanisms}{10}{subsubsection.2.3.5}%
-\contentsline {subsubsection}{\numberline {2.3.6}Post-Swap Control Recovery and Tension Management}{10}{subsubsection.2.3.6}%
-\contentsline {subsubsection}{\numberline {2.3.7}Critical Assessment and Identified Knowledge Gap}{11}{subsubsection.2.3.7}%
+\contentsline {subsubsection}{\numberline {2.3.6}Post Swap Control Recovery and Tension Management}{10}{subsubsection.2.3.6}%
+\contentsline {subsubsection}{\numberline {2.3.7}Critical Assessment and Identified Knowledge Gap}{12}{subsubsection.2.3.7}%
 \contentsline {subsection}{\numberline {2.4}System Safety and Reliability Considerations}{12}{subsection.2.4}%
 \contentsline {subsubsection}{\numberline {2.4.1}Safety Constraint Model and Hazard Taxonomy}{12}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Error Detection, Frequency, and Clinical Consequence}{12}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.2}Error Detection, Frequency, and Clinical Consequence}{13}{subsubsection.2.4.2}%
 \contentsline {subsubsection}{\numberline {2.4.3}Preventable Versus Non-Preventable Faults}{13}{subsubsection.2.4.3}%
 \contentsline {subsubsection}{\numberline {2.4.4}Lifecycle Reliability: Reconfiguration, Wear, and Reprocessing}{14}{subsubsection.2.4.4}%
 \contentsline {subsubsection}{\numberline {2.4.5}Integrated Safety Gap and Evaluation Endpoints}{14}{subsubsection.2.4.5}%
@@ -37,7 +37,7 @@
 \contentsline {subsection}{\numberline {3.2}Project Plan}{16}{subsection.3.2}%
 \contentsline {section}{\numberline {4}Project Dependent Preparations}{19}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Technical Preparation and Upskilling}{19}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}System and Resource Readiness}{20}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.2}System and Resource Readiness}{19}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Preliminary Observations and Risk Mitigation}{20}{subsection.4.3}%
 \contentsline {section}{\numberline {5}Conclusion}{20}{section.5}%
 \contentsline {section}{References}{a}{section.5}%

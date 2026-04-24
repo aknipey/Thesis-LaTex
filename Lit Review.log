@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.3)  24 APR 2026 13:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.3)  24 APR 2026 15:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -966,24 +966,24 @@ File: tikzlibraryfit.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (./Lit Review.aux)
 \openout1 = `"Lit Review.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1041,7 +1041,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 41.
+Package hyperref Info: Link coloring OFF on input line 42.
 
 (./Lit Review.out) (./Lit Review.out)
 \@outlinefile=\write5
@@ -1062,13 +1062,13 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file '"Lit Review".bbl' found.
 
 (./Lit Review.bbl)
-Package biblatex Info: Reference section=0 on input line 41.
-Package biblatex Info: Reference segment=0 on input line 41.
-Package hyperref Info: Option `pageanchor' set `false' on input line 42.
+Package biblatex Info: Reference section=0 on input line 42.
+Package biblatex Info: Reference segment=0 on input line 42.
+Package hyperref Info: Option `pageanchor' set `false' on input line 43.
 <Images/unsw_logo.png, id=176, 331.2375pt x 140.525pt>
 File: Images/unsw_logo.png Graphic file (type png)
 <use Images/unsw_logo.png>
-Package pdftex.def Info: Images/unsw_logo.png  used on input line 50.
+Package pdftex.def Info: Images/unsw_logo.png  used on input line 51.
 (pdftex.def)             Requested size: 199.16928pt x 84.49576pt.
  [1
 
@@ -1087,131 +1087,126 @@ Package pdftex.def Info: Images/unsw_logo.png  used on input line 50.
 \openout8 = `"Lit Review.lot"'.
 
  [4] [5]
-Package hyperref Info: Option `pageanchor' set `true' on input line 133.
+Package hyperref Info: Option `pageanchor' set `true' on input line 134.
  [1]
 <Images/LaxhlanCombinedTeleop.jpeg, id=289, 2788.4175pt x 1288.815pt>
 File: Images/LaxhlanCombinedTeleop.jpeg Graphic file (type jpg)
 <use Images/LaxhlanCombinedTeleop.jpeg>
 Package pdftex.def Info: Images/LaxhlanCombinedTeleop.jpeg  used on input line 
-181.
+182.
 (pdftex.def)             Requested size: 273.14923pt x 126.23418pt.
 <Images/LachlanFinalSystemArchitecture.png, id=295, 506.6127pt x 559.3698pt>
 File: Images/LachlanFinalSystemArchitecture.png Graphic file (type png)
 <use Images/LachlanFinalSystemArchitecture.png>
 Package pdftex.def Info: Images/LachlanFinalSystemArchitecture.png  used on inp
-ut line 194.
+ut line 195.
 (pdftex.def)             Requested size: 273.14923pt x 301.60281pt.
  [2 <./Images/LaxhlanCombinedTeleop.jpeg>]
 <Images/snake_raven_reference.png, id=305, 964.60374pt x 234.8775pt>
 File: Images/snake_raven_reference.png Graphic file (type png)
 <use Images/snake_raven_reference.png>
 Package pdftex.def Info: Images/snake_raven_reference.png  used on input line 2
-11.
+12.
 (pdftex.def)             Requested size: 273.14923pt x 66.5107pt.
 
 [3 <./Images/LachlanFinalSystemArchitecture.png> <./Images/snake_raven_referenc
 e.png>] [4] [5] [6] [7] [8]
-Overfull \hbox (33.00436pt too wide) in paragraph at lines 523--525
+Overfull \hbox (33.00436pt too wide) in paragraph at lines 524--526
  [][] 
  []
 
 [9] [10]
-Underfull \hbox (badness 10000) in paragraph at lines 611--611
-[]|\OT1/cmr/bx/n/10.95 Mechanism
+Underfull \hbox (badness 2970) in paragraph at lines 613--613
+[]|\OT1/cmr/m/n/10.95 Linear car-tridge style
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 612--612
-[]|\OT1/cmr/m/n/10.95 Linear cartridge-style
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 613--613
+Underfull \hbox (badness 10000) in paragraph at lines 614--614
 []|\OT1/cmr/m/n/10.95 Rotational lock-ing,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 614--615
+Underfull \hbox (badness 10000) in paragraph at lines 615--616
 []|\OT1/cmr/m/n/10.95 Single dis-tal tool
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 614--615
+Underfull \hbox (badness 10000) in paragraph at lines 615--616
 \OT1/cmr/m/n/10.95 changes func-tional
  []
 
 
-Underfull \hbox (badness 1418) in paragraph at lines 617--617
+Underfull \hbox (badness 1418) in paragraph at lines 618--618
 \OT1/cmr/m/n/10.95 able align-ment dur-ing
  []
 
 
-Underfull \hbox (badness 7613) in paragraph at lines 617--617
+Underfull \hbox (badness 7613) in paragraph at lines 618--618
 \OT1/cmr/m/n/10.95 ex-change; com-pat-i-ble
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 618--618
+Underfull \hbox (badness 10000) in paragraph at lines 619--619
 []|\OT1/cmr/m/n/10.95 Potentially com-pact
  []
 
 
-Underfull \hbox (badness 1902) in paragraph at lines 618--618
+Underfull \hbox (badness 1902) in paragraph at lines 619--619
 \OT1/cmr/m/n/10.95 and rapid at-tach-ment
  []
 
 
-Underfull \hbox (badness 1057) in paragraph at lines 619--620
+Underfull \hbox (badness 1057) in paragraph at lines 620--621
 []|\OT1/cmr/m/n/10.95 Reduces ex-change fre-
  []
 
 
-Underfull \hbox (badness 4036) in paragraph at lines 619--620
+Underfull \hbox (badness 4036) in paragraph at lines 620--621
 \OT1/cmr/m/n/10.95 quency by com-bin-ing
  []
 
 
-Underfull \hbox (badness 6658) in paragraph at lines 622--622
+Underfull \hbox (badness 6658) in paragraph at lines 623--623
 []|\OT1/cmr/m/n/10.95 Still re-quires re-li-able
  []
 
 
-Underfull \hbox (badness 2903) in paragraph at lines 622--622
+Underfull \hbox (badness 2903) in paragraph at lines 623--623
 \OT1/cmr/m/n/10.95 dock-ing, re-con-nec-tion,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 627--627
+Underfull \hbox (badness 10000) in paragraph at lines 628--628
 []|\OT1/cmr/m/n/10.95 Strongest di-rect ex-
  []
 
 
-Underfull \hbox (badness 3039) in paragraph at lines 628--628
+Underfull \hbox (badness 3039) in paragraph at lines 629--629
 []|\OT1/cmr/m/n/10.95 Sparse di-rect sur-gi-cal
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 628--628
+Underfull \hbox (badness 10000) in paragraph at lines 629--629
 \OT1/cmr/m/n/10.95 val-i-da-tion and weak
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 629--630
-[]|\OT1/cmr/m/n/10.95 Promising
+Underfull \hbox (badness 10000) in paragraph at lines 630--631
+[]|\OT1/cmr/m/n/10.95 Promising pro-to-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 629--630
-\OT1/cmr/m/n/10.95 prototype/task-specific
+Underfull \hbox (badness 10000) in paragraph at lines 630--631
+\OT1/cmr/m/n/10.95 type/task spe-cific
  []
 
 
-Underfull \hbox (badness 3260) in paragraph at lines 629--630
+Underfull \hbox (badness 3260) in paragraph at lines 630--631
 \OT1/cmr/m/n/10.95 ev-i-dence, but lim-ited
  []
 
 
-Overfull \hbox (21.54718pt too wide) in paragraph at lines 607--637
+Overfull \hbox (21.54718pt too wide) in paragraph at lines 608--638
  [][] 
  []
 
@@ -1219,34 +1214,34 @@ Overfull \hbox (21.54718pt too wide) in paragraph at lines 607--637
 <Images/GanttChart.png, id=469, 1230.09563pt x 579.66562pt>
 File: Images/GanttChart.png Graphic file (type png)
 <use Images/GanttChart.png>
-Package pdftex.def Info: Images/GanttChart.png  used on input line 913.
+Package pdftex.def Info: Images/GanttChart.png  used on input line 918.
 (pdftex.def)             Requested size: 386.96027pt x 182.34798pt.
  [17]
 <Images/MindMapPlan.png, id=475, 946.28531pt x 666.23906pt>
 File: Images/MindMapPlan.png Graphic file (type png)
 <use Images/MindMapPlan.png>
-Package pdftex.def Info: Images/MindMapPlan.png  used on input line 930.
-(pdftex.def)             Requested size: 409.71692pt x 288.45956pt.
- [18 <./Images/GanttChart.png>] [19 <./Images/MindMapPlan.png>] [20] [21] [1] [
-2] [3] [4] (./Lit Review.aux)
+Package pdftex.def Info: Images/MindMapPlan.png  used on input line 935.
+(pdftex.def)             Requested size: 386.96027pt x 272.43799pt.
+ [18 <./Images/GanttChart.png> <./Images/MindMapPlan.png>] [19] [20] [1] [2] [3
+] [4] (./Lit Review.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `"Lit Review".out' has not changed.
-(rerunfilecheck)             Checksum: 4C02A430B2A7021F251DDF62D41F3783;11116.
+(rerunfilecheck)             Checksum: 1D32ECA34C46921DB4C53C95372D0E9B;11128.
 Package logreq Info: Writing requests to '"Lit Review".run.xml'.
 \openout1 = `"Lit Review.run.xml"'.
 
  ) 
 Here is how much of TeX's memory you used:
  29708 strings out of 476182
- 570398 string characters out of 5795596
- 1939975 words of memory out of 5000000
- 51152 multiletter control sequences out of 15000+600000
+ 570408 string characters out of 5795596
+ 1938975 words of memory out of 5000000
+ 51153 multiletter control sequences out of 15000+600000
  569886 words of font info for 76 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 84i,14n,87p,1157b,1473s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,12n,87p,1157b,1473s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/aidan-knipe/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm12
 00.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></u
@@ -1264,10 +1259,10 @@ pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on "Lit Review.pdf" (31 pages, 3294986 bytes).
+Output written on "Lit Review.pdf" (30 pages, 3294505 bytes).
 PDF statistics:
- 650 PDF objects out of 1000 (max. 8388607)
- 564 compressed objects within 6 object streams
- 112 named destinations out of 1000 (max. 500000)
+ 645 PDF objects out of 1000 (max. 8388607)
+ 560 compressed objects within 6 object streams
+ 111 named destinations out of 1000 (max. 500000)
  387 words of extra memory for PDF output out of 10000 (max. 10000000)
 
