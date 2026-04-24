@@ -394,7 +394,7 @@ environments remains difficult \parencite{lashari2024enhancing}.
 
 Predictive bilateral control is also emerging as a practical strategy for
 continuum and snake-like teleoperation under delay. \textcite{ebrahimian2024online}
-propose an online architecture that combines master sideforce prediction with operator motion prediction on the slave side,
+propose an online architecture that combines master side force prediction with operator motion prediction on the slave side,
 which aims to reduce communication lag and preserve
 position synchronisation and haptics. This addresses the same core bottleneck as
 latency and filtering studies, but at the controller level, meaning delay
@@ -838,14 +838,12 @@ linked to risk management and software assurance frameworks.
 \subsection{Research Question}
 
 Based on the reviewed literature, this thesis
-addresses the following research question:
-
+addresses the following research question broken into three subsections and subsequent performance thresholds:
 \begin{quote}
 \textit{Can a UR5e based macro--micro robotic system satisfy predefined performance thresholds under controlled laboratory 
 conditions by simultaneously achieving: (i) at least 30\% reduction in distal tip vibration amplitude in the peak frequency band relative to an unfiltered baseline, (ii) median end effector exchange cycle time of $\leq 20$~s with post swap positional repeatability error of $\leq 1.0$~mm, 
 and (iii) RCM tracking error of $\leq 1.0$~mm without increasing command to motion latency beyond 50~ms?}
 \end{quote}
-
 \noindent It is hypothesised that integrating zero-phase smoothing control,
 repeatable end effector exchange, and constraint aware monitoring will satisfy
 all three thresholds above and failure to meet any one threshold constitutes
@@ -869,7 +867,7 @@ The 20~s exchange target is deliberately more lenient than the 15~s automated ex
 
 The project is organised as a progressive experimental workflow, in which teleoperation control,
 modular exchange, and safety are evaluated sequentially and then together. 
-These are not independent tasks, rather they comprise a single experiment. Performance will be evaluated 
+These are not independent tasks, rather they comprise subsections of a single experiment. Performance will be evaluated 
 using quantitative metrics including motion smoothness, 
 effector swap time and accuracy, and adherence to constraint and safety bounds.
 
@@ -882,7 +880,7 @@ quality without introducing excessive latency. This work also serves as the
 foundation for all subsequent evaluation, as reliable teleoperation is required
 before modularity and safety can be meaningfully assessed.
 
-The second component focuses on modular end effector exchange. While tool
+The second subsection focuses on modular end effector exchange. While tool
 exchange is necessary in laparoscopic workflows, the literature highlights a lack
 of validation of post swap behaviour, particularly with respect to calibration,
 tensioning, and transmission effects \cite{ko2025tool, hong2025backlash}. Rather
@@ -891,7 +889,7 @@ exchange and recovery workflow, with the goal of measuring the impact of swappin
 performance. This aligns with the identified gap that
 mechanism design alone is insufficient without evaluating post swap recovery.
 
-The third component addresses safety in an operational context. Existing studies
+The third subsection addresses safety in an operational context. Existing studies
 demonstrate that malfunctions are not uncommon but are typically
 recoverable when appropriate detection and response mechanisms are present
 \cite{rajih2017error}. However, these are rarely linked to a macro--micro system, 
@@ -933,7 +931,7 @@ These ensure that core evaluation metrics can be obtained within the project tim
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.85\linewidth]{Images/MindMapPlan.png}
-\caption[Mind Map for Planning Ideas]{Mind map used fo project planning, including risks and
+\caption[Mind Map for Planning Ideas]{Mind map used for project planning, including risks and
 alternative approaches.}
 \label{fig:mindmap}
 \end{figure}
