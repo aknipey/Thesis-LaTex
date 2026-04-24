@@ -37,7 +37,7 @@
 \contentsline {subsection}{\numberline {3.2}Project Plan}{16}{subsection.3.2}%
 \contentsline {section}{\numberline {4}Project Dependent Preparations}{19}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Technical Preparation and Upskilling}{19}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}System and Resource Readiness}{20}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Preliminary Observations and Risk Mitigation}{20}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.2}System and Resource Readiness}{19}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Preliminary Observations and Risk Mitigation}{19}{subsection.4.3}%
 \contentsline {section}{\numberline {5}Conclusion}{20}{section.5}%
 \contentsline {section}{References}{a}{section.5}%
