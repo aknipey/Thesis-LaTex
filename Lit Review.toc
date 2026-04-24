@@ -19,27 +19,25 @@
 \contentsline {subsection}{\numberline {2.3}Modularity and Tendon-Driven Continuum Manipulators}{9}{subsection.2.3}%
 \contentsline {subsubsection}{\numberline {2.3.1}Monolithic vs Modular Distal Architectures}{9}{subsubsection.2.3.1}%
 \contentsline {subsubsection}{\numberline {2.3.2}Tool Exchange Mechanisms}{10}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Rail-Guided and Cartridge-Based Exchange}{10}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.3}Rail-Guided and Cartridge Based Exchange}{10}{subsubsection.2.3.3}%
 \contentsline {subsubsection}{\numberline {2.3.4}Reconfigurable and Multifunctional Instruments}{10}{subsubsection.2.3.4}%
 \contentsline {subsubsection}{\numberline {2.3.5}Limitations of Alternative Exchange Mechanisms}{10}{subsubsection.2.3.5}%
-\contentsline {subsubsection}{\numberline {2.3.6}Post-Swap Control Recovery and Tension Management}{11}{subsubsection.2.3.6}%
+\contentsline {subsubsection}{\numberline {2.3.6}Post-Swap Control Recovery and Tension Management}{10}{subsubsection.2.3.6}%
 \contentsline {subsubsection}{\numberline {2.3.7}Critical Assessment and Identified Knowledge Gap}{12}{subsubsection.2.3.7}%
-\contentsline {subsection}{\numberline {2.4}System Safety and Reliability Considerations}{13}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Safety Constraint Model and Hazard Taxonomy}{13}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Error Detection and Reporting Architecture}{13}{subsubsection.2.4.2}%
-\contentsline {subsubsection}{\numberline {2.4.3}Malfunction Frequency and Immediate Clinical Consequence}{14}{subsubsection.2.4.3}%
-\contentsline {subsubsection}{\numberline {2.4.4}Malfunction Frequency and Clinical Consequence}{14}{subsubsection.2.4.4}%
-\contentsline {subsubsection}{\numberline {2.4.5}Preventable Versus Non-Preventable Faults}{14}{subsubsection.2.4.5}%
-\contentsline {subsubsection}{\numberline {2.4.6}Lifecycle Reliability: Reconfiguration, Wear, and Reprocessing}{15}{subsubsection.2.4.6}%
-\contentsline {subsubsection}{\numberline {2.4.7}Integrated Safety Gap and Evaluation Endpoints}{15}{subsubsection.2.4.7}%
-\contentsline {subsection}{\numberline {2.5}Synthesis of Literature and Knowledge Gaps}{15}{subsection.2.5}%
-\contentsline {subsubsection}{\numberline {2.5.1}Remaining Evidence Gaps and Future Directions}{17}{subsubsection.2.5.1}%
-\contentsline {section}{\numberline {3}Research Question and Project Plan}{17}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Research Question}{17}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Project Plan}{18}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Project Dependent Preparations}{20}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Technical Preparation and Upskilling}{20}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}System and Resource Readiness}{21}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Preliminary Observations and Risk Mitigation}{21}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Conclusion}{22}{section.5}%
-\contentsline {section}{References}{23}{section.5}%
+\contentsline {subsection}{\numberline {2.4}System Safety and Reliability Considerations}{12}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Safety Constraint Model and Hazard Taxonomy}{12}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Error Detection, Frequency, and Clinical Consequence}{13}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Preventable Versus Non-Preventable Faults}{13}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}Lifecycle Reliability: Reconfiguration, Wear, and Reprocessing}{14}{subsubsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.5}Integrated Safety Gap and Evaluation Endpoints}{14}{subsubsection.2.4.5}%
+\contentsline {subsection}{\numberline {2.5}Synthesis of Literature and Knowledge Gaps}{14}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Remaining Evidence Gaps and Next Directions}{15}{subsubsection.2.5.1}%
+\contentsline {section}{\numberline {3}Research Question and Project Plan}{16}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Research Question}{16}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Project Plan}{16}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Project Dependent Preparations}{19}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Technical Preparation and Upskilling}{19}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}System and Resource Readiness}{20}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Preliminary Observations and Risk Mitigation}{20}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Conclusion}{21}{section.5}%
+\contentsline {section}{References}{22}{section.5}%
